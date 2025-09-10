@@ -5938,3 +5938,9 @@ noscript .localization-form__select svg {
   pointer-events: none;
   cursor: default;
 }
+.body-2 {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing:  -0.2px;
+  font-weight: 600;
+}

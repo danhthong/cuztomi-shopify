@@ -20,6 +20,8 @@
 
 .footer-main {
   width: 100%;
+  padding-top: 60px;
+  padding-bottom: 30px;
 }
 
 .footer-main-wrapper {
@@ -124,13 +126,15 @@
 .footer-socials {
   display: block;
 }
-.footer-socials:not(:first-child) {
-  margin-top: 0.6rem;
+
+.footer-socials-list__item {
+  border: 1px solid #ffffff33;
+  border-radius: 50%;
+  margin-right: 12px;
 }
-@media screen and (min-width: 750px) {
-  .footer-socials:not(:first-child) {
-    margin-top: 1.8rem;
-  }
+
+.footer-menu-block__heading {
+ color: #fff;
 }
 
 .footer-blocks {
@@ -555,12 +559,11 @@ footer details[open] ul {
 .footer-info-block {
   display: flex;
   flex-direction: column;
-  row-gap: 2rem;
+  row-gap: 20px;
   max-width: 100%;
 }
 @media screen and (min-width: 750px) {
   .footer-info-block {
-    row-gap: 2.4rem;
     max-width: 75%;
   }
 }
@@ -607,8 +610,7 @@ footer details[open] ul {
   display: flex;
   flex-direction: column;
   row-gap: 1.6rem;
-  padding-top: 3.2rem;
-  padding-bottom: 5.6rem;
+  padding-top: 30px;
 }
 
 .footer-bottom-container {
@@ -619,6 +621,8 @@ footer details[open] ul {
   justify-content: flex-start;
   row-gap: 1.6rem;
   column-gap: 2.8rem;
+  border-top: 1px solid #FFFFFF33;
+  padding-top: 30px;
 }
 @media screen and (min-width: 576px) {
   .footer-bottom-container {
@@ -632,13 +636,28 @@ footer details[open] ul {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: space-between;
   row-gap: 1.6rem;
   column-gap: 2.8rem;
   width: 100%;
 }
+.footer-bottom-container__main ul {
+  flex-direction: row;
+}
+.footer-bottom-container__main ul li.footer-menu-block-list__item .footer-menu-block-list__link {
+  padding: 0 20px;
+}
+.footer-bottom-container__main ul li.footer-menu-block-list__item .footer-menu-block-list__link:after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background-color: #FFFFFF33;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+}
 @media screen and (min-width: 576px) {
   .footer-bottom-container__main {
-    width: auto;
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;

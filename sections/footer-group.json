@@ -47,13 +47,23 @@
             "heading": "Our Mission",
             "description": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
           }
+        },
+        "link_list_policies": {
+          "type": "link_list",
+          "name": "t:sections.footer.blocks.link_list.name",
+          "settings": {
+            "heading": "Policies",
+            "menu": "policies",
+            "default_open": false
+          }
         }
       },
       "block_order": [
         "link_list_1",
         "link_list_2",
         "link_list_3",
-        "info_c4L6Xz"
+        "info_c4L6Xz",
+        "link_list_policies"
       ],
       "settings": {
         "color_scheme": "background-4",
@@ -69,7 +79,7 @@
         "payment_enable": true,
         "enable_copyright": true,
         "enable_copyright_date": true,
-        "show_policy": false,
+        "show_policy": true,
         "enable_follow_on_shop": true,
         "padding_top": "s",
         "padding_bottom": "l",
