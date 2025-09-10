@@ -1,0 +1,83 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "t:sections.header.settings.header-group.label",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "settings": {
+        "height": 34,
+        "height_mobile": 34,
+        "color_scheme": "",
+        "text": "Use this space for a store update or special offer."
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "desktop_burger_DnhigP": {
+          "type": "desktop_burger",
+          "settings": {
+            "burger_enable_social": true,
+            "burger_additional_links": "additional-links",
+            "burger_enable_card_1": true,
+            "burger_card_type_1": "link",
+            "burger_card_color_scheme_1": "background-2",
+            "burger_card_heading_1": "Heading 1",
+            "burger_card_heading_size_1": "h2",
+            "burger_card_description_1": "",
+            "burger_card_overlay_opacity_1": 20,
+            "burger_button_label_1": "",
+            "burger_enable_card_2": true,
+            "burger_card_type_2": "link",
+            "burger_card_color_scheme_2": "background-2",
+            "burger_card_heading_2": "Heading 2",
+            "burger_card_heading_size_2": "h2",
+            "burger_card_description_2": "",
+            "burger_card_overlay_opacity_2": 20,
+            "burger_button_label_2": "",
+            "burger_enable_card_3": true,
+            "burger_card_type_3": "link",
+            "burger_card_color_scheme_3": "background-2",
+            "burger_card_heading_3": "Heading 3",
+            "burger_card_heading_size_3": "h2",
+            "burger_card_description_3": "",
+            "burger_card_overlay_opacity_3": 20,
+            "burger_button_label_3": "",
+            "burger_enable_card_4": true,
+            "burger_card_type_4": "media",
+            "burger_card_color_scheme_4": "background-3",
+            "burger_card_heading_4": "Heading 4",
+            "burger_card_heading_size_4": "h5",
+            "burger_card_description_4": "",
+            "burger_card_overlay_opacity_4": 20,
+            "burger_button_label_4": "Explore",
+            "burger_card_ratio": "portrait"
+          }
+        }
+      },
+      "block_order": ["desktop_burger_DnhigP"],
+      "settings": {
+        "logo_position": "left-logo",
+        "logo_width": 192,
+        "menu": "main-menu",
+        "sticky_header_type": "on-scroll-up",
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "enable_social": false,
+        "enable_search": true,
+        "search_menu": "popular-searches",
+        "enable_border": false
+      }
+    }
+  },
+  "order": ["announcement-bar", "header"]
+}

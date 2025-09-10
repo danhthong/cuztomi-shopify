@@ -1,0 +1,84 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "t:sections.footer.settings.footer-group.label",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "link_list_1": {
+          "type": "link_list",
+          "name": "t:sections.footer.blocks.link_list.name",
+          "settings": {
+            "heading": "Quick links",
+            "menu": "footer",
+            "default_open": true
+          }
+        },
+        "link_list_2": {
+          "type": "link_list",
+          "name": "t:sections.footer.blocks.link_list.name",
+          "settings": {
+            "heading": "Company",
+            "menu": "company",
+            "default_open": false
+          }
+        },
+        "link_list_3": {
+          "type": "link_list",
+          "name": "t:sections.footer.blocks.link_list.name",
+          "settings": {
+            "heading": "Support",
+            "menu": "support",
+            "default_open": false
+          }
+        },
+        "info_c4L6Xz": {
+          "type": "info",
+          "settings": {
+            "heading": "Our Mission",
+            "description": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+          }
+        }
+      },
+      "block_order": [
+        "link_list_1",
+        "link_list_2",
+        "link_list_3",
+        "info_c4L6Xz"
+      ],
+      "settings": {
+        "color_scheme": "background-4",
+        "animate_on_scroll": true,
+        "show_logo": true,
+        "logo_width": 520,
+        "main_text": "Use this space for a short company tagline or mission statement.",
+        "head_alignment": "center",
+        "blocks_alignment": "evenly",
+        "show_socials": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "payment_enable": true,
+        "enable_copyright": true,
+        "enable_copyright_date": true,
+        "show_policy": false,
+        "enable_follow_on_shop": true,
+        "padding_top": "s",
+        "padding_bottom": "l",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

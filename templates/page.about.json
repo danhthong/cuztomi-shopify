@@ -1,0 +1,100 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "images-with-content": {
+      "type": "images-with-content",
+      "settings": {
+        "padding_top": "xs",
+        "padding_bottom": "no-indent"
+      }
+    },
+    "steps": {
+      "type": "steps",
+      "blocks": {
+        "block_1": {
+          "type": "step",
+          "settings": {}
+        },
+        "block_2": {
+          "type": "step",
+          "settings": {}
+        },
+        "block_3": {
+          "type": "step",
+          "settings": {}
+        }
+      },
+      "block_order": ["block_1", "block_2", "block_3"],
+      "settings": {
+        "padding_top": "l",
+        "padding_bottom": "l"
+      }
+    },
+    "multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "color_scheme": "background-3",
+        "multicolumn_to_show": 3,
+        "card_heading_size": "h2",
+        "card_text_color": "secondary",
+        "column_color_scheme": "background-2",
+        "column_padding": "4",
+        "column_aspect_ratio": "1/1",
+        "content_horizontal_alignment": "left",
+        "content_vertical_alignment": "justify",
+        "padding_top": "l",
+        "padding_bottom": "l"
+      },
+      "blocks": {
+        "block_1": {
+          "type": "column",
+          "settings": {
+            "show_button": false
+          }
+        },
+        "block_2": {
+          "type": "column",
+          "settings": {
+            "show_button": false
+          }
+        },
+        "block_3": {
+          "type": "column",
+          "settings": {
+            "show_button": false
+          }
+        }
+      },
+      "block_order": ["block_1", "block_2", "block_3"]
+    },
+    "image-with-text": {
+      "type": "image-with-text",
+      "settings": {
+        "padding_top": "l",
+        "padding_bottom": "l"
+      }
+    },
+    "blog-posts": {
+      "type": "blog-posts",
+      "settings": {
+        "padding_top": "no-indent",
+        "padding_bottom": "l"
+      }
+    }
+  },
+  "order": [
+    "images-with-content",
+    "steps",
+    "multicolumn",
+    "image-with-text",
+    "blog-posts"
+  ]
+}
