@@ -15,7 +15,7 @@
 }
 .list-social__link {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   text-decoration: none;
   border: none;

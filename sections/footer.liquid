@@ -42,37 +42,6 @@
                     and block.settings.menu != blank
                     and block.id != 'link_list_policies'
                   -%}
-                    <div class="accordion">
-                      <details
-                        {% if block.settings.default_open %}
-                          open
-                        {% endif %}
-                      >
-                        <summary>
-                          <h4 class="accordion__heading body-2">
-                            {{ block.settings.heading | escape }}
-                          </h2>
-                          {% render 'icon-caret' %}
-                        </summary>
-                        {%- if block.settings.menu != blank -%}
-                          <ul class="footer-block__details-content list-unstyled">
-                            {%- for link in block.settings.menu.links -%}
-                              <li>
-                                <a
-                                  href="{{ link.url }}"
-                                  {% if settings.links_blank and link.type == 'http_link' %}
-                                    target="_blank"
-                                  {% endif %}
-                                  class="list-menu__item body-normal focus-inset list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
-                                >
-                                  <span>{{ link.title }}</span>
-                                </a>
-                              </li>
-                            {%- endfor -%}
-                          </ul>
-                        {%- endif -%}
-                      </details>
-                    </div>
 
                     <div
                       class="footer-block footer-menu-block"
@@ -290,11 +259,17 @@
       <div class="container">
         <div class="footer-bottom-container">
           <div class="footer-bottom-container__main">
+          {%- if section.settings.show_logo and section.settings.logo != blank -%}
             <div class="footer-logo">
               <a href="{{ routes.root_url }}" class="site-footer__logo">
-                <img src="{{ 'cuztomi-logo.svg' | file_url }}" alt="{{ shop.name }}" />
+                <img
+                  src="{{ section.settings.logo | image_url: width: section.settings.logo_width }}"
+                  alt="{{ shop.name }}"
+                  style="max-width: {{ section.settings.logo_width }}px;"
+                />
               </a>
             </div>
+          {%- endif -%}
 
             {% comment %} ----- POLICIES ----- {% endcomment %}
             {%- assign policies_block = section.blocks | where: 'id', 'link_list_policies' | first -%}
