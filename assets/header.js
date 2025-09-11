@@ -521,3 +521,34 @@ class HeaderSearch extends HTMLElement {
 if (!customElements.get("header-search")) {
   customElements.define("header-search", HeaderSearch);
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const disclosure = document.querySelector(".header__product-button");
+  const list = document.getElementById("HeaderProductList");
+  const buttonLabel = disclosure.querySelector(".selected-product");
+
+  if (disclosure && list) {
+    // Toggle dropdown
+    disclosure.addEventListener("click", () => {
+      const expanded = disclosure.getAttribute("aria-expanded") === "true";
+      disclosure.setAttribute("aria-expanded", !expanded);
+      list.hidden = expanded;
+    });
+
+    // Handle product click
+    list.querySelectorAll(".disclosure__link").forEach(link => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        // Update button text
+        buttonLabel.textContent = link.textContent.trim();
+
+        // Close dropdown
+        disclosure.setAttribute("aria-expanded", "false");
+        list.hidden = true;
+
+        // Redirect to product page
+        window.location.href = link.getAttribute("href");
+      });
+    });
+  }
+});

@@ -248,7 +248,7 @@
                 {%- else -%}
                   <a
                     href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
-                    class="button button--primary menu-drawer__account focus-inset"
+                    class="button button--primary header__account-login focus-inset"
                   >
                     <div class="button__content">
                       <span class="button__label" data-label="{{ 'customer.log_in' | t }}">
@@ -258,26 +258,14 @@
                     <span class="animated-button-circle"></span>
                   </a>
                   <div class="menu-drawer__account-register">
-                    <span class="body-normal">
-                      {{- 'customer.login_page.new_customer' | t -}}
-                    </span>
-                    <a class="button button--tertiary focus-inset" href="{{ routes.account_register_url }}">
+                    <a class="button focus-inset" href="{{ routes.account_register_url }}">
                       <div class="button__content">
                         <span
                           class="button__label body-normal"
                           data-label="{{- 'customer.login_page.create_account_header' | t -}}"
                         >
-                          {{- 'customer.login_page.create_account_header' | t -}}
+                          Sign Up
                         </span>
-
-                        <div class="button__icons">
-                          <span class="button__icon">
-                            {% render 'icon-button-arrow' %}
-                          </span>
-                          <span class="button__icon button__icon--2">
-                            {% render 'icon-button-arrow' %}
-                          </span>
-                        </div>
                       </div>
                     </a>
                   </div>
@@ -295,7 +283,7 @@
                         target="_blank"
                       {% endif %}
                       class="list-social__link"
-                      
+
                       tabindex="0"
                     >
                       {%- render 'icon-twitter' -%}
@@ -313,7 +301,7 @@
                         target="_blank"
                       {% endif %}
                       class="list-social__link"
-                      
+
                       tabindex="0"
                     >
                       {%- render 'icon-facebook' -%}
@@ -331,7 +319,7 @@
                         target="_blank"
                       {% endif %}
                       class="list-social__link"
-                      
+
                       tabindex="0"
                     >
                       {%- render 'icon-pinterest' -%}
@@ -349,7 +337,7 @@
                         target="_blank"
                       {% endif %}
                       class="list-social__link"
-                      
+
                       tabindex="0"
                     >
                       {%- render 'icon-instagram' -%}
@@ -367,7 +355,7 @@
                         target="_blank"
                       {% endif %}
                       class="list-social__link"
-                      
+
                       tabindex="0"
                     >
                       {%- render 'icon-tiktok' -%}
@@ -385,7 +373,7 @@
                         target="_blank"
                       {% endif %}
                       class="list-social__link"
-                      
+
                       tabindex="0"
                     >
                       {%- render 'icon-tumblr' -%}
@@ -403,7 +391,7 @@
                         target="_blank"
                       {% endif %}
                       class="list-social__link"
-                      
+
                       tabindex="0"
                     >
                       {%- render 'icon-snapchat' -%}
@@ -421,7 +409,7 @@
                         target="_blank"
                       {% endif %}
                       class="list-social__link"
-                      
+
                       tabindex="0"
                     >
                       {%- render 'icon-youtube' -%}
@@ -439,7 +427,7 @@
                         target="_blank"
                       {% endif %}
                       class="list-social__link"
-                      
+
                       tabindex="0"
                     >
                       {%- render 'icon-vimeo' -%}

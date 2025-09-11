@@ -32,9 +32,9 @@ burger-menu[opened=true] .burger-menu {
   background: transparent;
   transition: opacity var(--duration-default) ease-in-out;
 }
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 989px) {
   .burger-menu__toggle {
-    display: flex;
+    display: none;
   }
   burger-menu[opened=true] .burger-menu__toggle {
     z-index: 1001;

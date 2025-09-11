@@ -1,17 +1,42 @@
 <div class="header__left">
-  {% render 'header-drawer', section: section %}
-
-  {% render 'header-desktop-burger', section: section %}
-
   {% render 'secondary-logo' %}
 
   {% if section.settings.logo_position == 'left-logo' %}
     {% render 'header-logo', tag: 'h1' %}
   {% endif %}
+  <div class="disclosure product-disclosure">
+    <button
+      type="button"
+      class="header__product-button disclosure__button product-selector focus-inset"
+      aria-expanded="false"
+      aria-controls="HeaderProductList"
+    >
+      <span class="selected-product">
+        Select a product
+      </span>
+      {% render 'icon-caret' %}
+    </button>
 
-  {% if section.settings.menu != blank %}
-    {% render 'header-inline-menu', section: section %}
-  {% endif %}
+    <ul
+      id="HeaderProductList"
+      role="list"
+      class="disclosure__list list-unstyled color-background-1"
+      hidden
+    >
+      {%- for product in collections.all.products limit:10 -%}
+        <li class="disclosure__item" tabindex="-1">
+          <a
+            class="disclosure__link focus-inset"
+            href="{{ product.url }}"
+            data-value="{{ product.handle }}"
+          >
+            {{ product.title }}
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+
 </div>
 
 {% if section.settings.logo_position == 'center-logo' %}
@@ -28,12 +53,6 @@
       {% render 'header-language' %}
     {%- endif -%}
 
-    {% render 'header-color-scheme' %}
-
-    {%- if section.settings.enable_search -%}
-      {% render 'header-search', section: section %}
-    {%- endif -%}
-
     {%- if shop.customer_accounts_enabled -%}
       {% render 'header-account' %}
     {%- endif -%}
@@ -42,4 +61,7 @@
 
     {% render 'secondary-logo' %}
   </div>
+  {% render 'header-drawer', section: section %}
+
+  {% render 'header-desktop-burger', section: section %}
 </div>

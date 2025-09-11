@@ -38,6 +38,7 @@
     "buttons_layout": "hover",
     "trigger_swatch": "Color",
     "custom_colors": "Black: #262D33\nWhite: #FFFFFF\nRed: #CE7466\nBlue: #859CAA\nGreen: #7C8476",
+    "predictive_search_header_enabled": false,
     "predictive_search_enabled": false,
     "title_empty_cart": "Oops...",
     "text_empty_cart": "Don't miss out on the best deals! Your cart may be empty now, but let us help you fill it up with amazing products.",

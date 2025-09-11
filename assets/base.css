@@ -155,8 +155,8 @@
   .container-sm,
   .shopify-policy__container-sm,
   .shopify-policy__container {
-    padding-right: 8rem;
-    padding-left: 8rem;
+    padding-right: 20px;
+    padding-left: 20px;
   }
 }
 
@@ -2985,8 +2985,6 @@ deferred-media {
 .shopify-section-header {
   position: relative;
   z-index: 12;
-  will-change: transform;
-  transition: background-color 0.4s cubic-bezier(0.602, 0.007, 0.374, 0.995);
 }
 .shopify-section-header.color-background-overlay:not(.shopify-section-header-sticky) {
   background-color: transparent;
@@ -3013,17 +3011,6 @@ deferred-media {
   visibility: visible;
 }
 
-.shopify-section-header-sticky {
-  position: sticky;
-  top: 0;
-  z-index: 12;
-  background-color: rgb(var(--color-background));
-}
-.shopify-section-header-sticky .header-wrapper {
-  max-width: 100%;
-  padding: 0;
-}
-
 @media screen and (min-width: 1100px) {
   .header-sticky-with-opened-mega-menu {
     position: sticky !important;
@@ -3037,33 +3024,40 @@ deferred-media {
     padding: 0;
   }
 }
-
-.shopify-section-header-hidden {
-  transform: translateY(-100%);
-}
-
 .shopify-section-header.animate {
   transition: transform 0.85s cubic-bezier(0.602, 0.007, 0.374, 0.995), background-color 0.4s cubic-bezier(0.602, 0.007, 0.374, 0.995);
 }
 
 .header-wrapper {
   display: block;
-  position: relative;
-  transition: all 0.4s cubic-bezier(0.602, 0.007, 0.374, 0.995);
   z-index: 2;
-  background-color: rgb(var(--color-background));
+  max-width: 1120px;
+  width: 100%;
+  position: fixed;
+  background: #39405B;
+  border-radius: 100px;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: top 0.3s ease-in-out;
 }
-.header-wrapper[data-sticky-type=on-scroll-up] {
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-
 .header {
   position: relative;
   display: block;
   justify-content: space-between;
   z-index: 4;
   min-height: 6.4rem;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.shopify-section-header-sticky .header-wrapper {
+  top: 0;
+}
+@media screen and (max-width: 989px) {
+  .header-wrapper {
+    margin-right: 20px;
+    width: calc(100% - 40px);
+  }
 }
 @media screen and (min-width: 1100px) {
   .header {
@@ -3300,8 +3294,8 @@ deferred-media {
   min-height: 100%;
   flex: 1;
 }
-.header__left > header-drawer {
-  margin-right: 1.6rem;
+.header__column > .header-wrapper {
+  margin-left: 12px;
 }
 .header__left:has(.header__mega-menu[open=true]) + .header__heading-link--center, .header__left:has(.header__mega-menu[open=true]) + .header__heading > .header__heading-link--center {
   z-index: 3;
@@ -3329,12 +3323,12 @@ deferred-media {
 .header__icons {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 12px;
   height: 100%;
 }
 @media screen and (min-width: 1360px) {
   .header__icons {
-    gap: 2.8rem;
+    gap: 12px;
   }
 }
 .header__icons .header__localization::after {
@@ -3347,18 +3341,14 @@ deferred-media {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(var(--color-foreground));
+  color: #fff;
 }
 
 .header__icon .icon {
-  width: 1.4rem;
-  height: 1.4rem;
-  color: rgba(var(--color-foreground));
+  width: 24px;
+  height: 24px;
+  color: #fff;
   transition: color 0.4s cubic-bezier(0.602, 0.007, 0.374, 0.995);
-}
-.header__icon .icon-hamburger {
-  width: 2.4rem;
-  height: 2.4rem;
 }
 
 .header__icon--account {
@@ -3377,8 +3367,11 @@ deferred-media {
 
 .header__icon--menu {
   justify-content: center;
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 40px;
+  height: 40px;
+  padding: 15px;
+  border: 1px solid #fff;
+  border-radius: 50px;
 }
 @media screen and (min-width: 1100px) {
   .header__icon--menu {
@@ -3423,13 +3416,6 @@ deferred-media {
   margin-left: 0.7rem;
 }
 
-.header__account {
-  display: none;
-  position: relative;
-  align-items: center;
-  height: 100%;
-}
-
 .header__account-modal {
   position: absolute;
   top: calc(100% + 0.8rem);
@@ -3464,21 +3450,36 @@ deferred-media {
     transform: translateX(-50%) translateY(0rem);
   }
 }
-.header__account details[open] .header__account-modal {
-  animation: animateAccountOpen var(--duration-default) ease;
+.header__account {
+  display: none;
+  flex-direction: row;
+  gap: 12px;
+  position: relative;
+  align-items: center;
+  height: 100%;
 }
 
 .header__account-login {
-  min-width: max-content;
-  width: 100%;
+  gap: 10px;
+  opacity: 1;
+  padding-right: 28px;
+  padding-left: 28px;
+  border-radius: 100px;
+  color: #5D9DEA;
+  background-color: transparent;
+  border: 1px solid #5D9DEA;
 }
 
 .header__account-register {
-  align-self: center;
-  gap: 0.2rem;
-  margin-top: 1.2rem;
-  line-height: var(--font-body-line-height);
-  font-weight: var(--font-body-weight);
+  gap: 10px;
+  opacity: 1;
+  padding-right: 28px;
+  padding-left: 28px;
+  border-radius: 100px;
+  color: #fff;
+  background-color: #5D9DEA;
+  border: 1px solid #5D9DEA;
+  box-shadow: 0px 10px 20px 0px #5E615E33;
 }
 
 .header__account-name {
@@ -3526,6 +3527,7 @@ deferred-media {
   }
   .header__icons > .header__account {
     padding: 0;
+    display: flex;
   }
 }
 @media screen and (min-width: 990px) and (min-width: 990px) {
@@ -3727,16 +3729,18 @@ details[open] > .header__icon--menu .icon-hamburger {
   align-items: center;
   justify-content: center;
   flex: none;
-  height: 2.4rem;
-  width: 2.4rem;
-  color: rgb(var(--color-foreground));
+  height: 40px;
+  width: 40px;
+  color: #fff;
   background-color: transparent;
   cursor: pointer;
   transition: opacity var(--duration-default);
+  border: 1px solid #fff;
+  border-radius: 50%;
 }
 .menu-drawer-container .header__modal-close-button .icon-close {
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 24px;
+  height: 24px;
 }
 @media screen and (hover: hover) and (pointer: fine) {
   .menu-drawer-container .header__modal-close-button:hover {
@@ -4013,9 +4017,9 @@ details[open] > .header__icon--menu .icon-hamburger {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 3.2rem;
-  min-width: 3.2rem;
-  height: 3.2rem;
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
   border-radius: 50%;
 }
 
@@ -4027,6 +4031,8 @@ details[open] > .header__icon--menu .icon-hamburger {
   width: 100%;
   height: 100%;
   transition: opacity var(--duration-default);
+  border: 1px solid #fff;
+  border-radius: 100px;
 }
 @media screen and (hover: hover) and (pointer: fine) {
   .header__icon--cart:hover .cart-icon-bubble-svg__progress-circle {
@@ -4045,29 +4051,17 @@ details[open] > .header__icon--menu .icon-hamburger {
 }
 .cart-icon-bubble-svg__bg-circle {
   fill: none;
-  stroke: rgba(var(--color-foreground), 0.24);
+  stroke: #fff, 0.24);
   stroke-width: 1;
   transition: stroke 0.4s cubic-bezier(0.602, 0.007, 0.374, 0.995);
 }
 .cart-icon-bubble-svg__progress-circle {
   fill: none;
-  stroke: rgba(var(--color-foreground), 1);
+  stroke: #fff, 1);
   stroke-width: 1;
   stroke-dasharray: 200, 200;
   stroke-dashoffset: 200;
   transition: stroke-dashoffset 0.9s cubic-bezier(0.55, 0, 0.1, 1);
-}
-
-.cart-count-bubble {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: none;
-  width: 100%;
-  height: 100%;
-  line-height: 1;
-  color: rgb(var(--color-foreground));
-  transition: color 0.4s cubic-bezier(0.602, 0.007, 0.374, 0.995);
 }
 
 .scheme-toggled[data-scheme] *:not(.swiper-wrapper),
@@ -4080,6 +4074,11 @@ details[open] > .header__icon--menu .icon-hamburger {
   position: relative;
   display: none;
   align-items: center;
+}
+@media screen and (max-width: 989px){
+  .header__cart {
+    margin-right: 12px;
+  }
 }
 @media screen and (min-width: 750px) {
   .header__scheme {
@@ -5798,6 +5797,36 @@ noscript .localization-form__select svg {
 @media screen and (hover: hover) and (pointer: fine) {
   .disclosure__list .link:hover {
     background-color: rgb(var(--color-background-secondary));
+  }
+}
+
+.disclosure__list#HeaderProductList {
+  position: absolute;
+  top: 64px;
+  height: 100%;
+}
+
+.header__product-button[aria-expanded="true"] + .disclosure__list {
+  display: inline-table;
+  animation: fadeInToUp 0.2s ease;
+}
+
+.product-selector {
+  padding: 9px 16px;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  width: 300px;
+  color: #fff;
+  justify-content: space-between;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.2px;
+}
+
+@media (max-width: 989px) {
+  .product-disclosure {
+    display: none;
   }
 }
 

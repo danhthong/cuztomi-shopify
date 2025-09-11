@@ -27,13 +27,14 @@
           "type": "desktop_burger",
           "settings": {
             "burger_enable_social": true,
-            "burger_additional_links": "additional-links",
+            "burger_additional_links": "",
             "burger_enable_card_1": true,
             "burger_card_type_1": "link",
             "burger_card_color_scheme_1": "background-2",
             "burger_card_heading_1": "Heading 1",
             "burger_card_heading_size_1": "h2",
             "burger_card_description_1": "",
+            "burger_card_link_1": "",
             "burger_card_overlay_opacity_1": 20,
             "burger_button_label_1": "",
             "burger_enable_card_2": true,
@@ -42,6 +43,7 @@
             "burger_card_heading_2": "Heading 2",
             "burger_card_heading_size_2": "h2",
             "burger_card_description_2": "",
+            "burger_card_link_2": "",
             "burger_card_overlay_opacity_2": 20,
             "burger_button_label_2": "",
             "burger_enable_card_3": true,
@@ -50,6 +52,7 @@
             "burger_card_heading_3": "Heading 3",
             "burger_card_heading_size_3": "h2",
             "burger_card_description_3": "",
+            "burger_card_link_3": "",
             "burger_card_overlay_opacity_3": 20,
             "burger_button_label_3": "",
             "burger_enable_card_4": true,
@@ -58,26 +61,35 @@
             "burger_card_heading_4": "Heading 4",
             "burger_card_heading_size_4": "h5",
             "burger_card_description_4": "",
+            "burger_card_link_4": "",
             "burger_card_overlay_opacity_4": 20,
             "burger_button_label_4": "Explore",
             "burger_card_ratio": "portrait"
           }
         }
       },
-      "block_order": ["desktop_burger_DnhigP"],
+      "block_order": [
+        "desktop_burger_DnhigP"
+      ],
       "settings": {
+        "logo": "shopify://shop_images/cuztomi-logo.svg",
         "logo_position": "left-logo",
-        "logo_width": 192,
+        "logo_width": 156,
+        "secondary_logo_width": 100,
+        "secondary_logo_url": "",
         "menu": "main-menu",
         "sticky_header_type": "on-scroll-up",
         "enable_country_selector": true,
         "enable_language_selector": true,
         "enable_social": false,
         "enable_search": true,
-        "search_menu": "popular-searches",
+        "search_menu": "",
         "enable_border": false
       }
     }
   },
-  "order": ["announcement-bar", "header"]
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
 }

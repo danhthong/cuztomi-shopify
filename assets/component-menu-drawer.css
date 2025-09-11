@@ -6,8 +6,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 4.4rem;
-  height: 4.4rem;
+  width: 40px;
+  height: 40px;
 }
 
 menu-drawer > details[open] > summary::before {
@@ -51,7 +51,7 @@ menu-drawer > details[open] > summary::before {
 .menu-drawer__top {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end;
   gap: 0.8rem 1.6rem;
   padding-block: 0.8rem;
   min-height: var(--header-height);
@@ -81,6 +81,7 @@ menu-drawer > details[open] > summary::before {
   visibility: visible;
   opacity: 1;
   pointer-events: all;
+  background-color: #39405B;
 }
 
 details[open] > .menu-drawer__submenu {
@@ -129,7 +130,7 @@ details[open] > .menu-drawer__submenu {
   border-bottom: 0.1rem solid rgb(var(--color-border));
 }
 .menu-drawer__menu .menu-drawer__menu-item {
-  color: rgb(var(--color-foreground));
+  color: #fff;
   padding-block: 1.8rem;
   text-decoration: none;
 }
@@ -141,7 +142,7 @@ details[open] > .menu-drawer__submenu {
   border: none;
 }
 .menu-drawer__inner-submenu .menu-drawer__menu-item {
-  color: rgb(var(--color-foreground-secondary));
+  color: #fff;
   padding-block: 0.9rem;
 }
 .menu-drawer__inner-submenu .menu-drawer__menu-item.childlink {
@@ -212,6 +213,13 @@ details[open] > .menu-drawer__submenu {
 }
 .menu-drawer__account-register .button {
   align-self: flex-start;
+  padding-right: 28px;
+  padding-left: 28px;
+  border-radius: 100px;
+  color: #fff;
+  background-color: #5d9dea;
+  border: 1px solid #5D9DEA;
+  box-shadow: 0 10px 20px #5e615e33;
 }
 .menu-drawer__account-register > span {
   color: rgb(var(--color-foreground-secondary));
