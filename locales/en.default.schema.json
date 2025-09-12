@@ -5534,6 +5534,77 @@
         }
       }
     },
+    "hero-banner": {
+      "name": "Hero banner",
+      "settings": {
+        "text": {
+          "label": "Text"
+        },
+        "image": {
+          "label": "Image"
+        },
+        "left_background":{
+          "label": "Left background image"
+        },
+        "right_background":{
+          "label": "right background image"
+        },
+        "header__1": {
+          "content": "Main options"
+        },
+        "header__2": {
+          "content": "Section heading options"
+        },
+        "header__3": {
+          "content": "Image options"
+        },
+        "header__4": {
+          "content": "Content options"
+        },
+        "header__5": {
+          "content": "Primary button options"
+        },
+        "header__6": {
+          "content": "Secondary button options"
+        },
+        "button_label": {
+          "default": "Learn more"
+        },
+        "inner_subheading": {
+          "label": "Subheading",
+          "default": "Subheading"
+        },
+        "inner_heading": {
+          "label": "Heading",
+          "default": "This is where your title goes"
+        },
+        "inner_heading_size": {
+          "label": "Inner heading size"
+        },
+        "inner_text": {
+          "label": "Description",
+          "default": "Use this space to provide details about what’s being featured in this section, whether it’s a new launch, a trending product, or an exclusive deal."
+        },
+        "inner_content_align": {
+          "label": "Inner content alignment"
+        },
+        "vertical_inner_content_align": {
+          "label": "Inner content vertical alignment",
+          "options__1": {
+            "label": "Top"
+          },
+          "options__2": {
+            "label": "Center"
+          },
+          "options__3": {
+            "label": "Bottom"
+          }
+        }
+      },
+      "presets": {
+        "name": "Hero banner"
+      }
+    },
     "hero": {
       "name": "Hero",
       "settings": {

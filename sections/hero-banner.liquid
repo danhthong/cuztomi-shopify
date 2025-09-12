@@ -1,0 +1,300 @@
+{{ 'section-hero-banner.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  {% render 'section-padding' %}
+  {% render 'section-margin' %}
+{%- endstyle -%}
+
+<div class="hero-banner">
+  {% render 'heading-group', section: section, class: 'hero-banner', text_align: section.settings.text_align %}
+
+  <div
+    class="content hero-banner-main hero-banner-main--align-image-right"
+  >
+    <div class="hero-banner-img-wrapper">
+      {%- if section.settings.image != blank -%}
+        {%- liquid
+          assign object_fit = 'object-fit: ' | append: section.settings.object_fit
+
+          assign settings_aspect_ratio = 1
+
+          if section.settings.aspect_ratio != 'adapt'
+            assign settings_aspect_ratio_numbers = section.settings.aspect_ratio | split: '/'
+            assign settings_aspect_ratio = settings_aspect_ratio_numbers[0] | append: '.0' | divided_by: settings_aspect_ratio_numbers[1]
+          endif
+
+          assign calc_ratio = 1
+
+          if section.settings.image.aspect_ratio > settings_aspect_ratio
+            assign calc_ratio = section.settings.image.aspect_ratio | divided_by: settings_aspect_ratio | round: 2
+          endif
+
+          assign img_loading = 'lazy'
+
+          if section.index == 1
+            assign img_loading = 'eager'
+          endif
+        -%}
+        {%- capture section_gap -%}
+          {%- if section.settings.section_gap == 'small' -%}
+            16px
+          {%- elsif section.settings.section_gap == 'medium' -%}
+            24px
+          {%- elsif section.settings.section_gap == 'large' -%}
+            32px
+          {%- endif -%}
+        {%- endcapture -%}
+        {%- capture sizes -%}
+          {%- if section.settings.img_position == 'top' or section.settings.img_position == 'bottom' -%}
+            (min-width: 1440px) calc(1280px * {{ calc_ratio }}), (min-width: 1200px) calc(89vw * {{ calc_ratio }}), (min-width: 550px) calc(98vw * {{ calc_ratio }}), calc(92vw * {{ calc_ratio }})
+          {%- else -%}
+            (min-width: 1440px) calc((1280px - {{ section_gap }}) / 2 * {{ calc_ratio }}), (min-width: 1200px) calc(44vw * {{ calc_ratio }}), (min-width: 750px) calc(48vw * {{ calc_ratio }}), (min-width: 550px) calc(98vw * {{ calc_ratio }}), calc(92vw * {{ calc_ratio }})
+          {%- endif -%}
+        {%- endcapture -%}
+        {{
+          section.settings.image
+          | image_url: width: 3840
+          | image_tag:
+            width: section.settings.image.width,
+            height: section.settings.image.height,
+            sizes: sizes,
+            widths: '375, 550, 750, 1000, 1280, 1500, 1780, 2560, 3000, 3840',
+            style: object_fit,
+            loading: img_loading
+        }}
+      {%- else -%}
+        {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--filled' }}
+      {%- endif -%}
+    </div>
+    <div
+      class="hero-banner-content hero-banner-content--align-left"
+    >
+      {%- if section.settings.inner_subheading != blank -%}
+        <span class="hero-banner-content__subheading subtitle">
+          {{- section.settings.inner_subheading | escape -}}
+        </span>
+      {%- endif -%}
+
+      {%- if section.settings.inner_heading != blank -%}
+        <h2 class="hero-banner-content__heading {{ section.settings.inner_heading_size }}">
+          {{ section.settings.inner_heading }}
+        </h2>
+      {%- endif -%}
+
+      {%- if section.settings.inner_text != blank -%}
+        <p class="hero-banner-content__text body-normal">{{ section.settings.inner_text }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.show_button != blank or section.settings.show_button_2 != blank -%}
+        {% liquid
+          assign has_tertiary_button = false
+
+          if section.settings.show_button and section.settings.button_style == 'tertiary'
+            assign has_tertiary_button = true
+          endif
+
+          if section.settings.show_button_2 and section.settings.button_style_2 == 'tertiary'
+            assign has_tertiary_button = true
+          endif
+        %}
+        <div class="hero-banner-content__buttons-container {% if has_tertiary_button == true %} hero-banner-content__buttons-container--with-tertiary{% endif %}">
+          {%- if section.settings.show_button != blank -%}
+            {% render 'button',
+              layout: section,
+              class: 'hero-banner-content__button hero-banner-content__button--primary'
+            %}
+          {% endif %}
+          {% if section.settings.show_button_2 != blank %}
+            {% render 'button',
+              btn_link: section.settings.button_link_2,
+              btn_label: section.settings.button_label_2,
+              btn_style: section.settings.button_style_2,
+              btn_arrow: section.settings.button_arrow_2,
+              class: 'hero-banner-content__button hero-banner-content__button--secondary'
+            %}
+          {% endif %}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.hero-banner.name",
+  "class": "hero-banner-section spaced-section",
+  "enabled_on": {
+    "templates": ["*"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.hero-banner.settings.header__1.content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.hero-banner.settings.image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_background",
+      "label": "t:sections.hero-banner.settings.left_background.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_background",
+      "label": "t:sections.hero-banner.settings.right_background.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.hero-banner.settings.header__4.content"
+    },
+    {
+      "type": "text",
+      "id": "inner_subheading",
+      "label": "t:sections.hero-banner.settings.inner_subheading.label",
+      "default": "t:sections.hero-banner.settings.inner_subheading.default"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "inner_heading",
+      "label": "t:sections.hero-banner.settings.inner_heading.label",
+      "default": "t:sections.hero-banner.settings.inner_heading.default"
+    },
+    {
+      "type": "select",
+      "id": "inner_heading_size",
+      "options": [
+        {
+          "value": "h4",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__2.label"
+        }
+      ],
+      "default": "h2",
+      "label": "t:sections.hero-banner.settings.inner_heading_size.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "inner_text",
+      "label": "t:sections.hero-banner.settings.inner_text.label",
+      "default": "t:sections.hero-banner.settings.inner_text.default"
+    },
+    {
+      "type": "text_alignment",
+      "id": "inner_content_align",
+      "label": "t:sections.hero-banner.settings.inner_content_align.label",
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "vertical_inner_content_align",
+      "label": "t:sections.hero-banner.settings.vertical_inner_content_align.label",
+      "options": [
+        {
+          "value": "top",
+          "label": "t:sections.hero-banner.settings.vertical_inner_content_align.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.hero-banner.settings.vertical_inner_content_align.options__2.label"
+        },
+        {
+          "value": "bottom",
+          "label": "t:sections.hero-banner.settings.vertical_inner_content_align.options__3.label"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.hero-banner.settings.header__5.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "default": true,
+      "label": "t:sections.all.button.button_show.label"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.all.button.button_label.label",
+      "default": "t:sections.hero-banner.settings.button_label.default"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.all.button.button_link.label"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "t:sections.all.button.button_style.options__1.label"
+        },
+        {
+          "value": "secondary",
+          "label": "t:sections.all.button.button_style.options__2.label"
+        },
+        {
+          "value": "tertiary",
+          "label": "t:sections.all.button.button_style.options__3.label"
+        }
+      ],
+      "default": "primary",
+      "label": "t:sections.all.button.button_style.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.hero-banner.settings.header__6.content"
+    },
+    {
+      "type": "text",
+      "id": "button_label_2",
+      "label": "t:sections.all.button.button_label.label",
+      "default": "t:sections.hero-banner.settings.button_label.default"
+    },
+    {
+      "type": "url",
+      "id": "button_link_2",
+      "label": "t:sections.all.button.button_link.label"
+    },
+    {
+      "type": "select",
+      "id": "button_style_2",
+      "options": [
+        {
+          "value": "primary",
+          "label": "t:sections.all.button.button_style.options__1.label"
+        },
+        {
+          "value": "secondary",
+          "label": "t:sections.all.button.button_style.options__2.label"
+        },
+        {
+          "value": "tertiary",
+          "label": "t:sections.all.button.button_style.options__3.label"
+        }
+      ],
+      "default": "secondary",
+      "label": "t:sections.all.button.button_style.label"
+    },
+  ],
+  "presets": [
+    {
+      "name": "t:sections.hero-banner.name"
+    }
+  ]
+}
+{% endschema %}
