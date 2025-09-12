@@ -7,7 +7,19 @@
 
 <div class="hero-banner">
   {% render 'heading-group', section: section, class: 'hero-banner', text_align: section.settings.text_align %}
+  {%- if section.settings.left_background != blank -%}
+    <div
+      class="hero-left-background"
+      style="background-image: url('{{ section.settings.left_background | image_url }}');">
+    </div>
+  {%- endif -%}
 
+  {%- if section.settings.left_background != blank -%}
+    <div
+      class="hero-right-background"
+      style="background-image: url('{{ section.settings.right_background | image_url }}');">
+    </div>
+  {%- endif -%}
   <div
     class="content hero-banner-main hero-banner-main--align-image-right"
   >
@@ -76,13 +88,13 @@
       {%- endif -%}
 
       {%- if section.settings.inner_heading != blank -%}
-        <h2 class="hero-banner-content__heading {{ section.settings.inner_heading_size }}">
+        <h1 class="hero-banner-content__heading {{ section.settings.inner_heading_size }}">
           {{ section.settings.inner_heading }}
-        </h2>
+        </h1>
       {%- endif -%}
 
       {%- if section.settings.inner_text != blank -%}
-        <p class="hero-banner-content__text body-normal">{{ section.settings.inner_text }}</p>
+        <p class="hero-banner-content__text">{{ section.settings.inner_text }}</p>
       {%- endif -%}
 
       {%- if section.settings.show_button != blank or section.settings.show_button_2 != blank -%}
@@ -115,6 +127,47 @@
           {% endif %}
         </div>
       {%- endif -%}
+    </div>
+  </div>
+
+  {% liquid
+    assign ticker_length = 8
+    assign overall_length = ticker_length | times: 2
+  %}
+  <div class="hero-banner-ticker ticker-banner">
+    <div class="ticker-banner-container">
+      <span class="ticker-banner-label">brand we print for</span>
+      <div
+        class="ticker-banner-ticker ticker-banner-ticker--under-images animate-on-scroll animated"
+        dir="ltr"
+        style="--ticker-banner-ticker-speed: 70s; --ticker-banner-ticker-color: #000000; --ticker-banner-ticker-color-dm: #ffffff; --ticker-overall-length: 30"
+      >
+        <div class="ticker-banner-ticker-wrapper">
+          <span class="ticker-banner-ticker-collection ticker-banner-ticker-collection--1">
+            {% for i in (1..8) %}
+              {% assign image_id = 'ticker_image_' | append: i %}
+              {% assign image = section.settings[image_id] %}
+              {% if image != blank %}
+                <span class="ticker-banner-ticker-item">
+                  <img src="{{ image | img_url: '200x' }}" width="152" height="60" alt="Ticker image" loading="lazy">
+                </span>
+              {% endif %}
+            {% endfor %}
+          </span>
+
+          <span class="ticker-banner-ticker-collection ticker-banner-ticker-collection--2">
+            {% for i in (1..8) %}
+              {% assign image_id = 'ticker_image_' | append: i %}
+              {% assign image = section.settings[image_id] %}
+              {% if image != blank %}
+                <span class="ticker-banner-ticker-item">
+                  <img src="{{ image | img_url: '200x' }}" width="152" height="60" alt="Ticker image" loading="lazy">
+                </span>
+              {% endif %}
+            {% endfor %}
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -167,15 +220,15 @@
       "id": "inner_heading_size",
       "options": [
         {
-          "value": "h4",
+          "value": "h3",
           "label": "t:sections.all.heading_size.options__4.label"
         },
         {
-          "value": "h3",
+          "value": "h2",
           "label": "t:sections.all.heading_size.options__1.label"
         },
         {
-          "value": "h2",
+          "value": "h1",
           "label": "t:sections.all.heading_size.options__2.label"
         }
       ],
@@ -290,6 +343,46 @@
       "default": "secondary",
       "label": "t:sections.all.button.button_style.label"
     },
+    {
+      "type": "image_picker",
+      "id": "ticker_image_1",
+      "label": "Ticker Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "ticker_image_2",
+      "label": "Ticker Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "ticker_image_3",
+      "label": "Ticker Image 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "ticker_image_4",
+      "label": "Ticker Image 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "ticker_image_5",
+      "label": "Ticker Image 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "ticker_image_6",
+      "label": "Ticker Image 6"
+    },
+    {
+      "type": "image_picker",
+      "id": "ticker_image_7",
+      "label": "Ticker Image 7"
+    },
+    {
+      "type": "image_picker",
+      "id": "ticker_image_8",
+      "label": "Ticker Image 8"
+    }
   ],
   "presets": [
     {

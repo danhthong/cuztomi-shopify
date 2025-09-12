@@ -14,11 +14,11 @@
       "name": "t:sections.hero-banner.name",
       "settings": {
         "image": "shopify://shop_images/hero-image.png",
-        "left-background": "shopify://shop_images/hero-bottom-left-bg.svg",
-        "right-background": "shopify://shop_images/hero-top-right-bg.svg",
+        "left_background": "shopify://shop_images/hero-bottom-left-bg.svg",
+        "right_background": "shopify://shop_images/hero-top-right-bg.svg",
         "inner_subheading": "",
         "inner_heading": "Stop waiting weeks. Get <strong>flawless custom</strong> gifts fast.",
-        "inner_heading_size": "h2",
+        "inner_heading_size": "h1",
         "inner_text": "Customers choose us for fast, USA-printed <strong>personalized gifts</strong> and <strong>branded merchandise</strong>. Upload your logo or photo — we'll proof, print,and ship in 24–48 hours.",
         "inner_content_align": "center",
         "vertical_inner_content_align": "center",
@@ -26,10 +26,17 @@
         "button_label": "Learn more",
         "button_link": "",
         "button_style": "primary",
-        "show_button_2": false,
         "button_label_2": "Start Your Order",
         "button_link_2": "",
-        "button_style_2": "secondary"
+        "button_style_2": "secondary",
+        "ticker_image_1": "shopify://shop_images/text-studio.svg",
+        "ticker_image_2": "shopify://shop_images/google.svg",
+        "ticker_image_3": "shopify://shop_images/nvidia.svg",
+        "ticker_image_4": "shopify://shop_images/tchibo.svg",
+        "ticker_image_5": "shopify://shop_images/microwsoft.svg",
+        "ticker_image_6": "shopify://shop_images/bholer.svg",
+        "ticker_image_7": "shopify://shop_images/bose.svg",
+        "ticker_image_8": "shopify://shop_images/shopify.svg"
       }
     },
     "image_with_text_kmX6Dh": {
