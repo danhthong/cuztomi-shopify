@@ -100,8 +100,11 @@
   }
 }
 .products-carousel__navigation-button.swiper-button-disabled {
+  opacity: 1;
+  box-shadow: 0px 10px 20px 0px #AAAAAA66;
+}
+.products-carousel__navigation-button.swiper-button-disabled .icon {
   opacity: 0.5;
-  pointer-events: none;
 }
 @media screen and (pointer: fine) {
   .products-carousel__navigation-button {

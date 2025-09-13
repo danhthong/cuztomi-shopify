@@ -85,7 +85,7 @@
 @media screen and (min-width: 1200px) {
   .hero-banner-content {
     padding: 200px 0 0;
-    margin-left: calc(50vw - 600px);
+    margin-left: calc(50vw - 630px);
   }
 }
 .hero-banner-content--align-left {
@@ -341,11 +341,11 @@
   transform: translateY(-50%);
 }
 .ticker-banner-ticker--under-images {
-  padding-top: 12px;
+  margin-top: 12px;
 }
 @media screen and (min-width: 1200px) {
   .ticker-banner-ticker--under-images {
-    padding-top: 20px;
+    margin-top: 20px;
   }
 }
 .ticker-banner-ticker-wrapper {
@@ -364,6 +364,7 @@ html:not(.no-js):not([dir=rtl]) .ticker-banner-ticker.animate-on-scroll {
   overflow: hidden;
   padding-bottom: 1rem;
   margin-bottom: -1rem;
+  max-width: 1240px;
 }
 html:not(.no-js):not([dir=rtl]) .ticker-banner-ticker.animate-on-scroll .ticker-banner-ticker-wrapper {
   display: inline-block;
