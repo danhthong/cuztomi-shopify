@@ -13,7 +13,7 @@
       "type": "hero-banner",
       "name": "t:sections.hero-banner.name",
       "settings": {
-        "image": "shopify://shop_images/hero-image.png",
+        "image": "shopify://shop_images/bottle.png",
         "left_background": "shopify://shop_images/hero-bottom-left-bg.svg",
         "right_background": "shopify://shop_images/hero-top-right-bg.svg",
         "inner_subheading": "",

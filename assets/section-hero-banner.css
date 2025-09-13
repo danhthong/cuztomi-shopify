@@ -10,7 +10,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: left bottom;
-  z-index: 0;
+  z-index: -1;
 }
 .hero-right-background {
   width: 40%;
@@ -21,7 +21,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: top right;
-  z-index: 0;
+  z-index: -1;
 }
 .hero-banner-main {
   width: 100%;
@@ -57,11 +57,12 @@
   overflow: hidden;
   border-radius: var(--border-radius-block);
 }
-.hero-banner-img-wrapper img,
-.hero-banner-img-wrapper .placeholder-svg {
+.hero-banner-img-wrapper img {
   width: 100%;
   height: 100%;
   object-position: center;
+  object-fit: contain;
+  margin-left: 12%;
 }
 
 .hero-banner-content {
@@ -69,12 +70,16 @@
   display: flex;
   flex-direction: column;
   border-radius: var(--border-radius-block);
-  padding: 20px;
+  padding: 90px 20px 20px;
   z-index: 1;
 }
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 750px) {
   .hero-banner-content {
     padding: 3.2rem;
+  }
+
+  .hero-banner-img-wrapper img {
+    margin-left: 0;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -89,13 +94,23 @@
 .hero-banner-content--align-left .hero-banner-content__subheading,
 .hero-banner-content--align-left .hero-banner-content__heading,
 .hero-banner-content--align-left .hero-banner-content__text {
-  text-align: left;
+  text-align: center;
 }
 .hero-banner-content--align-left .hero-banner-content__buttons-container {
-  justify-content: flex-start;
+  justify-content: center;
 }
 .hero-banner-content__subheading:not(:last-child) {
   margin-bottom: 1.2rem;
+}
+@media screen and (min-width: 750px) {
+  .hero-banner-content--align-left .hero-banner-content__subheading,
+  .hero-banner-content--align-left .hero-banner-content__heading,
+  .hero-banner-content--align-left .hero-banner-content__text {
+    text-align: left;
+  }
+  .hero-banner-content--align-left .hero-banner-content__buttons-container {
+    justify-content: flex-start;
+  }
 }
 @media screen and (min-width: 1200px) {
   .hero-banner-content__subheading:not(:last-child) {
@@ -119,12 +134,17 @@
 }
 .hero-banner-content__text {
   color: rgba(var(--color-foreground-secondary));
-  max-width: 600px;
+  max-width: 100%;
   word-break: break-word;
   font-size: 20px;
 }
 .hero-banner-content__text:not(:last-child) {
   margin-bottom: 2.4rem;
+}
+@media screen and (min-width: 750px) {
+  .hero-banner-content__text {
+  max-width: 600px;
+}
 }
 @media screen and (min-width: 1200px) {
   .hero-banner-content__text:not(:last-child) {
@@ -168,6 +188,7 @@
   width: 100%;
   position: relative;
   margin-top: 40px;
+  z-index: 1;
 }
 .ticker-banner::after {
   content: "";

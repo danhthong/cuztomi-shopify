@@ -1362,6 +1362,12 @@ h1,
 @media only screen and (min-width: 750px) {
   h1,
   .h1 {
+    font-size: 48px;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  h1,
+  .h1 {
     font-size: 60px;
   }
 }
@@ -2085,6 +2091,7 @@ deferred-media {
   cursor: pointer;
   flex-shrink: 0;
   min-height: 4rem;
+  box-shadow: 0px 10px 20px 0px #92939933;
 }
 .button:disabled, .button[aria-disabled=true], .button.disabled,
 .customer .button:disabled,
@@ -2180,9 +2187,9 @@ deferred-media {
 }
 .button--primary,
 .customer .button--primary {
-  color: rgb(var(--color-button-text));
+  color: #fff;
   transition: color 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
-  background-color: rgb(var(--color-button));
+  background-color: #5D9DEA;;
 }
 .button--primary .button__label,
 .customer .button--primary .button__label {
@@ -2198,7 +2205,7 @@ deferred-media {
 }
 .button--primary .animated-button-circle,
 .customer .button--primary .animated-button-circle {
-  background-color: rgb(var(--color-button-hover));
+  background-color: #447CBF;
 }
 @media screen and (pointer: fine) {
   .button--primary:not(:disabled):not([aria-disabled=true]):hover,
@@ -3467,7 +3474,6 @@ deferred-media {
   padding-left: 28px;
   border-radius: 100px;
   color: #fff;
-  background-color: #5D9DEA;
   border: 1px solid #5D9DEA;
   box-shadow: 0px 10px 20px 0px #5E615E33;
 }

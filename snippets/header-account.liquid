@@ -44,7 +44,7 @@
     </a>
 
     <a
-      class="header__account-register button"
+      class="header__account-register button button--primary focus-inset"
       href="{{ routes.account_register_url }}"
     >
       <div class="button__content">
@@ -52,6 +52,7 @@
           {{- 'customer.login_page.create_account_header' | t -}}
         </span>
       </div>
+      <span class="animated-button-circle"></span>
     </a>
   {%- endif -%}
 </div>

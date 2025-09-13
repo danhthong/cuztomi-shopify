@@ -26,8 +26,6 @@
     <div class="hero-banner-img-wrapper">
       {%- if section.settings.image != blank -%}
         {%- liquid
-          assign object_fit = 'object-fit: ' | append: section.settings.object_fit
-
           assign settings_aspect_ratio = 1
 
           if section.settings.aspect_ratio != 'adapt'
@@ -71,11 +69,8 @@
             height: section.settings.image.height,
             sizes: sizes,
             widths: '375, 550, 750, 1000, 1280, 1500, 1780, 2560, 3000, 3840',
-            style: object_fit,
             loading: img_loading
         }}
-      {%- else -%}
-        {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--filled' }}
       {%- endif -%}
     </div>
     <div
@@ -130,10 +125,6 @@
     </div>
   </div>
 
-  {% liquid
-    assign ticker_length = 8
-    assign overall_length = ticker_length | times: 2
-  %}
   <div class="hero-banner-ticker ticker-banner">
     <div class="ticker-banner-container">
       <span class="ticker-banner-label">brand we print for</span>
@@ -143,29 +134,19 @@
         style="--ticker-banner-ticker-speed: 70s; --ticker-banner-ticker-color: #000000; --ticker-banner-ticker-color-dm: #ffffff; --ticker-overall-length: 30"
       >
         <div class="ticker-banner-ticker-wrapper">
-          <span class="ticker-banner-ticker-collection ticker-banner-ticker-collection--1">
-            {% for i in (1..8) %}
-              {% assign image_id = 'ticker_image_' | append: i %}
-              {% assign image = section.settings[image_id] %}
-              {% if image != blank %}
-                <span class="ticker-banner-ticker-item">
-                  <img src="{{ image | img_url: '200x' }}" width="152" height="60" alt="Ticker image" loading="lazy">
-                </span>
-              {% endif %}
-            {% endfor %}
-          </span>
-
-          <span class="ticker-banner-ticker-collection ticker-banner-ticker-collection--2">
-            {% for i in (1..8) %}
-              {% assign image_id = 'ticker_image_' | append: i %}
-              {% assign image = section.settings[image_id] %}
-              {% if image != blank %}
-                <span class="ticker-banner-ticker-item">
-                  <img src="{{ image | img_url: '200x' }}" width="152" height="60" alt="Ticker image" loading="lazy">
-                </span>
-              {% endif %}
-            {% endfor %}
-          </span>
+          {% for collection_index in (1..3) %}
+            <span class="ticker-banner-ticker-collection ticker-banner-ticker-collection--{{ collection_index }}">
+              {% for i in (1..8) %}
+                {% assign image_id = 'ticker_image_' | append: i %}
+                {% assign image = section.settings[image_id] %}
+                {% if image != blank %}
+                  <span class="ticker-banner-ticker-item">
+                    <img src="{{ image | img_url: '200x' }}" width="152" height="60" alt="Ticker image" loading="lazy">
+                  </span>
+                {% endif %}
+              {% endfor %}
+            </span>
+          {% endfor %}
         </div>
       </div>
     </div>
