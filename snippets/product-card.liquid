@@ -5,6 +5,9 @@
   - show_secondary_image: {Boolean} Show the secondary image on hover. Default: false (optional)
   - show_vendor: {Boolean} Show the product vendor. Default: true
   - show_desc: {Boolean} Show the product vendor. Default: false
+  - show_price: {Boolean} Show the product vendor. Default: false
+  - show_button: {Boolean} Show the product vendor. Default: true
+  - show_bagde: {Boolean} Show sale badge. Default: true
   - section_id: {String} The ID of the section that contains this card.
   - class: {String} Additional classes to add to the card.
   - columns: {Integer} The number of columns to display. Default: 1
@@ -162,9 +165,15 @@
       </div>
 
       {% comment %} NOTE: Information top block {% endcomment %}
+      {% if settings.badge_soldout_show or settings.badge_custom_show %}
+        {% assign card_show_bagde = true %}
+      {%- endif -%}
+      {% if show_bagde == false %}
+        {% assign card_show_bagde = show_bagde %}
+      {%- endif -%}
 
       <div class="card__information-top">
-        {%- if settings.badge_sale_show or settings.badge_soldout_show or settings.badge_custom_show -%}
+        {%- if card_show_bagde -%}
           <div class="card__badge bold body-small">
             {%- if product_card_product.available == false and settings.badge_soldout_show -%}
               <span class="badge badge--sold-out" aria-hidden="true">
@@ -212,6 +221,7 @@
     </div>
 
     {% comment %} NOTE: Special buttons {% endcomment %}
+  {%- if show_button == true -%}
     <div
       class="
         card__links card__links--{{ settings.buttons_layout }} {% if additional_class != '' %} card__links--{{ additional_class }} {% endif %}
@@ -347,13 +357,14 @@
         </div>
       {%- endif -%}
     </div>
-
+  {%- endif -%}
     <a
       href="{{ product_card_product.url | default: '#' }}"
       class="link link--overlay card-wrapper__link--overlay js-color-swatches-link"
       aria-label="{{ 'accessibility.product_link' | t }}"
     ></a>
   </div>
+
   {% comment %} NOTE: Card information {% endcomment %}
   <div class="card-information">
     <div class="card-information__wrapper">
@@ -380,7 +391,9 @@
         {%- endif -%}
       </div>
 
-      {% render 'price', product: product_card_product, price_class: '' %}
+      {%- if show_price == 'true' -%}
+        {% render 'price', product: product_card_product, price_class: '' %}
+      {%-  endif  -%}
 
       {% comment %} NOTE: Parameters {% endcomment %}
       <div class="product-parameters">

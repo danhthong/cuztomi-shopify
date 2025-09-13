@@ -138,28 +138,10 @@
 .shopify-policy__container-sm,
 .shopify-policy__container {
   width: 100%;
-  padding-right: 2rem;
-  padding-left: 2rem;
+  padding-right: 20px;
+  padding-left: 20px;
   margin-right: auto;
   margin-left: auto;
-}
-@media screen and (min-width: 1200px) {
-  .container,
-  .container-fluid,
-  .container-xxl,
-  .shopify-policy__container-xxl,
-  .container-xl,
-  .shopify-policy__container-xl,
-  .container-lg,
-  .shopify-policy__container-lg,
-  .container-md,
-  .shopify-policy__container-md,
-  .container-sm,
-  .shopify-policy__container-sm,
-  .shopify-policy__container {
-    padding-right: 20px;
-    padding-left: 20px;
-  }
 }
 
 @media (min-width: 576px) {
@@ -204,7 +186,7 @@
   .shopify-policy__container-md, .container-sm,
   .shopify-policy__container-sm, .container,
   .shopify-policy__container {
-    max-width: 1440px;
+    max-width: 1280px;
   }
 }
 /* Base */
@@ -1898,14 +1880,21 @@ details > * {
     background-color: #4a4a4c;
   }
 }
-.swiper-button-next,
-.swiper-button-prev,
-.swiper-pagination {
-  position: static;
-  margin: 0;
-  padding: 0;
-  background-color: transparent;
-  border: none;
+
+.swiper-button-prev {
+  left: -24px;
+}
+.swiper-button-next {
+  right: -24px;
+}
+
+@media screen and (max-width: 575px) {
+  .swiper-button-prev {
+    left: -16px;
+  }
+  .swiper-button-next {
+    right: -16px;
+  }
 }
 
 .swiper-button-next.swiper-button-disabled,
@@ -1922,21 +1911,12 @@ details > * {
 .swiper-button-prev svg {
   color: rgb(var(--color-foreground));
   transition: transform var(--duration-default);
+  width: 24px;
+  height: 24px;
 }
 .swiper-button-next svg path,
 .swiper-button-prev svg path {
   stroke: rgb(var(--color-foreground));
-}
-@media screen and (hover: hover) and (pointer: fine) and (min-width: 1200px) {
-  .swiper-button-prev:hover svg {
-    transform: translateX(-0.3rem);
-  }
-}
-
-@media screen and (hover: hover) and (pointer: fine) and (min-width: 1200px) {
-  .swiper-button-next:hover svg {
-    transform: translateX(0.3rem);
-  }
 }
 
 .swiper-scrollbar {

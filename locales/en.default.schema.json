@@ -1864,6 +1864,67 @@
         "name": "Products tabs"
       }
     },
+    "products-carousel": {
+      "name": "Products carousel",
+      "settings": {
+        "text_align": {
+          "label": "Text content alignment"
+        },
+        "product_list": {
+          "label": "Products"
+        },
+        "image_ratio": {
+          "label": "Product image aspect ratio"
+        },
+        "products_to_show": {
+          "label": "Products per row",
+          "info": "Only for \"Grid\" layout"
+        },
+        "gap": {
+          "label": "Gap",
+          "info": "Only for \"Grid\" and \"Column\" layout",
+          "options__1": {
+            "label": "Large"
+          },
+          "options__2": {
+            "label": "Medium"
+          },
+          "options__3": {
+            "label": "Small"
+          }
+        },
+        "cards_layout": {
+          "label": "Cards layout",
+          "options__1": {
+            "label": "Bar"
+          },
+          "options__2": {
+            "label": "Grid"
+          }
+        },
+        "mobile_cards_layout": {
+          "label": "Mobile cards layout",
+          "options__1": {
+            "label": "Bar"
+          },
+          "options__2": {
+            "label": "Slider"
+          },
+          "options__3": {
+            "label": "Column"
+          }
+        },
+        "heading": {
+          "default": "Products"
+        },
+        "button_label": {
+          "default": "View all"
+        }
+      },
+      "presets": {
+        "name": "Products carousel"
+      }
+    },
     "featured-product": {
       "name": "Featured product",
       "settings": {

@@ -5,6 +5,7 @@
     - show_vendor: {Boolean} Show the product vendor. Default: false,
     - product_number: {Integer} The number of the product.,
     - color_scheme: {String} The color scheme of the card.
+    - show_price: {Boolean} Show the product price. Default: false
   	Usage:
   {% render 'product-card-placeholder' %}
 {% endcomment %}
@@ -49,7 +50,9 @@
           </h3>
         </div>
       </div>
-      {% render 'price' %}
+      {%- if show_price == 'true' -%}
+        {% render 'price' %}
+      {%- endif -%}
     </div>
   </div>
 </div>
