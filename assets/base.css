@@ -1422,6 +1422,30 @@ h6,
   line-height: var(--font-body-line-height);
 }
 
+h1 strong,
+.h1 strong,
+h2 strong,
+.h2 strong,
+h3 strong,
+.h3 strong {
+  color: #5D9DEA;
+}
+
+.body-2 {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing:  -0.2px;
+  font-weight: 600;
+}
+
+.body-3 {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.2px;
+  color: #1A1A1A;
+}
+
 a {
   display: inline-block;
   color: rgba(var(--color-foreground));
@@ -5942,10 +5966,4 @@ noscript .localization-form__select svg {
 .loading-overlay:not(.hidden) ~ cart-remove-button {
   pointer-events: none;
   cursor: default;
-}
-.body-2 {
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing:  -0.2px;
-  font-weight: 600;
 }
