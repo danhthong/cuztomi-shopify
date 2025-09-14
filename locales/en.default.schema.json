@@ -2093,9 +2093,17 @@
               "label": "Image",
               "info": "Only applicable when the \"With image\" layout is selected"
             },
+            "logo": {
+              "label": "Logo",
+              "info": "The company logo"
+            },
             "slide_author": {
               "label": "Author's name",
               "default": "Customer name here"
+            },
+            "slide_author_job": {
+              "label": "Author Job title",
+              "default": "Event Coordinator"
             },
             "product": {
               "label": "Product"
