@@ -1639,7 +1639,9 @@ details > * {
 }
 @media only screen and (min-width: 990px) {
   .body-normal {
-    font-size: calc(var(--font-body-scale) * 1.4rem);
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.2px;
   }
 }
 

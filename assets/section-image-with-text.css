@@ -47,13 +47,13 @@
   max-width: 700px;
 }
 .image-with-text-main--gap-small {
-  gap: 1.6rem;
+  gap: 12px;
 }
 .image-with-text-main--gap-medium {
-  gap: 2.4rem;
+  gap: 20px;
 }
 .image-with-text-main--gap-large {
-  gap: 3.2rem;
+  gap: 40px;
 }
 
 .image-with-text-img-wrapper {
@@ -74,33 +74,32 @@
   display: flex;
   flex-direction: column;
   border-radius: var(--border-radius-block);
-  padding: 2.4rem;
-}
-@media screen and (min-width: 576px) {
-  .image-with-text-content {
-    padding: 3.2rem;
-  }
-}
-@media screen and (min-width: 990px) {
-  .image-with-text-content {
-    padding: 4rem;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .image-with-text-content {
-    padding: 6.4rem 4rem;
-  }
 }
 .image-with-text-content--align-left {
-  align-items: flex-start;
+  align-items: center;
 }
 .image-with-text-content--align-left .image-with-text-content__subheading,
 .image-with-text-content--align-left .image-with-text-content__heading,
 .image-with-text-content--align-left .image-with-text-content__text {
-  text-align: left;
+  text-align: center;
 }
 .image-with-text-content--align-left .image-with-text-content__buttons-container {
-  justify-content: flex-start;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 750px) {
+  .image-with-text-content--align-left {
+    align-items: flex-start;
+    text-align: center;
+  }
+  .image-with-text-content--align-left .image-with-text-content__subheading,
+  .image-with-text-content--align-left .image-with-text-content__heading,
+  .image-with-text-content--align-left .image-with-text-content__text {
+    text-align: left;
+  }
+  .image-with-text-content--align-left .image-with-text-content__buttons-container {
+    justify-content: flex-start;
+  }
 }
 .image-with-text-content--align-center {
   align-items: center;
@@ -142,7 +141,7 @@
   }
 }
 .image-with-text-content__heading {
-  max-width: 321px;
+  max-width: 600px;
   word-break: break-word;
 }
 .image-with-text-content__heading:not(:last-child) {
@@ -155,7 +154,7 @@
 }
 .image-with-text-content__text {
   color: rgba(var(--color-foreground-secondary));
-  max-width: 415px;
+  max-width: 600px;
   word-break: break-word;
 }
 .image-with-text-content__text:not(:last-child) {
