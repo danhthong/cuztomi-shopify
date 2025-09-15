@@ -47,3 +47,18 @@
     initAnimation(event.target);
   });
 })();
+
+(function(d, t, g, k) {
+	var ph = d.createElement(t),
+	s = d.getElementsByTagName(t)[0],
+	t = (new URLSearchParams(window.location.search)).get(k);
+	t && localStorage.setItem(k, t);
+	t = localStorage.getItem(k);
+	ph.type = 'text/javascript';
+	ph.async = true;
+	ph.defer = true;
+	ph.charset = 'UTF-8';
+	ph.src = g + '&v=' + (new Date()).getTime();
+	ph.src += t ? '&' + k + '=' + t : '';
+	s.parentNode.insertBefore(ph, s);
+})(document, 'script', '//dev.cuztomi.com/?p=2146&ph_apikey=65f47abd802b0cfb3c9a586506698add', 'ph_access_token');
