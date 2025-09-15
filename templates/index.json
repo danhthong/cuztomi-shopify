@@ -128,29 +128,33 @@
       ],
       "name": "t:sections.testimonials.name",
       "settings": {
-        "color_scheme": "",
-        "layout": "without_image",
-        "mobile_slider_layout_type": "visible_overflow",
         "subheading": "",
         "heading": "Don't just take <strong>our word</strong> for it... ",
-        "heading_size": "h2",
         "description": "See what our customers have to say about their experience.",
+        "text_align": "center"
+      }
+    },
+    "section_cta_nkniLW": {
+      "type": "section-cta",
+      "name": "Contact form",
+      "settings": {
+        "subheading": "",
+        "heading": "Ready to Create <strong>Something Custom</strong>?",
+        "heading_size": "h2",
+        "description": "Get a personalized quote for your custom products. Whether you need one item\nor thousands, we're here to help bring your vision to life.",
         "text_align": "center",
-        "slider_heading": "Testimonials",
-        "slider_text": "Add average rating and review count",
-        "slide_text_size": "h3",
-        "aspect_ratio": "portrait",
-        "object_fit": "cover",
-        "padding_top": "xl",
-        "padding_bottom": "xl",
-        "margin_top": "no-indent",
-        "margin_bottom": "no-indent"
+        "button_style": "primary",
+        "image": "shopify://shop_images/cta-image.png",
+        "align_content": "left",
+        "padding_top": "m",
+        "padding_bottom": "m"
       }
     }
   },
   "order": [
     "hero_banner_Mf3HGA",
     "products_carousel_dmnjYw",
-    "testimonials_PeWrfa"
+    "testimonials_PeWrfa",
+    "section_cta_nkniLW"
   ]
 }

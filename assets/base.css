@@ -1373,7 +1373,8 @@ h2,
 @media only screen and (min-width: 1360px) {
   h2,
   .h2 {
-    font-size: calc(var(--font-heading-h2-scale) * 4rem);
+    font-size: 40px;
+    line-height: 52px;
   }
 }
 
@@ -1683,14 +1684,6 @@ details > * {
   }
 }
 
-.title.size--h2 {
-  max-width: 60rem;
-}
-
-.title.size--h3 {
-  max-width: 41.6rem;
-}
-
 .title-wrapper {
   margin-bottom: 3rem;
 }
@@ -1821,8 +1814,7 @@ details > * {
   }
 }
 .titles + .description {
-  margin-top: 1.6rem;
-  max-width: 41.6rem;
+  margin-top: 12px;
 }
 .titles .description + button {
   margin-bottom: 0;
@@ -1839,24 +1831,19 @@ details > * {
 
 .description {
   margin-top: 0;
-  margin-bottom: 2.4rem;
-  max-width: 41.6rem;
+  margin-bottom: 20px;
   word-break: break-word;
 }
 @media screen and (min-width: 750px) {
   .description {
-    margin-bottom: 3.2rem;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .description {
-    margin-bottom: 5.6rem;
+    margin-bottom: 40px;
   }
 }
 .description--center {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  max-width: 540px;
 }
 .description--right {
   text-align: right;
@@ -2412,6 +2399,7 @@ deferred-media {
   transition: var(--duration-short);
   order: -1;
 }
+textarea,
 .field input[type=text],
 .field input[type=email],
 .field input[type=tel],
@@ -2429,11 +2417,13 @@ deferred-media {
   color: rgb(var(--color-foreground));
   background-color: transparent;
   border: 0.1rem solid rgb(var(--color-border-input));
-  border-radius: var(--border-radius-input);
+  border-radius: 16px;
   box-sizing: border-box;
   transition: border var(--duration-default), background-color var(--duration-default);
   overflow: hidden;
+  margin-bottom: 12px;
 }
+textarea::placeholder,
 .field input[type=text]::placeholder,
 .field input[type=email]::placeholder,
 .field input[type=tel]::placeholder,
@@ -2485,13 +2475,14 @@ deferred-media {
     color: rgba(var(--color-foreground-secondary));
   }
 }
+textarea,
 .field input[type=text],
 .field input[type=email],
 .field input[type=tel],
 .field input[type=password],
 .field .field__input {
   flex-grow: 1;
-  padding: 0.2rem 1.6rem;
+  padding: 12px 16px;
   text-align: left;
 }
 .field input[type=text]::-webkit-search-cancel-button,
@@ -2527,6 +2518,9 @@ deferred-media {
   text-transform: none;
   color: rgb(var(--color-foreground));
   padding-bottom: 0.8rem;
+}
+.field label .require {
+  color: #F84D64;
 }
 .field textarea.field__input {
   padding: 1rem 1.6rem;
