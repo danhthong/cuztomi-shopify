@@ -176,8 +176,6 @@
         "description": "",
         "text_align": "center",
         "multicolumn_to_show": 3,
-        "column_gap": "1.6",
-        "row_gap": "3.2",
         "swipe_on_desktop": false,
         "swipe_on_mobile": false,
         "mobile_slider_layout_type": "visible_overflow",

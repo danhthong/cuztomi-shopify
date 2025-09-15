@@ -1,19 +1,6 @@
 {{ 'section-multicolumn.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'multicolumn.js' | asset_url }}" defer="defer"></script>
 
-{% style %}
-  {% render 'section-padding' %}
-  {% render 'section-margin' %}
-{% endstyle %}
-
-{%- style -%}
-  .section-{{ section.id }}-padding .multicolumn-grid__wrapper {
-    --row_gap: {{ section.settings.row_gap }}rem;
-    --column_gap: {{ section.settings.column_gap }}rem;
-    --column_padding: {{ section.settings.column_padding }}rem;
-  }
-{%- endstyle -%}
-
 {%- for block in section.blocks -%}
   {% liquid
     if section.settings.column_aspect_ratio != 'adapt'
@@ -68,18 +55,6 @@
             <div class="multicolumn-card__inner multicolumn-card__inner--hor-align-{{ section.settings.content_horizontal_alignment }} multicolumn-card__inner--ver-align-{{ section.settings.content_vertical_alignment }}">
               {%- if block.settings.heading != blank or block.settings.image != blank -%}
                 <div class="multicolumn-card__inner-top">
-                  {%- if block.settings.heading != blank -%}
-                    {%- if section.settings.heading != blank -%}
-                      <h3 class="multicolumn-card__heading {{ section.settings.card_heading_size }} multicolumn-card__heading--font-{{ section.settings.card_heading_font }}">
-                        <span>{{- block.settings.heading | escape -}}</span>
-                      </h3>
-                    {%- else -%}
-                      <h2 class="multicolumn-card__heading {{ section.settings.card_heading_size }} multicolumn-card__heading--font-{{ section.settings.card_heading_font }}">
-                        <span>{{- block.settings.heading | escape -}}</span>
-                      </h2>
-                    {%- endif -%}
-                  {%- endif -%}
-
                   {%- if block.settings.image != blank -%}
                     {% liquid
                       if aspect_ratio == 'landscape'
@@ -152,6 +127,17 @@
                         }}
                       {%- endif -%}
                     </div>
+                  {%- endif -%}
+                  {%- if block.settings.heading != blank -%}
+                    {%- if section.settings.heading != blank -%}
+                      <h4 class="multicolumn-card__heading">
+                        <span>{{- block.settings.heading | escape -}}</span>
+                      </h4>
+                    {%- else -%}
+                      <h2 class="multicolumn-card__heading {{ section.settings.card_heading_size }} multicolumn-card__heading--font-{{ section.settings.card_heading_font }}">
+                        <span>{{- block.settings.heading | escape -}}</span>
+                      </h2>
+                    {%- endif -%}
                   {%- endif -%}
                 </div>
               {%- endif -%}
@@ -265,46 +251,6 @@
       "step": 1,
       "default": 3,
       "label": "t:sections.multicolumn.settings.multicolumn_to_show.label"
-    },
-    {
-      "type": "select",
-      "id": "column_gap",
-      "label": "t:sections.multicolumn.settings.column_gap.label",
-      "options": [
-        {
-          "value": "0.8",
-          "label": "t:sections.multicolumn.settings.column_gap.options__3.label"
-        },
-        {
-          "value": "1.6",
-          "label": "t:sections.multicolumn.settings.column_gap.options__2.label"
-        },
-        {
-          "value": "2.4",
-          "label": "t:sections.multicolumn.settings.column_gap.options__1.label"
-        }
-      ],
-      "default": "1.6"
-    },
-    {
-      "type": "select",
-      "id": "row_gap",
-      "label": "t:sections.multicolumn.settings.row_gap.label",
-      "options": [
-        {
-          "value": "0.8",
-          "label": "t:sections.multicolumn.settings.row_gap.options__3.label"
-        },
-        {
-          "value": "1.6",
-          "label": "t:sections.multicolumn.settings.row_gap.options__2.label"
-        },
-        {
-          "value": "3.2",
-          "label": "t:sections.multicolumn.settings.row_gap.options__1.label"
-        }
-      ],
-      "default": "3.2"
     },
     {
       "type": "checkbox",
