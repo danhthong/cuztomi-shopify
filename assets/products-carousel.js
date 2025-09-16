@@ -1,15 +1,12 @@
 (function () {
   let swiperProductsCarousel,
     sliderSettings = {
-      slidesPerView: 1,
+      slidesPerView: 1.3,
       spaceBetween: 16,
       speed: 800,
       loopAdditionalSlides: true,
       allowTouchMove: true,
       breakpoints: {
-        540: {
-          slidesPerView: 1,
-        },
         768: {
           slidesPerView: 2,
           spaceBetween: 20,
@@ -33,12 +30,6 @@
     const slides = section.querySelectorAll(".products-carousel__item");
 
     if (!swiperEl || !swiperWrapper || !slides || !slides.length) return;
-
-    const mobSlidesPreView = swiperEl.classList.contains(
-      "products-carousel__layout--visible-overflow"
-    )
-      ? "auto"
-      : 1;
     swiperEl.classList.add("swiper");
     swiperWrapper.classList.add("swiper-wrapper");
 
@@ -53,7 +44,6 @@
 
     sliderSettings = {
       ...sliderSettings,
-      slidesPerView: mobSlidesPreView,
       navigation:
         nextBtn && prevBtn
           ? {
