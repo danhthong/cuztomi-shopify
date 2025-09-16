@@ -244,16 +244,6 @@
   letter-spacing: -0.2px;
 }
 
-@media (min-width: 576px) {
-  .multicolumn-card__heading {
-    max-width: 21.1rem;
-  }
-
-  .multicolumn-card__heading.h2 {
-    max-width: 35rem;
-  }
-}
-
 .multicolumn-card__heading--font-body {
   font-family: var(--font-body-family);
   font-weight: var(--font-body-weight);
@@ -269,14 +259,7 @@
 
 .multicolumn-card__text {
   margin: 0;
-  max-width: 90%;
   word-break: break-word;
-}
-
-@media (min-width: 990px) {
-  .multicolumn-card__text {
-    max-width: 82%;
-  }
 }
 
 .multicolumn-card__text a {
