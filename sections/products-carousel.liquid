@@ -9,9 +9,11 @@
   data-layout-mobile="{{ section.settings.mobile_cards_layout }}"
 >
   <div class="products-carousel__top container">
+    {% if section.settings.heading != blank %}
     <div class="products-carousel__top-main">
-      {% render 'heading-group', section: section, class: 'products-carousel', text_align: 'left' %}
+      {% render 'heading-group', section: section, class: 'products-carousel', text_align: 'center' %}
     </div>
+    {% endif %}
 
     {%- if section.settings.button_show -%}
       {% render 'button',
@@ -59,15 +61,17 @@
                 media_ratio: section.settings.image_ratio,
                 media_fit: section.settings.image_fit,
                 show_secondary_image: section.settings.show_secondary_image,
+                show_inside: section.settings.show_inside,
                 show_vendor: section.settings.show_vendor,
                 show_desc: section.settings.show_desc,
-                show_price: false,
+                show_price: section.settings.show_price,
                 show_button: false,
                 show_bagde: false,
                 section_id: section.id,
                 add_id: forloop.index,
                 color_scheme: section.settings.color_scheme,
               %}
+
             </div>
           {%- else -%}
             {% if section.settings.cards_layout == 'bar' %}
@@ -103,6 +107,7 @@
     </button>
   </div>
 </div>
+{% if section.settings.show_inside == true %}
 <div clsas="feature-key">
   <div class="container feature-key__container">
     <div class="feature-wrapper">
@@ -204,7 +209,7 @@
     </div>
   </div>
 </div>
-
+{% endif %}
 {% schema %}
 {
   "name": "t:sections.products-carousel.name",
@@ -314,6 +319,19 @@
       "default": false,
       "label": "t:sections.all.card.show_desc.label",
       "info": "t:sections.all.card.show_desc.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "Show Price",
+      "info": "Show product price"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_inside",
+      "label": "Show content inside image",
+      "info": "Show product content inside the image wrapper",
+      "default": false
     },
     {
       "type": "header",

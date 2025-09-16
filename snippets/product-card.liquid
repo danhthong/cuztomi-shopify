@@ -3,6 +3,7 @@
   Accepts:
   - product_card_product: {Object} Product Liquid object (optional)
   - show_secondary_image: {Boolean} Show the secondary image on hover. Default: false (optional)
+  - show_inside: {Boolean} Show the product vendor. Default: false
   - show_vendor: {Boolean} Show the product vendor. Default: true
   - show_desc: {Boolean} Show the product vendor. Default: false
   - show_price: {Boolean} Show the product vendor. Default: false
@@ -366,7 +367,7 @@
   </div>
 
   {% comment %} NOTE: Card information {% endcomment %}
-  <div class="card-information">
+  <div class="card-information {% if show_inside == true  %} inside-image {%  endif %}">
     <div class="card-information__wrapper">
       <div class="card-information__group">
         {%- if show_vendor -%}
@@ -381,7 +382,11 @@
         {%- endif -%}
         <h3 class="card__title h5">
           <a class="full-unstyled-link" href="{{ product_card_product.url | default: '#' }}">
-            {{- product_card_product.title | escape -}}
+            {% if show_inside == true %}
+              {{- product_card_product.title | escape -}}
+            {%  else %}
+              <span>Upload your own design</span>
+            {% endif %}
           </a>
         </h3>
         {%- if show_desc and product_card_product.description != blank -%}
@@ -391,8 +396,8 @@
         {%- endif -%}
       </div>
 
-      {%- if show_price == 'true' -%}
-        {% render 'price', product: product_card_product, price_class: '' %}
+      {%- if show_price == true -%}
+        <div class="price-wrapper"><span class="price-label">Base cost: From </span>{% render 'price', product: product_card_product, price_class: '' %}</div>
       {%-  endif  -%}
 
       {% comment %} NOTE: Parameters {% endcomment %}
