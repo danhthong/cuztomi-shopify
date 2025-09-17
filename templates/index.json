@@ -133,7 +133,8 @@
         "subheading": "",
         "heading": "Don't just take <strong>our word</strong> for it... ",
         "description": "See what our customers have to say about their experience.",
-        "text_align": "center"
+        "text_align": "center",
+        "extra_class": ""
       }
     },
     "section_cta_nkniLW": {

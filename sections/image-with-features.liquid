@@ -1,0 +1,119 @@
+{{ 'section-image-with-features.css' | asset_url | stylesheet_tag }}
+
+<section class="image-with-features">
+  <div class="container">
+    {% render 'heading-group', section: section, class: 'image-with-features', text_align: 'center' %}
+    <div class="image-with-features__wrapper">
+      <div class="image-with-features__content">
+
+        <div class="image-with-features__features">
+          {% for block in section.blocks %}
+            <div class="image-with-features__feature" {{ block.shopify_attributes }}>
+            {% if block.settings.image != blank %}
+              <div class="image-with-features__feature_icon">
+                {{
+                  block.settings.image
+                  | image_url: width: 60
+                  | image_tag:
+                    width: block.settings.image.width,
+                    height: block.settings.image.height,
+                    class: 'image-with-features-img'
+                }}
+              </div>
+            {% endif %}
+
+              <div class="image-with-features__feature-content">
+                {% if block.settings.title != blank %}
+                  <h4>{{ block.settings.title }}</h4>
+                {% endif %}
+                {% if block.settings.text != blank %}
+                  <div class="body-3">{{ block.settings.text }}</div>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      {% if section.settings.image != blank %}
+        <div class="image-with-features__image">
+          {{
+            section.settings.image
+            | image_url: width: 500
+            | image_tag:
+              width: section.settings.image.width,
+              height: section.settings.image.height,
+              sizes: '(min-width: 1200px) 800px, 100vw',
+              widths: '375, 550, 750, 1000, 1280',
+              class: 'image-with-features-img',
+              loading: 'lazy',
+              style: 'object-fit:cover'
+          }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Image with features",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Section heading",
+      "default": "Print and Sell Custom Products</br><strong>Across Every Platform</strong>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Right column image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Feature icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Feature title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Feature text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with features",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Platforms",
+            "text": "<p>Integrate your store with top e-commerce platforms like Shopify, WooCommerce, and BigCommerce, ensuring a smooth and hassle-free experience for your customers.</p>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Marketplaces",
+            "text": "<p>Streamline your operations by automating order fulfillment on leading marketplaces such as Amazon, eBay, and Etsy, providing quick and reliable delivery to your customers.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

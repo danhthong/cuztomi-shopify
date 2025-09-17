@@ -3,12 +3,7 @@
   <script src="{{ 'testimonials.js' | asset_url }}" defer="defer"></script>
 {% endif %}
 
-{%- style -%}
-  {% render 'section-padding' %}
-  {% render 'section-margin' %}
-{%- endstyle -%}
-
-<div dir="ltr" class="testimonials">
+<div class="testimonials {{ section.settings.extra_class }}">
   <div class="container">
     <div class="testimonials-heading-container">
       {% render 'heading-group',
@@ -136,6 +131,11 @@
       "id": "text_align",
       "label": "t:sections.all.text_align.label",
       "default": "center"
+    },
+    {
+      "type": "text",
+      "id": "extra_class",
+      "label": "Custom class"
     },
   ],
   "blocks": [

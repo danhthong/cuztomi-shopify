@@ -1,0 +1,111 @@
+.image-with-features {
+  display: flex;
+  background-color: #F6F7FB;
+  padding: 60px 0px;
+}
+
+.image-with-features__wrapper {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+}
+
+.image-with-features__content {
+  width: 50%;
+}
+
+.image-with-features__feature {
+  box-shadow: 0px 15px 40px 0px #B9BABE33;
+  border: 1px solid #ECECEC;
+  background-color: #ffffff;
+  padding: 24px;
+  margin-bottom: 20px;
+  border-radius: 16px;
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+}
+
+.image-with-features__feature:nth-child(even) {
+  margin-left: calc(100% - 500px);
+}
+
+.image-with-features__feature h4 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  margin-bottom: 8px;
+}
+
+.image-with-features__heading {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.image-with-features__description {
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.image-with-features .body-3 {
+  color: #5E6D7E;
+}
+
+.image-with-features__feature img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.image-with-features__image {
+  position: relative;
+  width: 50%;
+  min-height: 420px;
+}
+.image-with-features__image img {
+  max-width: 493px;
+  height: auto;
+  position: absolute;
+  bottom: -60px;
+  right: 0;
+}
+
+@media screen and (max-width: 575px) {
+  .image-with-features {
+    padding-bottom: 0;
+    padding-top: 40px;
+  }
+  .image-with-features__titles {
+    margin-bottom: 32px;
+  }
+  .image-with-features__wrapper {
+    flex-direction: column;
+  }
+  .image-with-features__content {
+    width: 100%;
+  }
+  .image-with-features__feature {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+  .image-with-features__feature:nth-child(even) {
+    margin-left: 0;
+  }
+  .image-with-features__image {
+    width: 100%;
+    min-height: auto;
+  }
+  .image-with-features__image img {
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+}

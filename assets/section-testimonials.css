@@ -6,6 +6,10 @@
   padding-bottom: 40px;
 }
 
+.testimonials.white-bg {
+  background: #ffffff;
+}
+
 @media screen and (min-width: 750px) {
 .testimonials {
   padding-top: 60px;
