@@ -325,19 +325,18 @@
         "extra_class": "white-bg"
       }
     },
-    "section_cta_nkniLW": {
-      "type": "section-cta",
-      "name": "Contact form",
+    "section_simple_cta_E4dhqh": {
+      "type": "section-simple-cta",
+      "name": "Simple CTA",
       "settings": {
-        "subheading": "",
-        "heading": "Ready to Create <strong>Something Custom</strong>?",
-        "heading_size": "h2",
-        "description": "Get a personalized quote for your custom products. Whether you need one item\nor thousands, we're here to help bring your vision to life.",
-        "text_align": "center",
-        "button_style": "primary",
-        "image": "shopify://shop_images/cta-image.png",
-        "align_content": "left",
-        "success_message": "Thank you! We’ll be in touch soon."
+        "image": "shopify://shop_images/cta-image.jpg",
+        "mobile_image": "shopify://shop_images/simple-cta-mobile-img.jpg",
+        "background_image": "shopify://shop_images/simple-cta-bg.png",
+        "subheading": "Get started Now",
+        "heading": "Ready to elevate your brand?",
+        "body": "Transform your brand with personalized decorating and convenient on-demand printing solutions today!",
+        "button_label": "Get In Touch",
+        "button_link": "shopify://pages/contact"
       }
     }
   },
@@ -347,6 +346,6 @@
     "products_carousel_dmnjYw",
     "image_with_features_Y4czMc",
     "testimonials_PeWrfa",
-    "section_cta_nkniLW"
+    "section_simple_cta_E4dhqh"
   ]
 }
