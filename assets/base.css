@@ -1910,7 +1910,7 @@ details > * {
 
 .swiper-button-next.swiper-button-disabled,
 .swiper-button-prev.swiper-button-disabled {
-  opacity: 0;
+  opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
@@ -1963,26 +1963,26 @@ details > * {
 .swiper-pagination-bullet {
   box-sizing: border-box;
   margin: 0 !important;
-  width: 4rem;
-  height: 0.6rem;
+  width: 8px;
+  height: 8px;
   border-radius: 3rem;
   transition: background-color 0.3s cubic-bezier(0.39, 0.575, 0.565, 1), border-color 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
   border-width: 1px;
   border-style: solid;
-  border-color: rgba(var(--color-foreground), 0.24);
+  border-color: #FFFFFF;
   background-color: transparent;
   opacity: 1;
 }
 @media screen and (hover: hover) and (pointer: fine) {
-  .swiper-pagination-bullet:not(.swiper-pagination-bullet-active):hover {
-    background-color: rgba(var(--color-foreground), 0.25);
-    border-color: rgba(var(--color-foreground), 0.25);
+  .swiper-pagination-bullet:hover {
+    background-color: #fff;
+    border-color: #fff;
   }
 }
 
 .swiper-pagination-bullet-active {
-  background-color: rgb(var(--color-foreground));
-  border-color: rgb(var(--color-foreground));
+  background-color: #fff;
+  border-color: #fff;
 }
 
 .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
