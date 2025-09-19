@@ -80,6 +80,7 @@
   flex-wrap: wrap;
   position: relative;
   padding-top: 24px;
+  padding-bottom: 20px;
   align-items: start;
   max-width: 1120px;
 }
@@ -88,6 +89,7 @@
   .product__outer {
     align-items: center;
     padding-top: 40px;
+    padding-bottom: 32px;
   }
 }
 
