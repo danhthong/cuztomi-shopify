@@ -3031,7 +3031,7 @@ textarea,
   position: fixed;
   background: #39405B;
   border-radius: 100px;
-  top: 40px;
+  top: 32px;
   left: 50%;
   transform: translateX(-50%);
   transition: top 0.3s ease-in-out;
@@ -3041,7 +3041,7 @@ textarea,
   display: block;
   justify-content: space-between;
   z-index: 4;
-  min-height: 6.4rem;
+  min-height: 56px;
   padding-left: 12px;
   padding-right: 12px;
 }
@@ -3054,9 +3054,10 @@ textarea,
     width: calc(100% - 40px);
   }
 }
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 990px) {
   .header {
     display: flex;
+    min-height: 68px;
   }
 }
 .header > .header__heading, .header > .header__heading-link {
@@ -5960,4 +5961,13 @@ noscript .localization-form__select svg {
 .loading-overlay:not(.hidden) ~ cart-remove-button {
   pointer-events: none;
   cursor: default;
+}
+
+.content-for-layout {
+  padding-top: 88px;
+}
+@media screen and (min-width: 990px) {
+  .content-for-layout {
+    padding-top: 100px;
+  }
 }

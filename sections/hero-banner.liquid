@@ -1,10 +1,5 @@
 {{ 'section-hero-banner.css' | asset_url | stylesheet_tag }}
 
-{%- style -%}
-  {% render 'section-padding' %}
-  {% render 'section-margin' %}
-{%- endstyle -%}
-
 <div class="hero-banner">
   {% render 'heading-group', section: section, class: 'hero-banner', text_align: section.settings.text_align %}
   {%- if section.settings.left_background != blank -%}

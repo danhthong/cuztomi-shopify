@@ -50,6 +50,7 @@
     "social_instagram_link": "https://www.instagram.com/cuztomi/",
     "social_youtube_link": "",
     "recently_product_record_lifetime": 20,
+    "show_breadcrumbs": false,
     "links_blank": true,
     "badge_sale_color_scheme": "background-2",
     "badge_soldout_color_scheme": "background-2",
