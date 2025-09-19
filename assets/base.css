@@ -1378,25 +1378,8 @@ h2,
 
 h3,
 .h3 {
-  font-size: calc(var(--font-heading-h3-scale) * 2rem);
-}
-@media only screen and (min-width: 750px) {
-  h3,
-  .h3 {
-    font-size: calc(var(--font-heading-h3-scale) * 2.4rem);
-  }
-}
-@media only screen and (min-width: 990px) {
-  h3,
-  .h3 {
-    font-size: calc(var(--font-heading-h3-scale) * 2.8rem);
-  }
-}
-@media only screen and (min-width: 1360px) {
-  h3,
-  .h3 {
-    font-size: calc(var(--font-heading-h3-scale) * 3rem);
-  }
+  font-size: 24px;
+  line-height: 32px;
 }
 
 h4,
