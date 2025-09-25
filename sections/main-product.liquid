@@ -413,6 +413,12 @@
                   </div>
                 </div>
               {% endfor %}
+              <div class="custom-option">
+                <div class="custom-qty">
+                  <span>Custom</span>
+                  <input type="number" class="qty" id="custom-qty" placeholder="Enter custom..." min="1"/>
+                </div>
+              </div>
             </div>
             <div class="box-footer">
               <div class="total-label">Total</div><div class="total-price"></div>
@@ -719,6 +725,7 @@
   function updateTotalPrice() {
     const options = document.querySelectorAll(".quantity-option");
     const totalPriceEl = document.querySelector(".total-price");
+    const customInput = document.querySelector("#custom-qty");
 
     options.forEach(option => {
       option.addEventListener("click", () => {
@@ -738,6 +745,60 @@
         }
       });
     });
+
+    if (customInput) {
+      const handleCustomQty = () => {
+        // Activate custom-option when typing or clicking
+        options.forEach(o => o.classList.remove("active"));
+        document.querySelector(".custom-option").classList.add("active");
+
+        // If empty, clear the total and stop
+        if (customInput.value.trim() === "") {
+          totalPriceEl.textContent = "";
+          return;
+        }
+
+        let qty = parseInt(customInput.value, 10);
+
+        if (isNaN(qty) || qty <= 0) {
+          totalPriceEl.textContent = "$0.00";
+          return;
+        }
+
+        // Get all available bundle options
+        let bundles = Array.from(document.querySelectorAll(".quantity-option:not(.custom-option)"))
+          .map(o => ({
+            qty: parseInt(o.dataset.qty, 10),
+            price: parseFloat(o.dataset.price)
+          }))
+          .filter(b => !isNaN(b.qty) && !isNaN(b.price))
+          .sort((a, b) => a.qty - b.qty); // sort ascending by qty
+
+        // Find the best matching bundle (largest qty <= entered qty)
+        let matched = bundles[0];
+        for (let b of bundles) {
+          if (b.qty <= qty) {
+            matched = b;
+          } else {
+            break;
+          }
+        }
+
+        // Calculate total
+        let unitPrice = matched.price / matched.qty;
+        let total = unitPrice * qty;
+
+        if (typeof Shopify !== "undefined" && Shopify.formatMoney) {
+          totalPriceEl.textContent = Shopify.formatMoney(total);
+        } else {
+          totalPriceEl.textContent = "$" + (total / 100).toFixed(2);
+        }
+      };
+
+      ["input"].forEach(evt => {
+        customInput.addEventListener(evt, handleCustomQty);
+      });
+    }
   }
 
   document.addEventListener("DOMContentLoaded", function () {
