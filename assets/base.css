@@ -2414,7 +2414,10 @@ textarea::placeholder,
 .field input[type=password]::placeholder,
 .field select::placeholder,
 .field .field__input::placeholder {
-  color: rgba(var(--color-foreground-secondary), 0.5);
+  color: #4B5A75;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.2px;
   transition: color var(--duration-default);
 }
 @media screen and (pointer: fine) {
@@ -5953,4 +5956,17 @@ noscript .localization-form__select svg {
   .content-for-layout {
     padding-top: 100px;
   }
+}
+
+.rounded-16 {
+  border: 1px solid #CFCFD2;
+  border-radius: 16px;
+  padding: 12px 16px;
+  display: flex;
+  gap: 8px;
+  max-height: 48px;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  align-items: center;
 }
