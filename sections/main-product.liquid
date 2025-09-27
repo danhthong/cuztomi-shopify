@@ -226,7 +226,7 @@
                 </svg>
                 Skip Proofing
               </button>
-              <button class="rounded-16">
+              <button class="rounded-16 upload-later">
                 <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M3.26953 16.5294V22.3615H11.659H20.0484V16.5294M3.26953 16.5294H7.7711V17.1897C7.7711 18.2943 8.66653 19.1897 9.7711 19.1897H13.5468C14.6514 19.1897 15.5468 18.2943 15.5468 17.1897V16.5294H20.0484M3.26953 16.5294L5.53833 11.107L14.3762 11.1069L17.7796 11.107L20.0484 16.5294" stroke="#5D9DEA" stroke-width="1.3" stroke-linejoin="round"/>
                   <path d="M9.18085 11.4336V8.09103H6.76758L11.6589 2.63672L16.5503 8.09103H14.137V11.4336" stroke="#5D9DEA" stroke-width="1.3" stroke-linejoin="round"/>
@@ -253,13 +253,16 @@
                   <path d="M15.9746 21.2207V22.4287C15.9746 22.981 16.4223 23.4288 16.9746 23.4288H21.5499C22.1022 23.4288 22.5499 22.981 22.5499 22.4288V21.2207" stroke="#F2F8FF" stroke-linecap="round" stroke-linejoin="round"/>
                   <path d="M19.2856 21.1807V17.0454M19.2856 17.0454L17.5098 18.7731M19.2856 17.0454L21.0614 18.7731" stroke="#F2F8FF" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-
-              </label>
-              <label for="file">
                 <p id="file-name">
-                  <strong>Drag or click to upload</strong><br>
-                  All formats supported.<br>
-                  Max file size: 25MB | 1 file per order
+                  <span class="default-holder">
+                    <strong>Drag or click to upload</strong><br>
+                    All formats supported.<br>
+                    Max file size: 25MB | 1 file per order
+                  </span>
+                  <span class="selected-holder">
+                  </span>
+                  <span class="selected-image">
+                  </span>
                 </p>
               </label>
               <input id="watermark-image-input" type="file" accept=".svg,.png,.jpg,.jpeg"/>
@@ -437,6 +440,24 @@
             {%- endif -%}
         {%- endcase -%}
       {%- endfor -%}
+    </div>
+    <div class="product__outer">
+      <div class="product__main">
+        {% render 'button',
+          btn_link: 'javascript:();',
+          btn_label: 'Add to cart',
+          btn_style: 'secondary',
+          class: 'button--add-to-cart'
+        %}
+      </div>
+      <div class="product__info-container">
+        {% render 'button',
+          btn_link: 'javascript:();',
+          btn_label: 'Checkout',
+          btn_style: 'primary',
+          class: 'button--checkout'
+        %}
+      </div>
     </div>
   </div>
 
@@ -801,7 +822,130 @@
     }
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", () => {
+    const addToCartBtn = document.querySelector(".button--add-to-cart");
+    const checkoutBtn = document.querySelector(".button--checkout");
+
+    addToCartBtn.addEventListener("click", async () => {
+      const activeOption = document.querySelector(".quantity-option.active");
+      const qtyInput = document.getElementById("custom-qty");
+
+      let quantity = 1;
+
+      if (activeOption && !activeOption.classList.contains("custom-option")) {
+        quantity = parseInt(activeOption.dataset.qty, 10) || 1;
+      } else if (qtyInput && qtyInput.value) {
+        quantity = parseInt(qtyInput.value, 10) || 1;
+      }
+
+      // replace with your product variant ID
+      const variantId = '15128616599882';
+
+      try {
+        await fetch("/cart/add.js", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            id: variantId,
+            quantity: quantity,
+            properties: {
+              Bundle: activeOption?.innerText.trim() || `Custom (${quantity})`
+            }
+          })
+        });
+      } catch (err) {
+        console.error(err);
+      }
+    });
+
+    checkoutBtn.addEventListener("click", async () => {
+      // first add to cart
+      addToCartBtn.click();
+
+      // then go directly to checkout
+      setTimeout(() => {
+        window.location.href = "/checkout";
+      }, 500);
+    });
+
+
+    const fileInputs = document.querySelectorAll(
+      '.custom-file-upload + input[type="file"]'
+    );
+    const fileLabels = document.querySelectorAll('.custom-file-upload');
+    const fileNames = document.querySelectorAll('#file-name .selected-holder');
+    const defaultHolders = document.querySelectorAll('#file-name .default-holder');
+    const selectedImages = document.querySelectorAll('#file-name .selected-image');
+    const uploadLaters = document.querySelectorAll('.upload-later');
+
+    uploadLaters.forEach((uploadLater, index) => {
+      uploadLater.addEventListener('click', (e) => {
+        e.preventDefault();
+        const defaultHolder = defaultHolders[index];
+        const fileNameDisplay = fileNames[index];
+        const selectedImage = selectedImages[index];
+
+        defaultHolder.style.display = "block";
+        fileNameDisplay.innerHTML = "";
+        selectedImage.innerHTML = ""; // clear preview
+      });
+    });
+
+    fileInputs.forEach((fileInput, index) => {
+      const fileLabel = fileLabels[index];
+      const fileNameDisplay = fileNames[index];
+      const defaultHolder = defaultHolders[index];
+      const selectedImage = selectedImages[index];
+
+      fileLabel.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        fileLabel.classList.add('dragover');
+      });
+
+      fileLabel.addEventListener('dragleave', () => {
+        fileLabel.classList.remove('dragover');
+      });
+
+      fileLabel.addEventListener('drop', (e) => {
+        e.preventDefault();
+        fileLabel.classList.remove('dragover');
+        fileInput.files = e.dataTransfer.files;
+        updateFile(fileInput, fileNameDisplay, defaultHolder, selectedImage);
+      });
+
+      fileInput.addEventListener('change', () => {
+        if (fileInput.files.length > 0) {
+          updateFile(fileInput, fileNameDisplay, defaultHolder, selectedImage);
+        } else {
+          fileInput.value = '';
+          fileNameDisplay.innerHTML = '';
+          selectedImage.innerHTML = '';
+          defaultHolder.style.display = "block";
+        }
+      });
+    });
+
+    function updateFile(fileInput, fileNameDisplay, defaultHolder, selectedImage) {
+      const file = fileInput.files[0];
+      if (file) {
+        fileNameDisplay.innerHTML = `<span>File selected:</span> ${file.name}`;
+        defaultHolder.style.display = "none";
+
+        // Show image preview if image type
+        if (file.type.startsWith("image/")) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            selectedImage.innerHTML = `<img src="${e.target.result}" alt="Preview" style="max-width: 100%; margin:10px auto 0; border-radius:8px; max-height: 70px"/>`;
+          };
+          reader.readAsDataURL(file);
+        } else {
+          selectedImage.innerHTML = "<em>Preview not available</em>";
+        }
+      }
+    }
+
     updateTotalPrice();
     document.addEventListener("shopify:section:load", function (e) {
       updateTotalPrice();
