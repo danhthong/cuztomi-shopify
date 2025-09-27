@@ -397,9 +397,17 @@
             <div class="box-title"><span>Select a quantity</span></div>
             <div class="box-content quantity-options">
               {% for bundle in product.metafields.custom.bundle_options.value %}
+                {% assign matched_variant = null %}
+                {% for v in product.variants %}
+                  {% if v.title == bundle.name %}
+                    {% assign matched_variant = v %}
+                  {% endif %}
+                {% endfor %}
                 <div class="quantity-option"
                     data-qty="{{ bundle.quantity }}"
-                    data-price="{{ bundle.price }}">
+                    data-bundleqty="1"
+                    data-price="{{ bundle.price }}"
+                    data-variantid="{{ matched_variant.id }}">
                   <div class="qty">{{ bundle.quantity }}</div>
                   <div class="option-meta">
                     <div class="bundle-price">
@@ -441,24 +449,27 @@
         {%- endcase -%}
       {%- endfor -%}
     </div>
-    <div class="product__outer">
-      <div class="product__main">
-        {% render 'button',
-          btn_link: 'javascript:();',
-          btn_label: 'Add to cart',
-          btn_style: 'secondary',
-          class: 'button--add-to-cart'
-        %}
+    <form method="post" action="{{ routes.cart_add_url }}" enctype="multipart/form-data" id="custom-add-to-cart-form">
+      <input type="hidden" id="product-id" name="id" value="{{ product.variants.first.id }}">
+      <div class="product__outer">
+        <div class="product__main">
+          {% render 'button',
+            btn_link: 'javascript:;',
+            btn_label: 'Add to cart',
+            btn_style: 'secondary',
+            class: 'button--add-to-cart'
+          %}
+        </div>
+        <div class="product__info-container">
+          {% render 'button',
+            btn_link: 'javascript:;',
+            btn_label: 'Checkout',
+            btn_style: 'primary',
+            class: 'button--checkout'
+          %}
+        </div>
       </div>
-      <div class="product__info-container">
-        {% render 'button',
-          btn_link: 'javascript:();',
-          btn_label: 'Checkout',
-          btn_style: 'primary',
-          class: 'button--checkout'
-        %}
-      </div>
-    </div>
+    </form>
   </div>
 
   {% render 'feature-keys' %}
@@ -831,15 +842,34 @@
       const qtyInput = document.getElementById("custom-qty");
 
       let quantity = 1;
+      let variantId = null;
 
+      // If a preset bundle is active
       if (activeOption && !activeOption.classList.contains("custom-option")) {
-        quantity = parseInt(activeOption.dataset.qty, 10) || 1;
-      } else if (qtyInput && qtyInput.value) {
-        quantity = parseInt(qtyInput.value, 10) || 1;
+        quantity = parseInt(activeOption.dataset.bundleqty, 10) || 1;
+        variantId = activeOption.dataset.variantid;
+      }
+      else if (qtyInput && qtyInput.value) {
+        quantity = Math.max(1, parseInt(qtyInput.value, 10) || 1);
+
+        // Look up for a matching bundle option
+        const bundles = Array.from(document.querySelectorAll(".quantity-option"));
+        const matched = bundles.find(b => parseInt(b.dataset.qty, 10) === quantity);
+
+        if (matched) {
+          // If exact match, use its variant id
+          quantity = 1;
+          variantId = matched.dataset.variantid;
+        } else {
+          // Otherwise, fall back to the smallest (base) variant
+          variantId = bundles[0]?.dataset.variantid;
+        }
       }
 
-      // replace with your product variant ID
-      const variantId = '15128616599882';
+      if (!variantId) {
+        console.error("No variant ID found");
+        return;
+      }
 
       try {
         await fetch("/cart/add.js", {
@@ -855,8 +885,9 @@
             }
           })
         });
+        console.log("Added to cart:", { variantId, quantity });
       } catch (err) {
-        console.error(err);
+        console.error("Add to cart error:", err);
       }
     });
 
