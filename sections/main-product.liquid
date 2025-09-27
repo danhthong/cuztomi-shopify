@@ -837,7 +837,9 @@
     const addToCartBtn = document.querySelector(".button--add-to-cart");
     const checkoutBtn = document.querySelector(".button--checkout");
 
-    addToCartBtn.addEventListener("click", async () => {
+    let alreadyAdded = false; // flag to track
+
+    async function addToCart() {
       const activeOption = document.querySelector(".quantity-option.active");
       const qtyInput = document.getElementById("custom-qty");
 
@@ -846,10 +848,9 @@
 
       // If a preset bundle is active
       if (activeOption && !activeOption.classList.contains("custom-option")) {
-        quantity = parseInt(activeOption.dataset.bundleqty, 10) || 1;
+        quantity = parseInt(activeOption.dataset.qty, 10) || 1;
         variantId = activeOption.dataset.variantid;
-      }
-      else if (qtyInput && qtyInput.value) {
+      } else if (qtyInput && qtyInput.value) {
         quantity = Math.max(1, parseInt(qtyInput.value, 10) || 1);
 
         // Look up for a matching bundle option
@@ -857,18 +858,15 @@
         const matched = bundles.find(b => parseInt(b.dataset.qty, 10) === quantity);
 
         if (matched) {
-          // If exact match, use its variant id
-          quantity = 1;
           variantId = matched.dataset.variantid;
         } else {
-          // Otherwise, fall back to the smallest (base) variant
           variantId = bundles[0]?.dataset.variantid;
         }
       }
 
       if (!variantId) {
         console.error("No variant ID found");
-        return;
+        return false;
       }
 
       try {
@@ -886,19 +884,24 @@
           })
         });
         console.log("Added to cart:", { variantId, quantity });
+        alreadyAdded = true; // mark as added
+        return true;
       } catch (err) {
         console.error("Add to cart error:", err);
+        return false;
       }
-    });
+    }
 
+    // Add to Cart button
+    addToCartBtn.addEventListener("click", addToCart);
+
+    // Checkout button
     checkoutBtn.addEventListener("click", async () => {
-      // first add to cart
-      addToCartBtn.click();
-
-      // then go directly to checkout
-      setTimeout(() => {
-        window.location.href = "/checkout";
-      }, 500);
+      if (!alreadyAdded) {
+        const success = await addToCart();
+        if (!success) return;
+      }
+      window.location.href = "/checkout";
     });
 
 
