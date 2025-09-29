@@ -403,7 +403,7 @@
                     {% assign matched_variant = v %}
                   {% endif %}
                 {% endfor %}
-                <div class="quantity-option"
+                <div class="quantity-option {% if bundle.hidden_on_front == true %} hidden {% endif %}"
                     data-qty="{{ bundle.quantity }}"
                     data-bundleqty="1"
                     data-price="{{ bundle.price }}"
@@ -801,7 +801,8 @@
         let bundles = Array.from(document.querySelectorAll(".quantity-option:not(.custom-option)"))
           .map(o => ({
             qty: parseInt(o.dataset.qty, 10),
-            price: parseFloat(o.dataset.price)
+            price: parseFloat(o.dataset.price),
+            hidden: o.classList.contains("hidden")
           }))
           .filter(b => !isNaN(b.qty) && !isNaN(b.price))
           .sort((a, b) => a.qty - b.qty); // sort ascending by qty
@@ -816,9 +817,15 @@
           }
         }
 
-        // Calculate total
-        let unitPrice = matched.price / matched.qty;
-        let total = unitPrice * qty;
+        console.log(matched);
+
+        if ( matched && matched.hidden) {
+          total = matched.price * parseInt(customInput.value, 10);
+        } else {
+          // Normal case: use matched bundle
+          unitPrice = matched.price / matched.qty;
+          total = unitPrice * qty;
+        }
 
         if (typeof Shopify !== "undefined" && Shopify.formatMoney) {
           totalPriceEl.textContent = Shopify.formatMoney(total);
