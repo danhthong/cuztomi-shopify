@@ -3266,3 +3266,12 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+.option-btn.active {
+  border-color: #5D9DEA;
+  background-color: #5D9DEA;
+  color: #fff;
+}
+.option-btn.active svg circle,
+.option-btn.active svg path {
+  stroke: #fff;
+}

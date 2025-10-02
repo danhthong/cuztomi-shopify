@@ -218,7 +218,7 @@
         <div class="customise-box">
           <div class="left-side">
             <div class="form-row">
-              <button class="rounded-16">
+              <button class="rounded-16 option-btn proofing-btn" data-property="Proofing" data-value="Skip Proofing">
                 <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="11.5005" cy="12.4092" r="8.68799" stroke="#5D9DEA" stroke-width="1.3"/>
                   <path d="M8.11719 9.02734L14.8809 15.7905" stroke="#5D9DEA" stroke-width="1.3" stroke-linecap="round"/>
@@ -226,7 +226,7 @@
                 </svg>
                 Skip Proofing
               </button>
-              <button class="rounded-16 upload-later">
+              <button class="rounded-16 option-btn upload-btn" data-property="Proofing" data-value="Upload Later">
                 <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M3.26953 16.5294V22.3615H11.659H20.0484V16.5294M3.26953 16.5294H7.7711V17.1897C7.7711 18.2943 8.66653 19.1897 9.7711 19.1897H13.5468C14.6514 19.1897 15.5468 18.2943 15.5468 17.1897V16.5294H20.0484M3.26953 16.5294L5.53833 11.107L14.3762 11.1069L17.7796 11.107L20.0484 16.5294" stroke="#5D9DEA" stroke-width="1.3" stroke-linejoin="round"/>
                   <path d="M9.18085 11.4336V8.09103H6.76758L11.6589 2.63672L16.5503 8.09103H14.137V11.4336" stroke="#5D9DEA" stroke-width="1.3" stroke-linejoin="round"/>
@@ -451,6 +451,8 @@
     </div>
     <form method="post" action="{{ routes.cart_add_url }}" enctype="multipart/form-data" id="custom-add-to-cart-form">
       <input type="hidden" id="product-id" name="id" value="{{ product.variants.first.id }}">
+      <input type="hidden" name="properties[Proofing]" id="proofing-option" value="">
+      <input type="hidden" name="properties[Upload Later]" id="upload-option" value="">
       <div class="product__outer">
         <div class="product__main">
           {% render 'button',
@@ -817,8 +819,6 @@
           }
         }
 
-        console.log(matched);
-
         if ( matched && matched.hidden) {
           total = matched.price * parseInt(customInput.value, 10);
         } else {
@@ -844,7 +844,7 @@
     const addToCartBtn = document.querySelector(".button--add-to-cart");
     const checkoutBtn = document.querySelector(".button--checkout");
 
-    let alreadyAdded = false; // flag to track
+    let alreadyAdded = false;
 
     async function addToCart() {
       const activeOption = document.querySelector(".quantity-option.active");
@@ -853,28 +853,57 @@
       let quantity = 1;
       let variantId = null;
 
-      // If a preset bundle is active
+      // Handle preset bundle
       if (activeOption && !activeOption.classList.contains("custom-option")) {
-        quantity = parseInt(activeOption.dataset.qty, 10) || 1;
+        quantity = 1;
         variantId = activeOption.dataset.variantid;
       } else if (qtyInput && qtyInput.value) {
         quantity = Math.max(1, parseInt(qtyInput.value, 10) || 1);
 
-        // Look up for a matching bundle option
         const bundles = Array.from(document.querySelectorAll(".quantity-option"));
         const matched = bundles.find(b => parseInt(b.dataset.qty, 10) === quantity);
 
-        if (matched) {
-          variantId = matched.dataset.variantid;
-        } else {
-          variantId = bundles[0]?.dataset.variantid;
-        }
+        variantId = matched ? matched.dataset.variantid : bundles[0]?.dataset.variantid;
       }
 
       if (!variantId) {
         console.error("No variant ID found");
         return false;
       }
+
+      const proofing = document.getElementById("proofing-option")?.value || "";
+      const uploadLater = document.getElementById("upload-option")?.value || "";
+      const personalization = document.getElementById("personalization")?.value || "";
+      const fileInput = document.getElementById("watermark-image-input");
+
+      const properties = {
+        Bundle: activeOption?.innerText.trim() || `Custom (${quantity})`
+      };
+
+      // File upload handling
+      if (fileInput && fileInput.files.length > 0) {
+        try {
+          const file = fileInput.files[0];
+          const formData = new FormData();
+          formData.append("file", file);
+
+          const uploadRes = await fetch("/apps/upload-endpoint", {
+            method: "POST",
+            body: formData
+          });
+
+          if (!uploadRes.ok) throw new Error("File upload failed");
+
+          const { fileUrl } = await uploadRes.json();
+          properties["Uploaded File"] = fileUrl;
+        } catch (err) {
+          console.error("Upload error:", err);
+        }
+      }
+
+      if (proofing) properties["Proofing"] = proofing;
+      if (uploadLater) properties["Upload Later"] = uploadLater;
+      if (personalization) properties["Personalization"] = personalization;
 
       try {
         await fetch("/cart/add.js", {
@@ -885,13 +914,11 @@
           body: JSON.stringify({
             id: variantId,
             quantity: quantity,
-            properties: {
-              Bundle: activeOption?.innerText.trim() || `Custom (${quantity})`
-            }
+            properties: properties
           })
         });
         console.log("Added to cart:", { variantId, quantity });
-        alreadyAdded = true; // mark as added
+        alreadyAdded = true;
         return true;
       } catch (err) {
         console.error("Add to cart error:", err);
@@ -991,6 +1018,41 @@
     document.addEventListener("shopify:section:load", function (e) {
       updateTotalPrice();
     });
+
+    // Proofing button
+    document.querySelectorAll('.proofing-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const input = document.getElementById('proofing-option');
+
+        if (button.classList.contains('active')) {
+          // Toggle off
+          button.classList.remove('active');
+          input.value = "";
+        } else {
+          // Toggle on
+          button.classList.add('active');
+          input.value = button.dataset.value;
+        }
+      });
+    });
+
+    // Upload Later button
+    document.querySelectorAll('.upload-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const input = document.getElementById('upload-option');
+
+        if (button.classList.contains('active')) {
+          // Toggle off
+          button.classList.remove('active');
+          input.value = "";
+        } else {
+          // Toggle on
+          button.classList.add('active');
+          input.value = button.dataset.value;
+        }
+      });
+    });
+
   });
 {% endjavascript %}
 

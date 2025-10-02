@@ -17,9 +17,9 @@
         "left_background": "shopify://shop_images/hero-bottom-left-bg.svg",
         "right_background": "shopify://shop_images/hero-top-right-bg.svg",
         "inner_subheading": "",
-        "inner_heading": "Stop waiting weeks. Get <strong>flawless custom</strong> gifts fast.",
+        "inner_heading": "Custom Gifts, Delivered Fast.",
         "inner_heading_size": "h1",
-        "inner_text": "Customers choose us for fast, USA-printed <strong>personalized gifts</strong> and <strong>branded merchandise</strong>. Upload your logo or photo — we'll proof, print,and ship in 24–48 hours.",
+        "inner_text": "Personalized and branded merchandise, printed in California and shipped in 24–48 hours.",
         "inner_content_align": "center",
         "vertical_inner_content_align": "center",
         "show_button": true,
@@ -56,10 +56,10 @@
         "image_ratio": "square",
         "image_fit": "cover",
         "show_secondary_image": true,
-        "show_inside": true,
         "show_vendor": false,
         "show_desc": false,
         "show_price": false,
+        "show_inside": true,
         "button_show": false,
         "button_label": "View all",
         "button_style": "primary",
@@ -148,7 +148,8 @@
         "text_align": "center",
         "button_style": "primary",
         "image": "shopify://shop_images/cta-image.png",
-        "align_content": "left"
+        "align_content": "left",
+        "success_message": "Thank you! We’ll be in touch soon."
       }
     }
   },
