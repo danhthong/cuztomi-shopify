@@ -5961,7 +5961,7 @@ noscript .localization-form__select svg {
 .rounded-16 {
   border: 1px solid #CFCFD2;
   border-radius: 16px;
-  padding: 12px;
+  padding: 12px 6px;
   display: flex;
   gap: 8px;
   font-size: 14px;

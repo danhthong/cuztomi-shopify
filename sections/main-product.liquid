@@ -379,7 +379,7 @@
               </div>
             </div>
             <div class="box-footer">
-              <div class="total-label">Total</div><div class="total-price"></div>
+              <div class="total-label">Total</div><div class="total-price">0</div>
             </div>
           </div>
         {% endif %}
@@ -387,21 +387,21 @@
           <div class="customise-box">
             <div class="left-side">
               <div class="form-row">
-                <button class="rounded-16 option-btn proofing-btn" data-property="Proofing" data-value="Skip Proofing">
+                <span class="rounded-16 option-btn proofing-btn" data-property="Proofing" data-value="Skip Proofing">
                   <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="11.5005" cy="12.4092" r="8.68799" stroke="#5D9DEA" stroke-width="1.3"/>
                     <path d="M8.11719 9.02734L14.8809 15.7905" stroke="#5D9DEA" stroke-width="1.3" stroke-linecap="round"/>
                     <path d="M14.8809 9.02734L8.11768 15.791" stroke="#5D9DEA" stroke-width="1.3" stroke-linecap="round"/>
                   </svg>
                   Skip Proofing
-                </button>
-                <button class="rounded-16 option-btn upload-btn" data-property="Proofing" data-value="Upload Later">
+                </span>
+                <span class="rounded-16 option-btn upload-btn" data-property="Proofing" data-value="Upload Later">
                   <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3.26953 16.5294V22.3615H11.659H20.0484V16.5294M3.26953 16.5294H7.7711V17.1897C7.7711 18.2943 8.66653 19.1897 9.7711 19.1897H13.5468C14.6514 19.1897 15.5468 18.2943 15.5468 17.1897V16.5294H20.0484M3.26953 16.5294L5.53833 11.107L14.3762 11.1069L17.7796 11.107L20.0484 16.5294" stroke="#5D9DEA" stroke-width="1.3" stroke-linejoin="round"/>
                     <path d="M9.18085 11.4336V8.09103H6.76758L11.6589 2.63672L16.5503 8.09103H14.137V11.4336" stroke="#5D9DEA" stroke-width="1.3" stroke-linejoin="round"/>
                   </svg>
                   Upload later
-                </button>
+                </span>
               </div>
               <div class="form-row form-customize">
                 <label for="personalization">Personalization</label>
@@ -434,7 +434,7 @@
                     </span>
                   </p>
                 </label>
-                <input id="watermark-image-input" type="file" accept=".svg,.png,.jpg,.jpeg"/>
+                <input id="watermark-image-input" name="properties[Uploaded File]" type="file" accept=".svg,.png,.jpg,.jpeg"/>
               </div>
             </div>
           </div>
@@ -836,8 +836,36 @@
   document.addEventListener("DOMContentLoaded", () => {
     const addToCartBtn = document.querySelector(".button--add-to-cart");
     const checkoutBtn = document.querySelector(".button--checkout");
+    const fileInput = document.getElementById("watermark-image-input");
+    const uploadLaterInput = document.getElementById("upload-option");
+    const uploadLaterBtn = document.querySelector(".upload-btn");
 
     let alreadyAdded = false;
+
+    function toggleButtons() {
+      const fileUploaded = fileInput?.files?.length > 0;
+      const uploadLaterSelected = uploadLaterInput?.value !== "";
+
+      if (fileUploaded || uploadLaterSelected) {
+        addToCartBtn.disabled = false;
+        checkoutBtn.disabled = false;
+        addToCartBtn.classList.remove("disabled");
+        checkoutBtn.classList.remove("disabled");
+      } else {
+        addToCartBtn.disabled = true;
+        checkoutBtn.disabled = true;
+        addToCartBtn.classList.add("disabled");
+        checkoutBtn.classList.add("disabled");
+      }
+    }
+
+    toggleButtons();
+
+    fileInput?.addEventListener("change", toggleButtons);
+
+    uploadLaterBtn?.addEventListener("click", () => {
+      setTimeout(toggleButtons, 50);
+    });
 
     async function addToCart() {
       const activeOption = document.querySelector(".quantity-option.active");
@@ -869,46 +897,25 @@
       const personalization = document.getElementById("personalization")?.value || "";
       const fileInput = document.getElementById("watermark-image-input");
 
-      const properties = {
-        Bundle: activeOption?.innerText.trim() || `Custom (${quantity})`
-      };
+      const formData = new FormData();
+      formData.append("id", variantId);
+      formData.append("quantity", quantity);
 
-      // File upload handling
-      if (fileInput && fileInput.files.length > 0) {
-        try {
-          const file = fileInput.files[0];
-          const formData = new FormData();
-          formData.append("file", file);
-
-          const uploadRes = await fetch("/apps/upload-endpoint", {
-            method: "POST",
-            body: formData
-          });
-
-          if (!uploadRes.ok) throw new Error("File upload failed");
-
-          const { fileUrl } = await uploadRes.json();
-          properties["Uploaded File"] = fileUrl;
-        } catch (err) {
-          console.error("Upload error:", err);
-        }
+      if (activeOption) {
+        formData.append("properties[Bundle]", activeOption.innerText.trim() || `Custom (${quantity})`);
       }
 
-      if (proofing) properties["Proofing"] = proofing;
-      if (uploadLater) properties["Upload Later"] = uploadLater;
-      if (personalization) properties["Personalization"] = personalization;
+      if (proofing) formData.append("properties[Proofing]", proofing);
+      if (uploadLater) formData.append("properties[Upload Later]", uploadLater);
+      if (personalization) formData.append("properties[Personalization]", personalization);
+      if (fileInput?.files[0]) {
+        formData.append("properties[Uploaded File]", fileInput.files[0]);
+      }
 
       try {
         await fetch("/cart/add.js", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            id: variantId,
-            quantity: quantity,
-            properties: properties
-          })
+          body: formData
         });
         console.log("Added to cart:", { variantId, quantity });
         alreadyAdded = true;
