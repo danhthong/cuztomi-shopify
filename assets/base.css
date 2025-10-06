@@ -3017,7 +3017,7 @@ textarea,
   position: fixed;
   background: #39405B;
   border-radius: 100px;
-  top: 32px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   transition: top 0.3s ease-in-out;
@@ -3032,7 +3032,7 @@ textarea,
   padding-right: 12px;
 }
 .shopify-section-header-sticky .header-wrapper {
-  top: 0;
+  top: 20px;
 }
 @media screen and (max-width: 989px) {
   .header-wrapper {
@@ -3705,6 +3705,14 @@ details[open] > .header__icon--menu .icon-hamburger {
   display: none;
 }
 
+.menu-drawer-container #menu-drawer {
+  width: 100vw;
+  height: 100vh;
+  top: -32px;
+  left: -20px;
+  position: fixed;
+}
+
 .menu-drawer-container .header__modal-close-button {
   display: flex;
   align-items: center;
@@ -3720,8 +3728,8 @@ details[open] > .header__icon--menu .icon-hamburger {
   border-radius: 50%;
 }
 .menu-drawer-container .header__modal-close-button .icon-close {
-  width: 24px;
-  height: 24px;
+  width: 40;
+  height: 40px;
 }
 @media screen and (hover: hover) and (pointer: fine) {
   .menu-drawer-container .header__modal-close-button:hover {

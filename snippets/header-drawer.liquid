@@ -15,6 +15,7 @@
     >
       <div class="menu-drawer__inner-container">
         <div class="menu-drawer__top container no-js-hidden">
+          {% render 'header-logo', tag: 'h1' %}
           <span class="header__modal-close-button">
             <span class="header__icon-wrapper">
               {% render 'icon-close' %}
@@ -24,6 +25,20 @@
         <div class="menu-drawer__main">
           <div class="menu-drawer__navigation-container">
             <nav class="menu-drawer__navigation">
+              <ul class="menu-drawer__menu list-menu product-list" role="list">
+                <li class="header-title"><span class="menu-drawer__menu-item list-menu__item focus-inset header-list">Discober our products</span></li>
+                {%- for product in collections.all.products limit:10 -%}
+                  <li>
+                    <a
+                      class="menu-drawer__menu-item list-menu__item focus-inset"
+                      href="{{ product.url }}"
+                      data-value="{{ product.handle }}"
+                    >
+                      {{ product.title }}
+                    </a>
+                  </li>
+                {%- endfor -%}
+              </ul>
               <ul class="menu-drawer__menu list-menu" role="list">
                 {%- for link in section.settings.menu.links -%}
                   {% liquid
@@ -261,7 +276,7 @@
                     <a class="button focus-inset" href="{{ routes.account_register_url }}">
                       <div class="button__content">
                         <span
-                          class="button__label body-normal"
+                          class="button__label"
                           data-label="{{- 'customer.login_page.create_account_header' | t -}}"
                         >
                           Sign Up
@@ -440,122 +455,6 @@
               </ul>
             {% endif %}
           </div>
-        </div>
-
-        <div class="menu-drawer__bottom no-js-hidden">
-          {%- if section.settings.enable_country_selector or section.settings.enable_language_selector -%}
-            <div class="menu-drawer__localization-wrapper">
-              {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
-                <div class="header__localization menu-drawer__localization">
-                  <localization-form>
-                    {%- form 'localization', id: 'HeaderCountryFormMobile', class: 'localization-form' -%}
-                      <div class="no-js-hidden">
-                        <div class="disclosure">
-                          <button
-                            type="button"
-                            class="header__localization-button disclosure__button localization-selector focus-inset"
-                            aria-expanded="false"
-                            aria-controls="HeaderCountryListMobile"
-                          >
-                            <span class="currency-country">
-                              {{ localization.country.name }} (
-                              {{- localization.country.currency.iso_code }}
-                              {{ localization.country.currency.symbol -}}
-                              )
-                            </span>
-                            {% render 'icon-caret' %}
-                          </button>
-                          <ul
-                            id="HeaderCountryListMobile"
-                            role="list"
-                            class="disclosure__list list-unstyled color-background-1"
-                            hidden
-                          >
-                            {%- for country in localization.available_countries -%}
-                              <li class="disclosure__item" tabindex="-1">
-                                <a
-                                  class="disclosure__link disclosure__link--flag {% if country.iso_code == localization.country.iso_code %} disclosure__link--active{% endif %} focus-inset"
-                                  href="#"
-                                  {% if country.iso_code == localization.country.iso_code %}
-                                    aria-current="true"
-                                  {% endif %}
-                                  data-value="{{ country.iso_code }}"
-                                  data-flag="{{ country.currency.iso_code }}"
-                                >
-                                  <span>
-                                    {{ country.name }}
-                                    <span class="localization-form__currency"
-                                      >({{ country.currency.iso_code }}
-                                      {{ country.currency.symbol }})</span
-                                    >
-                                  </span>
-                                </a>
-                              </li>
-                            {%- endfor -%}
-                          </ul>
-                        </div>
-                        <input type="hidden" name="country_code" value="{{ localization.country.iso_code }}">
-                      </div>
-                    {%- endform -%}
-                  </localization-form>
-                </div>
-              {%- endif -%}
-              {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
-                <div class="header__localization menu-drawer__localization header__localization--language">
-                  <localization-form>
-                    {%- form 'localization', id: 'HeaderLanguageFormMobile', class: 'localization-form' -%}
-                      <div class="no-js-hidden">
-                        <div class="disclosure">
-                          <button
-                            type="button"
-                            class="disclosure__button header__localization-lang-button localization-form__select localization-selector focus-inset"
-                            aria-expanded="false"
-                            aria-controls="HeaderLanguageListMobile"
-                          >
-                            <span class="value">
-                              {{- localization.language.iso_code | upcase }}
-                            </span>
-                            {% render 'icon-caret' -%}
-                          </button>
-                          <ul
-                            id="HeaderLanguageListMobile"
-                            role="list"
-                            class="disclosure__list list-unstyled color-background-1"
-                            hidden
-                          >
-                            {%- for language in localization.available_languages -%}
-                              <li class="disclosure__item" tabindex="-1">
-                                <a
-                                  class="disclosure__link {% if language.iso_code == localization.language.iso_code %} disclosure__link--active{% endif %} focus-inset"
-                                  href="#"
-                                  hreflang="{{ language.iso_code }}"
-                                  lang="{{ language.iso_code }}"
-                                  {% if language.iso_code == localization.language.iso_code %}
-                                    aria-current="true"
-                                  {% endif %}
-                                  data-value="{{ language.iso_code }}"
-                                >
-                                  <span>
-                                    {{ language.endonym_name | capitalize }}
-                                  </span>
-                                </a>
-                              </li>
-                            {%- endfor -%}
-                          </ul>
-                        </div>
-                        <input
-                          type="hidden"
-                          name="locale_code"
-                          value="{{ localization.language.iso_code }}"
-                        >
-                      </div>
-                    {%- endform -%}
-                  </localization-form>
-                </div>
-              {%- endif -%}
-            </div>
-          {%- endif -%}
-          {% render 'header-color-scheme' %}
         </div>
       </div>
     </div>

@@ -24,12 +24,10 @@ menu-drawer > details[open] > summary::before {
 
 .menu-drawer {
   position: fixed;
-  top: 0;
-  bottom: 1.6rem;
-  left: 0;
-  width: 100%;
-  height: calc(100vh - (var(--ann-height)));
-  height: calc(var(--vh, 1vh) * 100 - (var(--ann-height)));
+  width: 100vw;
+  height: 100vh;
+  top: -32px;
+  left: -20px;
   padding: 0;
   background-color: rgb(var(--color-background));
   border: none;
@@ -51,10 +49,13 @@ menu-drawer > details[open] > summary::before {
 .menu-drawer__top {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   gap: 0.8rem 1.6rem;
-  padding-block: 0.8rem;
-  min-height: var(--header-height);
+  padding-block: 0;
+  margin-top: 24px;
+}
+.menu-drawer__top .header__heading-logo {
+  filter: brightness(0.8) invert(1);
 }
 .menu-drawer__main {
   overflow-y: auto;
@@ -81,7 +82,6 @@ menu-drawer > details[open] > summary::before {
   visibility: visible;
   opacity: 1;
   pointer-events: all;
-  background-color: #39405B;
 }
 
 details[open] > .menu-drawer__submenu {
@@ -97,8 +97,8 @@ details[open] > .menu-drawer__submenu {
 }
 
 .menu-drawer__navigation-container {
-  padding-top: 2.2rem;
-  padding-inline: 2.4rem;
+  padding-top: 20px;
+  padding-inline: 20px;
   overflow-y: auto;
 }
 .menu-drawer__navigation-container::-webkit-scrollbar {
@@ -113,6 +113,12 @@ details[open] > .menu-drawer__submenu {
   padding-top: 6.4rem;
 }
 
+.list-menu.product-list {
+  border-bottom: 1px solid #DFE2E5;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+}
+
 .menu-drawer__inner-submenu {
   height: 100%;
   overflow-x: hidden;
@@ -123,16 +129,33 @@ details[open] > .menu-drawer__submenu {
   text-transform: none;
 }
 
-.menu-drawer__menu > li {
-  border-top: 0.1rem solid rgb(var(--color-border));
+.menu-drawer__menu li:not(.header-title) {
+  position: relative;
 }
-.menu-drawer__menu > li:last-child {
-  border-bottom: 0.1rem solid rgb(var(--color-border));
+.menu-drawer__menu li:not(.header-title)::after {
+  content: "";
+  position: absolute;
+  top: 9px;
+  right: 0;
+  width: 20px;
+  height: 20px;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 15.5L13 10.5L8 5.5' stroke='%239EA7B2' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 20px;
 }
+
 .menu-drawer__menu .menu-drawer__menu-item {
-  color: #fff;
-  padding-block: 1.8rem;
+  color: #262C32;
+  padding-block: 12px;
   text-decoration: none;
+  font-size: 16px;
+  line-height: 21px;
+  border: none;
+}
+
+.menu-drawer__menu .menu-drawer__menu-item.header-list {
+  font-weight: 600;
+  padding-top: 0;
 }
 
 .menu-drawer__inner-submenu li {
@@ -190,7 +213,19 @@ details[open] > .menu-drawer__submenu {
 }
 
 .menu-drawer__utility-links {
-  padding: 3.2rem 0;
+  padding: 20px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.menu-drawer__utility-links .button {
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .menu-drawer__account {
@@ -203,7 +238,10 @@ details[open] > .menu-drawer__submenu {
 .menu-drawer__account .icon-account {
   margin-right: 0.8rem;
 }
-
+.header__account-login {
+  background-color: #5D9DEA;
+  color: #fff;
+}
 .menu-drawer__account-register {
   display: flex;
   flex-direction: column;
@@ -216,8 +254,7 @@ details[open] > .menu-drawer__submenu {
   padding-right: 28px;
   padding-left: 28px;
   border-radius: 100px;
-  color: #fff;
-  background-color: #5d9dea;
+  color: #38506d;
   border: 1px solid #5D9DEA;
   box-shadow: 0 10px 20px #5e615e33;
 }
