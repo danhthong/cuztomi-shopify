@@ -153,6 +153,24 @@
                         {%- else -%}
                           {{- product.description -}}
                         {%- endif -%}
+
+                        {% if product.metafields.custom.features_key != blank %}
+                          <ul class="product-features">
+                          {% for feature in product.metafields.custom.features_key.value %}
+                            <li class="product-feature__item">
+                              {{
+                                feature.icon
+                                | image_url : width: 24
+                                | image_tag:
+                                  width: 24,
+                                  height: 24,
+                                  class: 'product-feature__icon'
+                              }}
+                              {{ feature.title }}
+                            </li>
+                          {% endfor %}
+                          </ul>
+                        {% endif %}
                       </div>
                       {%- comment -%} START OF CLOSEING TAGS FOR DESCRIPTION READ MORE BUTTON {%- endcomment -%}
                       {%- if block.settings.enable_read_more and has_text_in_descr -%}
