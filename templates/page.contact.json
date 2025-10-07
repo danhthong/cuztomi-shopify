@@ -9,10 +9,47 @@
  */
 {
   "sections": {
-    "form": {
-      "type": "contact-form",
-      "settings": {}
+    "section_contact_info_UxwEBa": {
+      "type": "section-contact-info",
+      "blocks": {
+        "column_QXQB6U": {
+          "type": "column",
+          "settings": {
+            "heading": "Phone number",
+            "image": "shopify://shop_images/phone-icon.svg",
+            "text": "+1 (555) 000-0000"
+          }
+        },
+        "column_JQpQUt": {
+          "type": "column",
+          "settings": {
+            "heading": "Email address",
+            "image": "shopify://shop_images/email-icon.svg",
+            "text": "<a href=\"mailto:support@company.com\" target=\"_blank\" title=\"mailto:support@company.com\">support@company.com</a>"
+          }
+        },
+        "column_FjyAXR": {
+          "type": "column",
+          "settings": {
+            "heading": "Adress",
+            "image": "shopify://shop_images/location-icon.svg",
+            "text": "This is address"
+          }
+        }
+      },
+      "block_order": [
+        "column_QXQB6U",
+        "column_JQpQUt",
+        "column_FjyAXR"
+      ],
+      "name": "Contact Info",
+      "settings": {
+        "heading": "We'd Love to Hear From You",
+        "description": "We're here to help. Reach out through the form below or use any of the options that work best for you."
+      }
     }
   },
-  "order": ["form"]
+  "order": [
+    "section_contact_info_UxwEBa"
+  ]
 }

@@ -1,0 +1,116 @@
+.contact-info {
+  display: block;
+  margin-bottom: 60px;
+  margin-top: 60px;
+}
+.contact-info-header {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 32px;
+  margin-top: 0;
+  max-width: 970px;
+}
+.contact-info-header__description {
+  max-width: 450px;
+  margin: 16px auto 0;
+}
+.contact-info-grid__wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  max-width: 970px;
+  margin: 0 auto;
+}
+
+.contact-info-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  border: 1px solid #E2E2E3;
+  padding: 16px 20px;
+  border-radius: 20px;
+}
+
+.contact-info-card .detail {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.32px;
+  text-align: center;
+  color: #262C32;
+  margin-top: 4px;
+}
+
+.contact-info-form {
+  max-width: 970px;
+  margin: 0 auto;
+  margin-top: 32px;
+  padding: 20px;
+  border: 1px solid #E2E2E3;
+  border-radius: 20px;
+  box-shadow: 0px 10px 20px 0px #9F9FAC1A;
+}
+.contact-info-form .text-area {
+  min-height: 160px;
+}
+.contact-form__bottom .button {
+  width: 100%;
+}
+
+.contact-form .field input {
+  position: relative;
+  padding-left: 50px;
+  margin-bottom: 20px;
+}
+
+.contact-form .field .text-area {
+  margin-bottom: 20px;
+}
+
+.field.has-icon::before {
+  display: block;
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 32px;
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.field.has-icon.name::before {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='41' height='40' viewBox='0 0 41 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M23.582 18.196C23.582 19.991 22.127 21.446 20.332 21.446C18.5371 21.446 17.082 19.991 17.082 18.196C17.082 16.4011 18.5371 14.946 20.332 14.946C22.127 14.946 23.582 16.4011 23.582 18.196Z' stroke='%237F7D83' stroke-width='1.3'/%3E%3Cpath d='M26.3396 27.4976C25.2949 25.2244 22.9979 23.6459 20.3322 23.6459C17.6665 23.6459 15.3694 25.2244 14.3247 27.4976M29.832 20C29.832 25.2467 25.5787 29.5 20.332 29.5C15.0853 29.5 10.832 25.2467 10.832 20C10.832 14.7533 15.0853 10.5 20.332 10.5C25.5787 10.5 29.832 14.7533 29.832 20Z' stroke='%237F7D83' stroke-width='1.3'/%3E%3C/svg%3E");
+}
+
+.field.has-icon.email::before {
+  background-image: url("data:image/svg+xml;utf8,%3Csvg width='41' height='40' viewBox='0 0 41 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 14.1634L19.3376 20.3489C20.0244 20.8585 20.9638 20.8587 21.651 20.3496L30 14.1634M12.9422 12.4001H28.0578C29.1304 12.4001 30 13.2697 30 14.3424V25.658C30 26.7306 29.1304 27.6002 28.0578 27.6002H12.9422C11.8696 27.6002 11 26.7306 11 25.658V14.3424C11 13.2697 11.8696 12.4001 12.9422 12.4001Z' stroke='%237F7D83' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.contact-form__add-text {
+  margin: 0 auto;
+  font-weight: 400;
+  font-style: Italic;
+  font-size: 14px;
+  line-height: 21px;
+  display: table;
+  margin-top: 20px;
+}
+
+.contact-form__add-text p {
+  position: relative;
+  padding-left: 28px;
+}
+
+.contact-form__add-text p::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='20' height='21' viewBox='0 0 20 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.0013 18.8334C14.6037 18.8334 18.3346 15.1025 18.3346 10.5001C18.3346 5.89771 14.6037 2.16675 10.0013 2.16675C5.39893 2.16675 1.66797 5.89771 1.66797 10.5001C1.66797 15.1025 5.39893 18.8334 10.0013 18.8334Z' stroke='black' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M10 13.8333V10.5' stroke='black' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M10 7.16675H10.0083' stroke='black' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
