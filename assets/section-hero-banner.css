@@ -125,7 +125,7 @@
 }
 
 .hero-banner-content__heading strong {
-  color: #5D9DEA;
+  color: #1D81F9;
 }
 
 .hero-banner-content__heading:not(:last-child) {
@@ -250,7 +250,7 @@
 }
 
 .ticker-banner-label {
-  color: #5D9DEA;
+  color: #1D81F9;
   background-color: #EFF5FD;
   text-transform: capitalize;
   cursor: default;

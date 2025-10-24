@@ -239,7 +239,7 @@ details[open] > .menu-drawer__submenu {
   margin-right: 0.8rem;
 }
 .header__account-login {
-  background-color: #5D9DEA;
+  background-color: transparent;
   color: #fff;
 }
 .menu-drawer__account-register {
@@ -255,7 +255,7 @@ details[open] > .menu-drawer__submenu {
   padding-left: 28px;
   border-radius: 100px;
   color: #38506d;
-  border: 1px solid #5D9DEA;
+  border: 1px solid #1D81F9;
   box-shadow: 0 10px 20px #5e615e33;
 }
 .menu-drawer__account-register > span {

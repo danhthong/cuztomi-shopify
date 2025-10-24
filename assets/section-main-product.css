@@ -186,7 +186,7 @@
 }
 
 .quantity-option.active {
-  border-color: #5D9DEA;
+  border-color: #1D81F9;
   background-color: #F2F8FF;
 }
 
@@ -209,7 +209,7 @@
 }
 
 .custom-option.active {
-  border-color: #5D9DEA;
+  border-color: #1D81F9;
 }
 
 .quantity-option .option-meta {
@@ -235,7 +235,7 @@
 }
 
 #custom-qty:focus {
-  border-color: #5D9DEA;
+  border-color: #1D81F9;
 }
 
 .bundle-price {
@@ -255,7 +255,7 @@
 }
 
 .bundle-price {
-  color: #5D9DEA;
+  color: #1D81F9;
   font-weight: 600;
 }
 
@@ -3256,7 +3256,7 @@
 }
 .product-upload-field {
   background-color: #F2F8FF;
-  border: 1px dashed #5D9DEA;
+  border: 1px dashed #1D81F9;
   border-radius: 16px;
   padding: 20px;
   height: 100%;
@@ -3289,7 +3289,7 @@
   margin-bottom: 4px;
 }
 .button--add-to-cart {
-  border: 1px solid #5D9DEA;
+  border: 1px solid #1D81F9;
   background-color: #fff;
   width: 100%;
   opacity: 1;
@@ -3310,7 +3310,7 @@
   padding-left: 32px;
 }
 .button--add-to-cart .button__content .button__label {
-  color: #5D9DEA;
+  color: #1D81F9;
 }
 
 .button--add-to-cart .button__content::after {
@@ -3341,8 +3341,8 @@
   width: 50%;
 }
 .option-btn.active {
-  border-color: #5D9DEA;
-  background-color: #5D9DEA;
+  border-color: #1D81F9;
+  background-color: #1D81F9;
   color: #fff;
 }
 .option-btn.active svg circle,
