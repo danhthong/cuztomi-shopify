@@ -1,75 +1,56 @@
 {{ 'section-hero-banner.css' | asset_url | stylesheet_tag }}
 
-<div class="hero-banner">
+<div class="hero-banner container">
   {% render 'heading-group', section: section, class: 'hero-banner', text_align: section.settings.text_align %}
-  {%- if section.settings.left_background != blank -%}
-    <div
-      class="hero-left-background"
-      style="background-image: url('{{ section.settings.left_background | image_url }}');">
-    </div>
-  {%- endif -%}
-
-  {%- if section.settings.left_background != blank -%}
-    <div
-      class="hero-right-background"
-      style="background-image: url('{{ section.settings.right_background | image_url }}');">
-    </div>
-  {%- endif -%}
   <div
-    class="content hero-banner-main hero-banner-main--align-image-right"
+    class="content hero-banner-main"
   >
+  {%- if section.settings.desktop_background != blank -%}
+    <div class="hero-background"></div>
+  {%- endif -%}
     <div class="hero-banner-img-wrapper">
-      {%- if section.settings.image != blank -%}
+      {%- if section.settings.left_image != blank -%}
         {%- liquid
-          assign settings_aspect_ratio = 1
-
-          if section.settings.aspect_ratio != 'adapt'
-            assign settings_aspect_ratio_numbers = section.settings.aspect_ratio | split: '/'
-            assign settings_aspect_ratio = settings_aspect_ratio_numbers[0] | append: '.0' | divided_by: settings_aspect_ratio_numbers[1]
-          endif
-
-          assign calc_ratio = 1
-
-          if section.settings.image.aspect_ratio > settings_aspect_ratio
-            assign calc_ratio = section.settings.image.aspect_ratio | divided_by: settings_aspect_ratio | round: 2
-          endif
-
           assign img_loading = 'lazy'
 
           if section.index == 1
             assign img_loading = 'eager'
           endif
         -%}
-        {%- capture section_gap -%}
-          {%- if section.settings.section_gap == 'small' -%}
-            16px
-          {%- elsif section.settings.section_gap == 'medium' -%}
-            24px
-          {%- elsif section.settings.section_gap == 'large' -%}
-            32px
-          {%- endif -%}
-        {%- endcapture -%}
-        {%- capture sizes -%}
-          {%- if section.settings.img_position == 'top' or section.settings.img_position == 'bottom' -%}
-            (min-width: 1440px) calc(1280px * {{ calc_ratio }}), (min-width: 1200px) calc(89vw * {{ calc_ratio }}), (min-width: 550px) calc(98vw * {{ calc_ratio }}), calc(92vw * {{ calc_ratio }})
-          {%- else -%}
-            (min-width: 1440px) calc((1280px - {{ section_gap }}) / 2 * {{ calc_ratio }}), (min-width: 1200px) calc(44vw * {{ calc_ratio }}), (min-width: 750px) calc(48vw * {{ calc_ratio }}), (min-width: 550px) calc(98vw * {{ calc_ratio }}), calc(92vw * {{ calc_ratio }})
-          {%- endif -%}
-        {%- endcapture -%}
         {{
-          section.settings.image
-          | image_url: width: 3840
+          section.settings.left_image
+          | image_url: width: 400
           | image_tag:
-            width: section.settings.image.width,
-            height: section.settings.image.height,
-            sizes: sizes,
-            widths: '375, 550, 750, 1000, 1280, 1500, 1780, 2560, 3000, 3840',
-            loading: img_loading
+            width: section.settings.left_image.width,
+            height: section.settings.left_image.height,
+            widths: '375, 550',
+            loading: img_loading,
+            class: 'hero-banner-img--left'
+        }}
+      {%- endif -%}
+
+      {%- if section.settings.right_image != blank -%}
+        {%- liquid
+          assign img_loading = 'lazy'
+
+          if section.index == 1
+            assign img_loading = 'eager'
+          endif
+        -%}
+        {{
+          section.settings.right_image
+          | image_url: width: 400
+          | image_tag:
+            width: section.settings.right_image.width,
+            height: section.settings.right_image.height,
+            widths: '375, 550',
+            loading: img_loading,
+            class: 'hero-banner-img--right'
         }}
       {%- endif -%}
     </div>
     <div
-      class="hero-banner-content hero-banner-content--align-left"
+      class="hero-banner-content"
     >
       {%- if section.settings.inner_subheading != blank -%}
         <span class="hero-banner-content__subheading subtitle">
@@ -162,18 +143,23 @@
     },
     {
       "type": "image_picker",
-      "id": "image",
-      "label": "t:sections.hero-banner.settings.image.label"
+      "id": "left_image",
+      "label": "Left Image"
     },
     {
       "type": "image_picker",
-      "id": "left_background",
-      "label": "t:sections.hero-banner.settings.left_background.label"
+      "id": "right_image",
+      "label": "Right Image"
     },
     {
       "type": "image_picker",
-      "id": "right_background",
-      "label": "t:sections.hero-banner.settings.right_background.label"
+      "id": "desktop_background",
+      "label": "Desktop Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_background",
+      "label": "Mobile background"
     },
     {
       "type": "header",
