@@ -3256,7 +3256,7 @@
 }
 .product-upload-field {
   background-color: #F2F8FF;
-  border: 1px dashed #1D81F9;
+  border: 1px dashed #4C9DFF;
   border-radius: 16px;
   padding: 20px;
   height: 100%;
@@ -3320,7 +3320,7 @@
   left: 0;
   width: 24px;
   height: 24px;
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='24' height='25' viewBox='0 0 24 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 4.75867H6.81153L9.27303 14.9827H20V8.64732L7.36222 7.04598' stroke='%235D9DEA' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M9.29914 14.9436L7.36088 17.1875C6.89657 17.725 7.27843 18.5595 7.98873 18.5595H19.56' stroke='%235D9DEA' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M11.1388 21.1496C11.854 21.1496 12.4338 20.5698 12.4338 19.8546C12.4338 19.1394 11.854 18.5596 11.1388 18.5596C10.4235 18.5596 9.84375 19.1394 9.84375 19.8546C9.84375 20.5698 10.4235 21.1496 11.1388 21.1496Z' stroke='%235D9DEA' stroke-width='1.3' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M17.2559 21.1496C17.9712 21.1496 18.551 20.5698 18.551 19.8546C18.551 19.1394 17.9712 18.5596 17.2559 18.5596C16.5407 18.5596 15.9609 19.1394 15.9609 19.8546C15.9609 20.5698 16.5407 21.1496 17.2559 21.1496Z' stroke='%235D9DEA' stroke-width='1.3' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='24' height='25' viewBox='0 0 24 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 4.75867H6.81153L9.27303 14.9827H20V8.64732L7.36222 7.04598' stroke='%234C9DFF' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M9.29914 14.9436L7.36088 17.1875C6.89657 17.725 7.27843 18.5595 7.98873 18.5595H19.56' stroke='%234C9DFF' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M11.1388 21.1496C11.854 21.1496 12.4338 20.5698 12.4338 19.8546C12.4338 19.1394 11.854 18.5596 11.1388 18.5596C10.4235 18.5596 9.84375 19.1394 9.84375 19.8546C9.84375 20.5698 10.4235 21.1496 11.1388 21.1496Z' stroke='%234C9DFF' stroke-width='1.3' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M17.2559 21.1496C17.9712 21.1496 18.551 20.5698 18.551 19.8546C18.551 19.1394 17.9712 18.5596 17.2559 18.5596C16.5407 18.5596 15.9609 19.1394 15.9609 19.8546C15.9609 20.5698 16.5407 21.1496 17.2559 21.1496Z' stroke='%234C9DFF' stroke-width='1.3' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-position: center;
   background-repeat: no-repeat;
 }
