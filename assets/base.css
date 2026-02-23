@@ -2151,7 +2151,7 @@ deferred-media {
 .button--primary, .button--secondary,
 .customer .button--primary,
 .customer .button--secondary {
-  padding: 12px 16px;
+  padding: 9px 16px;
   line-height: 24px;
   border-radius: var(--border-radius-button);
 }
@@ -2164,7 +2164,7 @@ deferred-media {
 .customer .button--primary {
   color: #fff;
   transition: color 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
-  background-color: #1D81F9;;
+  background-color: #1D81F9;
 }
 .button--primary .button__label,
 .customer .button--primary .button__label {
@@ -3016,7 +3016,7 @@ textarea,
   max-width: 1120px;
   width: 100%;
   position: fixed;
-  background: #39405B;
+  background: #FFFFFF;
   border-radius: 100px;
   top: 20px;
   left: 50%;
@@ -3127,7 +3127,7 @@ textarea,
 }
 .header--left-logo {
   display: flex;
-  gap: 0.8rem;
+  gap: 21px;
 }
 @media screen and (min-width: 1100px) {
   .header--left-logo .header__heading + .header__inline-menu,
@@ -3214,7 +3214,7 @@ textarea,
 .header__heading {
   display: inline-flex;
   align-items: center;
-  margin: 0;
+  margin: 0 24px;
   line-height: 0;
 }
 .header__heading span {
@@ -3448,12 +3448,14 @@ textarea,
   padding-right: 28px;
   padding-left: 28px;
   border-radius: 100px;
-  color: #fff;
   background-color: transparent;
-  border: 1px solid #fff;
+  border: 1px solid #0059FF;
+}
+.header__account-login .button__content .button__label {
+  color: #0059FF;
 }
 .header__account-login:hover {
-  border-color: #1D589F;
+  border-color: #0059FF;
 }
 
 .header__account-register {
@@ -4028,7 +4030,7 @@ details[open] > .header__icon--menu .icon-hamburger {
   width: 100%;
   height: 100%;
   transition: opacity var(--duration-default);
-  border: 1px solid #fff;
+  border: 1px solid #0059FF;
   border-radius: 100px;
 }
 @media screen and (hover: hover) and (pointer: fine) {
@@ -4543,21 +4545,6 @@ details[open] > .header__icon--menu .icon-hamburger {
   max-height: unset;
   pointer-events: all;
   opacity: 1;
-}
-
-@media (prefers-color-scheme: dark) {
-  [data-scheme=auto] .shopify-section-header:not(.shopify-section-header-sticky):not(.color-background-overlay) .header-wrapper {
-    background-color: rgb(31, 31, 31);
-  }
-  [data-scheme=auto] .shopify-section-header.shopify-section-header-sticky .header-wrapper {
-    background-color: rgb(52, 52, 53);
-  }
-}
-[data-scheme=dark] .shopify-section-header:not(.shopify-section-header-sticky):not(.color-background-overlay) .header-wrapper {
-  background-color: rgb(31, 31, 31);
-}
-[data-scheme=dark] .shopify-section-header.shopify-section-header-sticky .header-wrapper {
-  background-color: rgb(52, 52, 53);
 }
 
 noscript .localization-form__select {
@@ -5733,6 +5720,7 @@ noscript .localization-form__select svg {
 
 .disclosure {
   position: relative;
+  width: calc(100% - 148px);
 }
 
 .disclosure__button {
@@ -5810,10 +5798,10 @@ noscript .localization-form__select svg {
 
 .product-selector {
   padding: 9px 16px;
-  border: 1px solid #fff;
+  border: 1px solid #1D81F9;
   border-radius: 50px;
-  width: 300px;
-  color: #fff;
+  width: 100%;
+  color: #CFCFD2;
   justify-content: space-between;
   font-weight: 400;
   font-size: 14px;

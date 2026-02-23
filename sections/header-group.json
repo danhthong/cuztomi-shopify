@@ -73,9 +73,9 @@
         "desktop_burger_DnhigP"
       ],
       "settings": {
-        "logo": "shopify://shop_images/cuztomi-logo.svg",
+        "logo": "shopify://shop_images/cuztomi-logo-blue.svg",
         "logo_position": "left-logo",
-        "logo_width": 156,
+        "logo_width": 100,
         "secondary_logo_width": 100,
         "secondary_logo_url": "",
         "menu": "main-menu",
