@@ -5,50 +5,11 @@
   <div
     class="content hero-banner-main"
   >
-  {%- if section.settings.desktop_background != blank -%}
-    <div class="hero-background"></div>
-  {%- endif -%}
-    <div class="hero-banner-img-wrapper">
-      {%- if section.settings.left_image != blank -%}
-        {%- liquid
-          assign img_loading = 'lazy'
-
-          if section.index == 1
-            assign img_loading = 'eager'
-          endif
-        -%}
-        {{
-          section.settings.left_image
-          | image_url: width: 400
-          | image_tag:
-            width: section.settings.left_image.width,
-            height: section.settings.left_image.height,
-            widths: '375, 550',
-            loading: img_loading,
-            class: 'hero-banner-img--left'
-        }}
-      {%- endif -%}
-
-      {%- if section.settings.right_image != blank -%}
-        {%- liquid
-          assign img_loading = 'lazy'
-
-          if section.index == 1
-            assign img_loading = 'eager'
-          endif
-        -%}
-        {{
-          section.settings.right_image
-          | image_url: width: 400
-          | image_tag:
-            width: section.settings.right_image.width,
-            height: section.settings.right_image.height,
-            widths: '375, 550',
-            loading: img_loading,
-            class: 'hero-banner-img--right'
-        }}
-      {%- endif -%}
-    </div>
+    <div class="hero-background"
+      {% if section.settings.desktop_background != blank %}
+        style="background-image: url({{ section.settings.desktop_background | image_url: width: 1280 }});"
+      {% endif %}
+    ></div>
     <div
       class="hero-banner-content"
     >
@@ -140,16 +101,6 @@
     {
       "type": "header",
       "content": "t:sections.hero-banner.settings.header__1.content"
-    },
-    {
-      "type": "image_picker",
-      "id": "left_image",
-      "label": "Left Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "right_image",
-      "label": "Right Image"
     },
     {
       "type": "image_picker",
