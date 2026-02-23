@@ -2404,7 +2404,7 @@ textarea,
   appearance: none;
   color: rgb(var(--color-foreground));
   background-color: transparent;
-  border: 0.1rem solid rgb(var(--color-border-input));
+  border: 1px solid rgb(var(--color-border-input));
   border-radius: 16px;
   box-sizing: border-box;
   transition: border var(--duration-default), background-color var(--duration-default);

@@ -13,8 +13,6 @@
       "type": "hero-banner",
       "name": "t:sections.hero-banner.name",
       "settings": {
-        "left_image": "shopify://shop_images/left-image.png",
-        "right_image": "shopify://shop_images/right-image.png",
         "desktop_background": "shopify://shop_images/envato-labs-image.png",
         "inner_subheading": "",
         "inner_heading": "Stop waiting weeks.</br>Get <b>flawless custom</b> gifts fast.",
@@ -147,7 +145,7 @@
         "description": "Get a personalized quote for your custom products. Whether you need one item\nor thousands, we're here to help bring your vision to life.",
         "text_align": "center",
         "button_style": "primary",
-        "image": "shopify://shop_images/cta-image.png",
+        "image": "shopify://shop_images/cta-image_682c98a4-58c5-4698-83bd-a8a8eae8a7b4.png",
         "align_content": "left",
         "success_message": "Thank you! We’ll be in touch soon."
       }
