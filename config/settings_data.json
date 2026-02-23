@@ -10,6 +10,7 @@
 {
   "current": {
     "color_scheme": "light",
+    "dark_mode_toggle": false,
     "type_header_font": "inter_n4",
     "heading_h0_scale": 120,
     "type_header_letter_spacing": -0.5,
@@ -62,7 +63,7 @@
         "settings": {
           "colors_text": "#262d33",
           "colors_secondary_text": "#676c70",
-          "colors_background_1": "#ffffff",
+          "colors_background_1": "#eaf6ff",
           "colors_background_2": "#f2f1ef",
           "background_gradient": "",
           "colors_solid_button_labels": "#ffffff",
@@ -152,7 +153,7 @@
         "settings": {
           "colors_text": "#ffffff",
           "colors_secondary_text": "#a8abad",
-          "colors_background_1": "#31383d",
+          "colors_background_1": "#1D81F9",
           "colors_background_2": "#262d33",
           "background_gradient": "",
           "colors_solid_button_labels": "#262d33",
