@@ -98,7 +98,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: start;
-    gap: 20px;
+    gap: 44px;
     margin: 0 auto;
   }
 }
@@ -142,11 +142,19 @@
 }
 
 .product-box {
-  border: 1px solid #CFCFD2;
+  border: 1px solid #E5E7EB;
   padding: 20px;
   border-radius: 20px;
   position: relative;
   width: 100%;
+}
+
+.product-description {
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid #E5E7EB;
+  margin-bottom: 20px;
+  padding: 0;
 }
 
 .box-title::before {
@@ -541,8 +549,8 @@
 
 .product__description .product-features {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  flex-direction: row;
+  gap: 24px;
   margin-top: 16px;
   margin-bottom: 16px;
 }
@@ -875,8 +883,6 @@
   width: 100%;
   height: auto;
   flex: 1;
-  padding: 16px;
-  border: 1px solid #CFCFD2;
   border-radius: 20px;
 }
 
