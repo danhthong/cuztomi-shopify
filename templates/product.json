@@ -81,7 +81,7 @@
         "mobile_alignment": "before",
         "aspect_ratio": "portrait",
         "image_fit": "cover",
-        "thumbs_direction": "vertical",
+        "thumbs_direction": "horizontal",
         "thumbs_aspect_ratio": "square",
         "thumbs_image_fit": "cover",
         "enable_video_looping": false,

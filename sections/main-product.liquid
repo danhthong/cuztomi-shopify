@@ -214,6 +214,100 @@
             </div>
           </div>
         {% endif %}
+
+        {% comment %} render thumbnails {% endcomment %}
+          {%- if product.media.size > 1 -%}
+            {%- case section.settings.thumbs_aspect_ratio -%}
+              {%- when 'landscape' -%}
+                {%- assign thumbs_ratio = '4/3' -%}
+                {%- assign thumbs_height = '48' -%}
+              {%- when 'portrait' -%}
+                {%- assign thumbs_ratio = '79/100' -%}
+                {%- assign thumbs_height = '80' -%}
+              {%- when 'square' -%}
+                {%- assign thumbs_ratio = '1/1' -%}
+                {%- assign thumbs_height = '145' -%}
+              {%- else -%}
+                {%- assign thumbs_ratio = '1/1' -%}
+                {%- assign thumbs_height = '145' -%}
+            {%- endcase -%}
+
+            {% liquid
+              assign thumbs_aspect_ratio = thumbs_ratio | split: '/'
+              assign thumbs_temp = thumbs_aspect_ratio[0] | append: '.0'
+              assign settings_thumbs_aspect_ratio = thumbs_aspect_ratio[0] | append: '.0' | divided_by: thumbs_aspect_ratio[1]
+              assign thumbs_padding_bottom = thumbs_aspect_ratio[1] | divided_by: thumbs_temp | times: 100 | round: 2
+            -%}
+
+            <div class="product__media-sublist-outer no-js-hidden" style="--thumbs-height: {{ thumbs_height }}px;">
+              <div
+                class="product__media-sublist js-media-sublist swiper"
+                data-thumbs-direction="{{ section.settings.thumbs_direction }}"
+              >
+                <div class="product__media-sublist-container swiper-wrapper">
+                  {%- if product.selected_or_first_available_variant.featured_media != null -%}
+                    {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
+
+                    <div
+                      class="product__media-subitem swiper-slide {% if section.settings.image_fit == 'contain' %} product__media-item--contain{% endif %}"
+                      data-media-sub-id="{{ section.id }}-{{ featured_media.id }}"
+                    >
+                      <div class="product__media" style="padding-bottom: {{ thumbs_padding_bottom }}%;">
+                        {%- capture style -%}
+                          object-position: {{ featured_media.presentation.focal_point }};
+                          object-fit: {{ section.settings.thumbs_image_fit | default: 'cover' }};
+                        {%- endcapture -%}
+                        {%- liquid
+                          assign thumbs_calc_ratio = 1
+                          if section.settings.thumbs_image_fit == 'cover' and featured_media.preview_image.aspect_ratio > settings_thumbs_aspect_ratio
+                            assign thumbs_calc_ratio = featured_media.preview_image.aspect_ratio | divided_by: settings_thumbs_aspect_ratio | round: 2
+                          endif
+                        -%}
+                        {%- capture subitem_sizes -%}
+                          calc(64px * {{ thumbs_calc_ratio }})
+                        {%- endcapture -%}
+                        {{
+                          featured_media.preview_image
+                          | image_url: width: featured_media.preview_image.width
+                          | image_tag: loading: 'lazy', sizes: subitem_sizes, widths: '64, 128, 192', style: style
+                        }}
+                      </div>
+                    </div>
+                  {%- endif -%}
+
+                  {%- for media in product.media -%}
+                    {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
+                      <div
+                        class="product__media-subitem swiper-slide {% if variant_images contains media.src %} product__media-item--variant{% endif %} {% if section.settings.image_fit == 'contain' %} product__media-item--contain{% endif %}"
+                        data-media-sub-id="{{ section.id }}-{{ media.id }}"
+                      >
+                        <div class="product__media" style="padding-bottom: {{ thumbs_padding_bottom }}%;">
+                          {%- capture style -%}
+                            object-position: {{ media.presentation.focal_point }};
+                            object-fit: {{ section.settings.thumbs_image_fit | default: 'cover' }};
+                          {%- endcapture -%}
+                          {%- liquid
+                            assign thumbs_calc_ratio = 1
+                            if section.settings.thumbs_image_fit == 'cover' and media.preview_image.aspect_ratio > settings_thumbs_aspect_ratio
+                              assign thumbs_calc_ratio = media.preview_image.aspect_ratio | divided_by: settings_thumbs_aspect_ratio | round: 2
+                            endif
+                          -%}
+                          {%- capture subitem_sizes -%}
+                            calc(64px * {{ thumbs_calc_ratio }})
+                          {%- endcapture -%}
+                          {{
+                            media.preview_image
+                            | image_url: width: media.preview_image.width
+                            | image_tag: loading: 'lazy', sizes: subitem_sizes, widths: '64, 128, 192', style: style
+                          }}
+                        </div>
+                      </div>
+                    {%- endunless -%}
+                  {%- endfor -%}
+                </div>
+              </div>
+            </div>
+          {%- endif -%}
       </div>
       <div class="product__left">
         <div class="product-box product-description">
@@ -378,26 +472,27 @@
                       <div class="bundle-price">
                         {{ bundle.price | money }}
                       </div>
+                    {% comment %}
                     {% if bundle.price != blank and bundle.quantity != blank %}
                       <div class="bundle-base-price">
                         {{ bundle.price | divided_by: bundle.quantity | money }}
                       </div>
                     {% endif %}
+                    {% endcomment %}
+                    {% if bundle.discount_text != blank %}
+                      <div class="save-off">Save {{ bundle.discount_text }}</div>
+                    {% endif %}
                     </div>
-                  {% if bundle.discount_text != blank %}
-                    <div class="save-off">{{ bundle.discount_text }} OFF</div>
-                  {% endif %}
                   </div>
                 {% endfor %}
                 <div class="custom-option">
                   <div class="custom-qty">
-                    <label for="custom-qty">Custom Quantity</label>
-                    <input type="number" class="qty" id="custom-qty" placeholder="Enter custom..." min="1"/>
+                    <input type="number" class="qty" id="custom-qty" placeholder="Custom" min="1"/>
                   </div>
                 </div>
               </div>
               <div class="box-footer">
-                <div class="total-label">Total</div><div class="total-price">0</div>
+                <div class="total-label">Total:</div><div class="total-price">0</div>
               </div>
             </div>
           {% endif %}
@@ -776,7 +871,7 @@
         // Get price from dataset
         let price = parseFloat(option.dataset.price);
 
-        const extraHtml = '<span class="unit-price">' + option.dataset.unitprice + '</span><span class="save-off" >You save ' + option.dataset.saveoff + '</span>';
+        const extraHtml = '<div class="unit-price">' + option.dataset.unitprice + '/ea.</div>';
 
 
         // Format price like Shopify
@@ -837,7 +932,7 @@
           total = unitPrice * qty;
         }
 
-        const extraHtml = '<span class="unit-price">' + matched.unitprice + '</span><span class="save-off" >You save ' + matched.saveoff + '</span>';
+        const extraHtml = '<div class="unit-price">' + matched.unitprice + '/ea.</div>';
 
         if (typeof Shopify !== "undefined" && Shopify.formatMoney) {
           totalPriceEl.innerHTML = Shopify.formatMoney(total) + extraHtml;
