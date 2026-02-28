@@ -54,9 +54,9 @@ menu-drawer > details[open] > summary::before {
   padding-block: 0;
   margin-top: 24px;
 }
-.menu-drawer__top .header__heading-logo {
+/* .menu-drawer__top .header__heading-logo {
   filter: brightness(0.8) invert(1);
-}
+} */
 .menu-drawer__main {
   overflow-y: auto;
 }
@@ -254,8 +254,9 @@ details[open] > .menu-drawer__submenu {
   padding-right: 28px;
   padding-left: 28px;
   border-radius: 100px;
-  color: #38506d;
-  border: 1px solid #1D81F9;
+  color: #FFFFFF;
+  background-color: #0059FF;
+  border: 1px solid #0059FF;
   box-shadow: 0 10px 20px #5e615e33;
 }
 .menu-drawer__account-register > span {

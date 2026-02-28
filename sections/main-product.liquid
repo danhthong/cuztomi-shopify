@@ -35,6 +35,10 @@
   >
 {%- endif -%}
 
+<div class="speed-banner">
+  ⚡ 48-HOUR FAST FULFILLMENT<br>
+  Your&nbsp; {{- product.title | escape -}} &nbsp;ship in 2 days!
+</div>
 
 <section
   id="MainProduct-{{ section.id }}"
@@ -520,9 +524,14 @@
               </svg>
 
               <p id="file-name">
-                <span class="default-holder">
+                <span class="default-holder desktop-only">
                   <strong>Drag or click to upload your file All formats supported</strong><br>
                   Max file size: 25MB | 1 file per order
+                </span>
+
+                <span class="default-holder mobile-only">
+                  <strong>Tap to add file</strong><br>
+                  All formats supported. Max file size: 25MB
                 </span>
 
                 <div class="file-info">

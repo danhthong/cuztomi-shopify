@@ -1,10 +1,36 @@
 .shopify-section:first-child.product-section {
-  margin-top: calc(-1 * var(--header-height));
+  margin-top: 75px;
   padding-top: var(--header-height);
 }
 
 .product .d-none-desktop {
   display: block;
+}
+
+.speed-banner {
+  position: fixed;
+  top: 52px;
+  left: 20px;
+  display: block;
+  text-align: center;
+  width: calc(100% - 40px);
+  height: 80px;
+  color: #FFFFFF;
+  background-color: #0059FF;
+  border-bottom-right-radius: 35px;
+  border-bottom-left-radius: 35px;
+  padding-top: 38px;
+  font-size: 12px;
+  z-index: 2;
+}
+
+@media (min-width: 769px) {
+  .speed-banner {
+    max-width: 1000px;
+    left: calc(50% - 500px);
+    display: ruby;
+    padding-top: 50px;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -1049,7 +1075,6 @@
 
 .product__media-sublist.no-js-flex,
 .product__media-sublist:not(.swiper-initialized) {
-  display: flex !important;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
