@@ -544,7 +544,9 @@
                   <div class="file-meta"></div>
 
                   <div class="file-success">
-                    ✔ File uploaded successfully!
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.16166 11.3625L13.5179 5.00625C13.6679 4.85625 13.8429 4.78125 14.0429 4.78125C14.2429 4.78125 14.4179 4.85625 14.5679 5.00625C14.7179 5.15625 14.7929 5.3345 14.7929 5.541C14.7929 5.7475 14.7179 5.9255 14.5679 6.075L7.68666 12.975C7.53666 13.125 7.36166 13.2 7.16166 13.2C6.96166 13.2 6.78666 13.125 6.63666 12.975L3.41166 9.75C3.26166 9.6 3.18966 9.422 3.19566 9.216C3.20166 9.01 3.27991 8.83175 3.43041 8.68125C3.58091 8.53075 3.75916 8.45575 3.96516 8.45625C4.17116 8.45675 4.34916 8.53175 4.49916 8.68125L7.16166 11.3625Z" fill="#9CA3AF"/>
+                      </svg> File uploaded successfully!
                   </div>
                 </div>
               </p>
@@ -576,10 +578,35 @@
           class: 'button--checkout'
         %}
       </div>
+      <span class="upload-note">Items will be added to your cart for review before checkout</span>
     </div>
   </div>
 
+  </form>
   {% render 'feature-keys' %}
+
+  <div class="product-accordion">
+    <h2 class="accordion-title">Frequently <strong>Asked Questions</strong></h2>
+    <p class="accordion-description">Everything you need to know about custom golf balls</p>
+    {% for item in product.metafields.custom.faqs.value %}
+      <div class="accordion-item active">
+        <button class="accordion-header" type="button">
+          <span>{{ item.title }}</span>
+          <span class="accordion-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 15L12 8L5 15" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            {{ item.content | metafield_tag }}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 
   <product-modal id="ProductModal-{{ section.id }}" class="product-media-modal">
     <div
@@ -800,14 +827,17 @@
       const fileInput = document.getElementById('watermark-image-input');
       const waitingBtn = document.querySelector('.button--waiting-upload');
       const cartActions = document.querySelector('.cart-actions');
+      const uploadNote = document.querySelector('.upload-note');
 
       function toggleButtons() {
         if (fileInput.files.length > 0) {
           waitingBtn.style.display = 'none';
           cartActions.style.display = 'flex';
+          uploadNote.style.display = 'block';
         } else {
           waitingBtn.style.display = 'flex';
           cartActions.style.display = 'none';
+          uploadNote.style.display = 'none';
         }
       }
 
@@ -838,6 +868,13 @@
 
       document.querySelector(".file-replace").addEventListener("click", function () {
         document.getElementById("watermark-image-input").click();
+      });
+
+      document.querySelectorAll(".accordion-header").forEach(button => {
+        button.addEventListener("click", function () {
+          const item = this.closest(".accordion-item");
+          item.classList.toggle("active");
+        });
       });
     });
 
@@ -875,7 +912,6 @@
       localStorage.setItem(STORAGE_KEY, JSON.stringify(recentProducts));
     })();
   </script>
-  </form>
 </section>
 
 {% javascript %}
