@@ -21,18 +21,18 @@
         "heading_size": "h2",
         "description": "",
         "text_align": "center",
-        "image": "shopify://shop_images/print-on-demand-hero.png",
+        "image": "",
         "img_position": "right",
         "aspect_ratio": "adapt",
         "object_fit": "cover",
         "inner_subheading": "",
-        "inner_heading": "Get your prints fast with</br><strong>On-demand</strong> printing!",
+        "inner_heading": "Print on demand. <strong>Fulfilled in California</strong>. Fast 24-48 Turnaround.",
         "inner_heading_size": "h2",
-        "inner_text": "Experience top-notch print on demand with our advanced UV laser technology. Enjoy quick 24-48 hour fullfillment, meticulous quality control and seamless orderprocessing for vibrant, high-quality prints delivered to your door.",
+        "inner_text": "Upload your design. We print, pack, and fulfill every orderfrom our California facility within 24 to 48 hours.",
         "inner_content_align": "left",
         "vertical_inner_content_align": "center",
         "show_button": true,
-        "button_label": "Lets Connect",
+        "button_label": "Apply to Partner",
         "button_link": "shopify://pages/contact",
         "button_style": "primary",
         "button_arrow": false,
@@ -54,7 +54,7 @@
           "type": "column",
           "settings": {
             "heading": "Mimaki print experts",
-            "image": "shopify://shop_images/mimaki-print-experts.png",
+            "image": "shopify://shop_images/Mimaki_print_experts.svg",
             "image_width": "small",
             "image_ratio": "adapt",
             "object_fit": "contain",
@@ -71,14 +71,14 @@
         "column_EGBw4T": {
           "type": "column",
           "settings": {
-            "heading": "Mimaki print experts",
-            "image": "shopify://shop_images/work-with-a-partner.png",
+            "heading": "Work With A Partner, Not Just a Supplier",
+            "image": "shopify://shop_images/Work_With_A_Partner_Not_Just_a_Supplier.svg",
             "image_width": "small",
             "image_ratio": "adapt",
             "object_fit": "contain",
             "enable_img_border_radius": true,
             "add_separator": false,
-            "text": "We use Mimaki UV printers to deliver high-quality prints, mastering our craft and maintaining the trusof prestigious brands",
+            "text": "Located in the Bay Area, California. We print andfulfill all orders in-house, ensuring top quality and reliability at every step.",
             "show_button": false,
             "button_label": "Learn more",
             "button_link": "",
@@ -90,7 +90,7 @@
           "type": "column",
           "settings": {
             "heading": "No Upfront Costs",
-            "image": "shopify://shop_images/no-upfront-costs.png",
+            "image": "shopify://shop_images/No_Upfront_Costs.svg",
             "image_width": "small",
             "image_ratio": "adapt",
             "object_fit": "contain",
@@ -108,7 +108,7 @@
           "type": "column",
           "settings": {
             "heading": "Fast Turnaround Times",
-            "image": "shopify://shop_images/fast-turnaround-times.png",
+            "image": "shopify://shop_images/Fast_Turnaround_Times.svg",
             "image_width": "small",
             "image_ratio": "adapt",
             "object_fit": "contain",
@@ -126,13 +126,13 @@
           "type": "column",
           "settings": {
             "heading": "Real People, Real Support",
-            "image": "shopify://shop_images/real-people-real-support.png",
+            "image": "shopify://shop_images/Real_People_Real_Support.svg",
             "image_width": "small",
             "image_ratio": "adapt",
             "object_fit": "contain",
             "enable_img_border_radius": true,
             "add_separator": false,
-            "text": "We use Mimaki UV printers to deliver high-quality prints, mastering our craft and maintaining the trustof prestigious brands.",
+            "text": "Got a question? You'll reach a real personwho knows your products and genuinelycares about your brand's success.",
             "show_button": false,
             "button_label": "Learn more",
             "button_link": "",
@@ -144,7 +144,7 @@
           "type": "column",
           "settings": {
             "heading": "Niche product expertise",
-            "image": "shopify://shop_images/niche-product-expertise.png",
+            "image": "shopify://shop_images/Niche_product_expertise.svg",
             "image_width": "small",
             "image_ratio": "adapt",
             "object_fit": "contain",
@@ -171,7 +171,7 @@
       "settings": {
         "color_scheme": "",
         "subheading": "",
-        "heading": "We focus on <strong>high quality prints</strong>,</br>and customer satisfaction",
+        "heading": "We handle the printing, You focus on <strong>growing</strong>.",
         "heading_size": "h2",
         "description": "",
         "text_align": "center",
@@ -230,7 +230,7 @@
         "feature_GRkdRh": {
           "type": "feature",
           "settings": {
-            "image": "shopify://shop_images/platform-icon.png",
+            "image": "shopify://shop_images/Platforms.svg",
             "title": "Platforms",
             "text": "<p>Integrate your store with top e-commerce platforms like Shopify, WooCommerce, and BigCommerce, ensuring a smooth and hassle-free experience for your customers.</p>"
           }
@@ -238,7 +238,7 @@
         "feature_rL99hP": {
           "type": "feature",
           "settings": {
-            "image": "shopify://shop_images/market-icon.png",
+            "image": "shopify://shop_images/Marketplaces.svg",
             "title": "Marketplaces",
             "text": "<p>Streamline your operations by automating order fulfillment on leading marketplaces such as Amazon, eBay, and Etsy, providing quick and reliable delivery to your customers.</p>"
           }
@@ -250,8 +250,8 @@
       ],
       "name": "Image with features",
       "settings": {
-        "heading": "Print and Sell Custom Products</br><strong>Across Every Platform</strong>",
-        "image": "shopify://shop_images/platform-laptop.png"
+        "heading": "Your store, Our <strong>fulfillment</strong>.",
+        "image": "shopify://shop_images/Your_store_Our_fulfillment.png"
       }
     },
     "testimonials_PeWrfa": {
@@ -332,9 +332,9 @@
         "image": "shopify://shop_images/cta-image.jpg",
         "mobile_image": "shopify://shop_images/simple-cta-mobile-img.jpg",
         "background_image": "shopify://shop_images/simple-cta-bg.png",
-        "subheading": "Get started Now",
-        "heading": "Ready to elevate your brand?",
-        "body": "Transform your brand with personalized decorating and convenient on-demand printing solutions today!",
+        "subheading": "",
+        "heading": "Ready to Scale YourPrint on Demand Business?",
+        "body": "Upload your design. We print, pack, and ship straight to your customers.\nNo setup fees. No minimums. Fulfilled from California in 24–48 hours.",
         "button_label": "Get In Touch",
         "button_link": "shopify://pages/contact"
       }

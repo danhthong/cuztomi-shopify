@@ -224,6 +224,10 @@ html.no-js .no-js-hidden {
   display: none !important;
 }
 
+body {
+  background: rgb(var(--color-background));
+}
+
 @media screen and (min-width: 990px) {
   .page-width--narrow {
     max-width: 72.6rem;

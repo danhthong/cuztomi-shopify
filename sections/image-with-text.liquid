@@ -69,7 +69,9 @@
               loading: img_loading
           }}
         {%- else -%}
-          {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--filled' }}
+          {% comment %} {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--filled' }} {% endcomment %}
+
+          {% render 'pod-feature-keys' %}
         {%- endif -%}
       </div>
       <div
