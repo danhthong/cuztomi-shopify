@@ -440,3 +440,12 @@
     transform: translateX(0.2rem);
   }
 }
+
+.template-page-print-on-demand .multicolumn {
+  background-color: transparent;
+}
+.template-page-print-on-demand .multicolumn-grid__wrapper .multicolumn-card {
+  background-color: #FFFFFF;
+  box-shadow: 0px 10px 20px 0px #B9BABE1A;
+  border: 1px solid #F2F2F2
+}
