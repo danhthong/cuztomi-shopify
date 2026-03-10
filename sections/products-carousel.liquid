@@ -107,7 +107,7 @@
     </button>
   </div>
 </div>
-{% if section.settings.show_inside == true %}
+{% if section.settings.show_feature_keys == true %}
   {% render 'feature-keys' %}
 {% endif %}
 {% schema %}
@@ -231,6 +231,13 @@
       "id": "show_inside",
       "label": "Show content inside image",
       "info": "Show product content inside the image wrapper",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_feature_keys",
+      "label": "Show feature keys",
+      "info": "Show product feature keys inside the image wrapper",
       "default": false
     },
     {

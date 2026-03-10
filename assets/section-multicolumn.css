@@ -238,8 +238,8 @@
 .multicolumn-card__heading {
   max-width: 90%;
   margin: 0;
-  font-weight: 500;
-  font-size: 18px;
+  font-weight: 700;
+  font-size: 15px;
   line-height: 24px;
   letter-spacing: -0.2px;
 }
@@ -253,6 +253,17 @@
   text-transform: none;
 }
 
+.multicolumn-card__subtitle {
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 11px;
+  line-height: 100%;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #0059FF;
+  margin-bottom: 12px;
+}
+
 .multicolumn-card__heading span {
   white-space: pre-line;
 }
@@ -260,6 +271,9 @@
 .multicolumn-card__text {
   margin: 0;
   word-break: break-word;
+  font-size: 14px;
+  line-height: 21px;
+  max-width: 244px;
 }
 
 .multicolumn-card__text a {

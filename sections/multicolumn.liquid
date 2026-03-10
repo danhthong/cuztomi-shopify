@@ -128,6 +128,11 @@
                       {%- endif -%}
                     </div>
                   {%- endif -%}
+                  {%- if block.settings.subheading != blank -%}
+                    <div class="multicolumn-card__subtitle">
+                      {{- block.settings.subheading -}}
+                    </div>
+                  {% endif %}
                   {%- if block.settings.heading != blank -%}
                     {%- if section.settings.heading != blank -%}
                       <h4 class="multicolumn-card__heading">
@@ -149,7 +154,7 @@
               {%- if block.settings.text != blank or block.settings.show_button -%}
                 <div class="multicolumn-card__inner-bottom">
                   {%- if block.settings.text != blank -%}
-                    <p class="multicolumn-card__text body-{{ section.settings.card_text_size }} multicolumn-card__text--{{ section.settings.card_text_color }}">
+                    <p class="multicolumn-card__text">
                       {{- block.settings.text -}}
                     </p>
                   {%- endif -%}
@@ -625,6 +630,12 @@
       "type": "column",
       "name": "t:sections.multicolumn.blocks.column.name",
       "settings": [
+        {
+          "type": "textarea",
+          "id": "subheading",
+          "label": "t:sections.all.subheading.label",
+          "default": "t:sections.multicolumn.blocks.column.settings.subheading.default"
+        },
         {
           "type": "textarea",
           "id": "heading",

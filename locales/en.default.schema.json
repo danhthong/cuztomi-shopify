@@ -4971,6 +4971,9 @@
                 "label": "Full width"
               }
             },
+            "subheading": {
+              "default": ""
+            },
             "heading": {
               "default": "This is where your title goes"
             },
