@@ -212,9 +212,6 @@
 .template-page-print-on-demand .image-with-text .image-with-text-content p {
   color: #ffffff;
 }
-.template-page-print-on-demand .image-with-text .image-with-text-content h2 {
-  max-width: 400px;
-}
 .template-page-print-on-demand .image-with-text .image-with-text-content strong {
   color: #FFD62C;
 }
@@ -223,4 +220,16 @@
 }
 .template-page-print-on-demand .image-with-text .image-with-text-content__button .button__label {
   color: #2A2E7D;
+}
+@media screen and (max-width: 749px) {
+  .template-page-print-on-demand .image-with-text .image-with-text-main {
+    padding: 24px;
+  }
+  .template-page-print-on-demand .image-with-text .image-with-text-content h2 {
+    line-height: 32px;
+    font-size: 24px;
+  }
+  .template-page-print-on-demand .image-with-text .image-with-text-content strong {
+    text-decoration: none;
+  }
 }

@@ -331,3 +331,14 @@ html:not(.no-js) .products-carousel .products-carousel__layout.animate-on-scroll
 .template-page-print-on-demand .products-carousel__item .card-information .price-wrapper .unit-price {
   display: none;
 }
+@media screen and (max-width: 768px) {
+  .template-page-print-on-demand .products-carousel__item .card-information.inside-image .card__title a,
+  .template-page-print-on-demand .products-carousel__item .card-information .price-wrapper .price-item--regular {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .template-page-print-on-demand .products-carousel__item .card-information .price-wrapper .price-label {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}

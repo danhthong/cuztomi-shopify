@@ -85,7 +85,7 @@
 
         {%- if section.settings.inner_heading != blank -%}
           <h2 class="image-with-text-content__heading {{ section.settings.inner_heading_size }}">
-            {{ section.settings.inner_heading }}
+            {{ section.settings.inner_heading | newline_to_br }}
           </h2>
         {%- endif -%}
 
@@ -186,7 +186,7 @@
       "label": "t:sections.all.subheading.label"
     },
     {
-      "type": "inline_richtext",
+      "type": "textarea",
       "id": "heading",
       "label": "t:sections.all.heading.label"
     },
@@ -207,7 +207,7 @@
       "label": "t:sections.all.heading_size.label"
     },
     {
-      "type": "inline_richtext",
+      "type": "textarea",
       "id": "description",
       "label": "t:sections.all.text.label"
     },
@@ -317,7 +317,7 @@
       "default": "t:sections.image-with-text.settings.inner_subheading.default"
     },
     {
-      "type": "inline_richtext",
+      "type": "textarea",
       "id": "inner_heading",
       "label": "t:sections.image-with-text.settings.inner_heading.label",
       "default": "t:sections.image-with-text.settings.inner_heading.default"
@@ -343,7 +343,7 @@
       "label": "t:sections.image-with-text.settings.inner_heading_size.label"
     },
     {
-      "type": "inline_richtext",
+      "type": "textarea",
       "id": "inner_text",
       "label": "t:sections.image-with-text.settings.inner_text.label",
       "default": "t:sections.image-with-text.settings.inner_text.default"

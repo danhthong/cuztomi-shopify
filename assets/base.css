@@ -1354,7 +1354,9 @@ h1,
 
 h2,
 .h2 {
-  font-size: calc(var(--font-heading-h2-scale) * 2.4rem);
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
 }
 @media only screen and (min-width: 750px) {
   h2,
@@ -1363,12 +1365,6 @@ h2,
   }
 }
 @media only screen and (min-width: 990px) {
-  h2,
-  .h2 {
-    font-size: calc(var(--font-heading-h2-scale) * 3.2rem);
-  }
-}
-@media only screen and (min-width: 1360px) {
   h2,
   .h2 {
     font-size: 40px;

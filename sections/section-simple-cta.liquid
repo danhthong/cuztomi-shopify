@@ -3,10 +3,7 @@
 <section class="simple-cta">
   <div class="container">
     <div class="simple-cta__wrapper">
-      <div class="simple-cta__content"
-        {% if section.settings.background_image != blank %}
-          style="background-image: url({{ section.settings.background_image | image_url: width: 386 }});"
-        {% endif %}>
+      <div class="simple-cta__content">
         <div class="simple-cta__content-left">
           {% if section.settings.subheading != blank %}
             <p class="simple-cta__subheading body-3">{{ section.settings.subheading }}</p>
@@ -39,11 +36,6 @@
 {
   "name": "Simple CTA",
   "settings": [
-    {
-      "type": "image_picker",
-      "id": "background_image",
-      "label": "Background image"
-    },
     {
       "type": "text",
       "id": "subheading",

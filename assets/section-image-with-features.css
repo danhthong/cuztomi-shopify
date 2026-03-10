@@ -84,16 +84,15 @@
     margin-bottom: 32px;
   }
   .image-with-features__wrapper {
-    flex-direction: column;
+    flex-direction: column-reverse;
+    gap: 24px;
   }
   .image-with-features__content {
     width: 100%;
   }
   .image-with-features__feature {
     width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
+    padding: 24px;
   }
   .image-with-features__feature:nth-child(even) {
     margin-left: 0;
