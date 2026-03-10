@@ -1,0 +1,328 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_with_text_AgzTqz": {
+      "type": "image-with-text",
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "color_scheme": "",
+        "custom_classes": "shipping-intro",
+        "color_scheme_content": "background-1",
+        "section_gap": "large",
+        "subheading": "",
+        "heading": "",
+        "heading_size": "h2",
+        "description": "",
+        "text_align": "center",
+        "image": "shopify://shop_images/shipping-image.png",
+        "img_position": "right",
+        "aspect_ratio": "adapt",
+        "object_fit": "cover",
+        "inner_subheading": "",
+        "inner_heading": "Printed in California. \n<strong>Delivered Nationwide.</strong>",
+        "inner_heading_size": "h2",
+        "inner_text": "Every order is printed in-house at our Gilroy, California workshop \nand shipped with full tracking. Fast turnaround. No surprises.",
+        "inner_content_align": "left",
+        "vertical_inner_content_align": "center",
+        "show_button": false,
+        "button_label": "Apply to Partner",
+        "button_link": "shopify://pages/contact",
+        "button_style": "primary",
+        "button_arrow": false,
+        "show_button_2": false,
+        "button_label_2": "Lets Connect",
+        "button_link_2": "#contact-form",
+        "button_style_2": "primary",
+        "button_arrow_2": false,
+        "padding_top": "m",
+        "padding_bottom": "m",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "multicolumn_Fditc3": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_U8A6iw": {
+          "type": "column",
+          "settings": {
+            "subheading": "",
+            "heading": "Ships from Gilroy, CA",
+            "image": "shopify://shop_images/map-location-icon.svg",
+            "image_width": "icon",
+            "image_ratio": "square",
+            "object_fit": "cover",
+            "enable_img_border_radius": true,
+            "add_separator": false,
+            "text": "Every order is printed and shipped directly from our California workshop — no middlemen, no dropshipping. Your item goes from our printer to your door.",
+            "show_button": false,
+            "button_label": "Learn more",
+            "button_link": "",
+            "button_style": "primary",
+            "button_arrow": true
+          }
+        },
+        "column_nRreiC": {
+          "type": "column",
+          "settings": {
+            "subheading": "",
+            "heading": "24-48 Hour Turnaround",
+            "image": "shopify://shop_images/clock-icon.svg",
+            "image_width": "icon",
+            "image_ratio": "square",
+            "object_fit": "cover",
+            "enable_img_border_radius": true,
+            "add_separator": false,
+            "text": "We start printing as soon as your order is confirmed. Most items are packaged and handed to the carrier within 1–2 business days.",
+            "show_button": false,
+            "button_label": "Learn more",
+            "button_link": "",
+            "button_style": "primary",
+            "button_arrow": true
+          }
+        },
+        "column_xfYQgt": {
+          "type": "column",
+          "settings": {
+            "subheading": "",
+            "heading": "2-5 Day Delivery",
+            "image": "shopify://shop_images/ship-icon.svg",
+            "image_width": "icon",
+            "image_ratio": "square",
+            "object_fit": "cover",
+            "enable_img_border_radius": true,
+            "add_separator": false,
+            "text": "Standard shipping reaches all 50 states within 2–5 business days. Hawaii, Alaska, and Puerto Rico — we've got you covered too.",
+            "show_button": false,
+            "button_label": "Learn more",
+            "button_link": "",
+            "button_style": "primary",
+            "button_arrow": true
+          }
+        }
+      },
+      "block_order": [
+        "column_U8A6iw",
+        "column_nRreiC",
+        "column_xfYQgt"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "color_scheme": "",
+        "custom_classes": "how-it-ships",
+        "subheading": "",
+        "heading": "How It <strong>Ships</strong>",
+        "heading_size": "h2",
+        "description": "",
+        "text_align": "center",
+        "multicolumn_to_show": 3,
+        "swipe_on_desktop": false,
+        "swipe_on_mobile": false,
+        "mobile_slider_layout_type": "visible_overflow",
+        "card_heading_size": "h4",
+        "card_heading_font": "heading",
+        "column_color_scheme": "",
+        "card_bg_color": "primary",
+        "card_text_color": "primary",
+        "card_text_size": "small",
+        "enable_column_border": false,
+        "column_padding": "0",
+        "column_aspect_ratio": "adapt",
+        "content_horizontal_alignment": "center",
+        "content_vertical_alignment": "top",
+        "column_width": "recommended",
+        "padding_top": "xl",
+        "padding_bottom": "xl",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "multicolumn_matKtc": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_PXCDUj": {
+          "type": "column",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "image": "shopify://shop_images/UPS_Logo.png",
+            "image_width": "icon",
+            "image_ratio": "adapt",
+            "object_fit": "cover",
+            "enable_img_border_radius": true,
+            "add_separator": false,
+            "text": "Our primary carrier for standard, express, and Next-Day Air. Split Next- Day Air available at checkout.",
+            "show_button": false,
+            "button_label": "Learn more",
+            "button_link": "",
+            "button_style": "primary",
+            "button_arrow": true
+          }
+        },
+        "column_8pnUj8": {
+          "type": "column",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "image": "shopify://shop_images/USPS_Logo.png",
+            "image_width": "icon",
+            "image_ratio": "adapt",
+            "object_fit": "cover",
+            "enable_img_border_radius": true,
+            "add_separator": false,
+            "text": "We start printing as soon as your order is confirmed. Most items are packaged and handed to the carrier within 1-2 business days.",
+            "show_button": false,
+            "button_label": "Learn more",
+            "button_link": "",
+            "button_style": "primary",
+            "button_arrow": true
+          }
+        },
+        "column_EnmFUp": {
+          "type": "column",
+          "settings": {
+            "subheading": "",
+            "heading": "",
+            "image": "shopify://shop_images/FedEx_Logo.png",
+            "image_width": "icon",
+            "image_ratio": "adapt",
+            "object_fit": "cover",
+            "enable_img_border_radius": true,
+            "add_separator": false,
+            "text": "Standard shipping reaches all 50 states within 2–5 business days. Hawaii, Alaska, and Puerto Rico — we've got you covered too.",
+            "show_button": false,
+            "button_label": "Learn more",
+            "button_link": "",
+            "button_style": "primary",
+            "button_arrow": true
+          }
+        }
+      },
+      "block_order": [
+        "column_PXCDUj",
+        "column_8pnUj8",
+        "column_EnmFUp"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "color_scheme": "",
+        "custom_classes": "trusted-carriers",
+        "subheading": "",
+        "heading": "Trusted <strong>Carriers</strong>",
+        "heading_size": "h2",
+        "description": "",
+        "text_align": "center",
+        "multicolumn_to_show": 3,
+        "swipe_on_desktop": false,
+        "swipe_on_mobile": false,
+        "mobile_slider_layout_type": "visible_overflow",
+        "card_heading_size": "h4",
+        "card_heading_font": "heading",
+        "column_color_scheme": "",
+        "card_bg_color": "primary",
+        "card_text_color": "primary",
+        "card_text_size": "small",
+        "enable_column_border": false,
+        "column_padding": "0",
+        "column_aspect_ratio": "adapt",
+        "content_horizontal_alignment": "center",
+        "content_vertical_alignment": "top",
+        "column_width": "recommended",
+        "padding_top": "xl",
+        "padding_bottom": "xl",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "collapsible_content_UCqycn": {
+      "type": "collapsible-content",
+      "blocks": {
+        "accordion_yCqRr9": {
+          "type": "accordion",
+          "settings": {
+            "question": "How long does shipping take in total?",
+            "answer": "<p>We print and dispatch within 24–48 hours. Delivery typically takes 2–5 business days after that. So door-to-door, plan for 3–7 business days. Expedited options are available at checkout.</p>",
+            "opened": true
+          }
+        },
+        "accordion_TPjtnJ": {
+          "type": "accordion",
+          "settings": {
+            "question": "Do you ship to Hawaii, Alaska, and Puerto Rico?",
+            "answer": "<p>Yes — we ship to all 50 states and Puerto Rico. No exceptions. Delivery times for these locations may be slightly longer than the continental US.</p>",
+            "opened": false
+          }
+        },
+        "accordion_pxgKCb": {
+          "type": "accordion",
+          "settings": {
+            "question": "Can I get my order faster?",
+            "answer": "<p>Absolutely. At checkout you can select to split Next-Day Air via UPS with us, which significantly cuts down total delivery time. Orders with 1,000+ stickers are automatically upgraded to Next-Day Air.</p>",
+            "opened": false
+          }
+        },
+        "accordion_X7UpUU": {
+          "type": "accordion",
+          "settings": {
+            "question": "What if my order arrives damaged or doesn't show up?",
+            "answer": "<p>Contact us right away if your order is damaged — we'll find a resolution we're both happy with. If your package hasn't arrived after 10 days, reach out and we'll reship it at no charge.</p>",
+            "opened": false
+          }
+        },
+        "accordion_GQhGyn": {
+          "type": "accordion",
+          "settings": {
+            "question": "Is shipping really free?",
+            "answer": "<p>Yes — standard shipping is free on every order, no minimum required. The only time you'd pay extra is if you choose to upgrade to expedited Next-Day Air at checkout.</p>",
+            "opened": false
+          }
+        }
+      },
+      "block_order": [
+        "accordion_yCqRr9",
+        "accordion_TPjtnJ",
+        "accordion_pxgKCb",
+        "accordion_X7UpUU",
+        "accordion_GQhGyn"
+      ],
+      "name": "t:sections.collapsible-content.name",
+      "settings": {
+        "color_scheme": "",
+        "subheading": "",
+        "heading": "Common <strong>Questions</strong>",
+        "heading_size": "h2",
+        "description": "",
+        "text_align": "center",
+        "row_color_scheme": "",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent"
+      }
+    },
+    "section_simple_cta_kaqCU3": {
+      "type": "section-simple-cta",
+      "name": "Simple CTA",
+      "settings": {
+        "subheading": "",
+        "heading": "Fast Printing. \nReliable Delivery.",
+        "body": "Your brand deserves quality and consistency from production to arrival.\nStart your order today and we'll get it moving.",
+        "button_label": "Start Your Order",
+        "button_link": "shopify://collections"
+      }
+    }
+  },
+  "order": [
+    "image_with_text_AgzTqz",
+    "multicolumn_Fditc3",
+    "multicolumn_matKtc",
+    "collapsible_content_UCqycn",
+    "section_simple_cta_kaqCU3"
+  ]
+}

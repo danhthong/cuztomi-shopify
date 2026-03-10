@@ -5,7 +5,7 @@
   {% render 'section-margin' %}
 {%- endstyle -%}
 
-<div class="image-with-text color-{{ section.settings.color_scheme }} background section-{{ section.id }}-padding">
+<div class="image-with-text color-{{ section.settings.color_scheme }} background section-{{ section.id }}-padding {{ section.settings.custom_classes }}">
   <div class="container">
     {% render 'heading-group', section: section, class: 'image-with-text', text_align: section.settings.text_align %}
 
@@ -145,6 +145,11 @@
       "id": "color_scheme",
       "default": "background-1",
       "label": "t:sections.all.color_scheme.label"
+    },
+    {
+      "type": "text",
+      "id": "custom_classes",
+      "label": "Custiom CSS classes"
     },
     {
       "type": "color_scheme",

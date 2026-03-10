@@ -197,39 +197,67 @@
   flex-shrink: unset;
 }
 
-.template-page-print-on-demand .image-with-text .image-with-text-main {
+.image-with-text .image-with-text-main {
   background: linear-gradient(97.05deg, #0060FE 24.18%, #1378F6 50.01%, #2690EE 101.7%);
   padding: 40px 80px;
   border-radius: 32px;
   place-items: center;
 }
 
-.template-page-print-on-demand .image-with-text .image-with-text-content {
+.image-with-text .image-with-text-content {
   background-color: transparent;
 }
 
-.template-page-print-on-demand .image-with-text .image-with-text-content h2,
-.template-page-print-on-demand .image-with-text .image-with-text-content p {
+.image-with-text .image-with-text-content h2,
+.image-with-text .image-with-text-content p {
   color: #ffffff;
 }
-.template-page-print-on-demand .image-with-text .image-with-text-content strong {
+.image-with-text .image-with-text-content strong {
   color: #FFD62C;
 }
-.template-page-print-on-demand .image-with-text .image-with-text-content__button {
+.image-with-text .image-with-text-content__button {
   background-color: #FFD62C;
 }
 .template-page-print-on-demand .image-with-text .image-with-text-content__button .button__label {
   color: #2A2E7D;
 }
 @media screen and (max-width: 749px) {
-  .template-page-print-on-demand .image-with-text .image-with-text-main {
+  .image-with-text .image-with-text-main {
     padding: 24px;
   }
-  .template-page-print-on-demand .image-with-text .image-with-text-content h2 {
+  .image-with-text .image-with-text-content h2 {
     line-height: 32px;
     font-size: 24px;
   }
-  .template-page-print-on-demand .image-with-text .image-with-text-content strong {
+  .image-with-text .image-with-text-content strong {
     text-decoration: none;
+  }
+}
+.shipping-intro .image-with-text-main {
+  padding-top: 26px;
+  padding-bottom: 26px;
+  padding-right: 8px;
+}
+.shipping-intro .image-with-text-img-wrapper img {
+  width: 110%;
+  margin-left: -10%;
+}
+.shipping-intro .image-with-text-content--align-left .image-with-text-content__heading {
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 62px;
+  letter-spacing: -0.2px;
+}
+.shipping-intro .image-with-text-content--align-left .image-with-text-content__heading strong {
+  text-decoration: none;
+}
+@media screen and (max-width: 749px) {
+  .shipping-intro .image-with-text-main {
+    flex-direction: column-reverse;
+    display: flex;
+  }
+  .shipping-intro .image-with-text-content--align-left .image-with-text-content__heading {
+    font-size: 24px;
+    line-height: 32px;
   }
 }

@@ -5,17 +5,12 @@
 }
 .collapsible-content__item {
   overflow: hidden;
-  background-color: rgb(var(--color-background));
-  padding: 2.4rem 2.4rem 2.4rem 2.4rem;
+  background-color: #ffffff;
+  padding: 20px;
   cursor: pointer;
 }
-@media (min-width: 750px) {
-  .collapsible-content__item {
-    padding: 2.4rem 2.6rem 2.4rem 4rem;
-  }
-}
 .collapsible-content__item.active .collapsible-content__icon svg {
-  transform: rotate(45deg);
+  transform: rotate(0deg);
 }
 .collapsible-content__item.active .collapsible-content__toggle {
   padding-bottom: 1.6rem;
@@ -24,6 +19,9 @@
   transition: all 0.4s ease;
 }
 .collapsible-content__item.active .collapsible-content__answer p {
+  color: #1a1a1a;
+  font-size: 18px;
+  line-height: 24px;
   height: auto;
   opacity: 1;
   transition: height 0.4s ease, opacity 0.4s ease;
@@ -35,6 +33,10 @@
   column-gap: 1.6rem;
   width: 100%;
   cursor: pointer;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #1A1A1A;
 }
 .collapsible-content__toggle-group {
   display: flex;
@@ -56,9 +58,7 @@
 }
 .collapsible-content__icon svg {
   transition: var(--duration-default);
-  transform: rotate(-90deg);
-  width: 1.4rem;
-  height: 1.4rem;
+  transform: rotate(-180deg);
   color: rgb(var(--color-foreground));
 }
 .collapsible-content__answer {
@@ -94,19 +94,26 @@
 .collapsible-content__items {
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
+  gap: 20px;
+  max-width: 842px;
+  margin: 0 auto;
 }
 .collapsible-content__item {
   border-radius: 1rem;
 }
-@media screen and (hover: hover) and (pointer: fine) {
-  .collapsible-content__item:hover:not(.active) .collapsible-content__question {
-    opacity: var(--hover-opacity);
-  }
-}
 .collapsible-content__toggle {
   transition: all 0.4s ease;
   padding-bottom: 0;
+}
+
+.template-page-shipping .collapsible-content {
+  padding-top: 60px;
+}
+
+@media (max-width: 768px) {
+  .template-page-shipping .collapsible-content {
+    padding-top: 24px;
+  }
 }
 
 [data-scheme=dark] .collapsible-content__icon svg {

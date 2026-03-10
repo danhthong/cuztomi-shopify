@@ -69,7 +69,7 @@ p.simple-cta__subheading {
 /* Responsive */
 @media (max-width: 768px) {
   .simple-cta {
-    padding-top: 40px;
+    padding-top: 20px;
     padding-bottom: 40px;
   }
   .simple-cta__wrapper {

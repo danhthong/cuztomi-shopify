@@ -31,7 +31,7 @@
 {%- endfor -%}
 
 <div
-  class="multicolumn color-{{ section.settings.color_scheme }} background section-{{ section.id }}-padding{% if section.settings.mobile_slider_layout_type == 'visible_overflow' %} multicolumn--visible-overflow{% endif %}"
+  class="multicolumn color-{{ section.settings.color_scheme }} background section-{{ section.id }}-padding{% if section.settings.mobile_slider_layout_type == 'visible_overflow' %} multicolumn--visible-overflow{% endif %} {{ section.settings.custom_classes }}"
   data-enable-mobile-slider="{{ section.settings.swipe_on_mobile }}"
   data-enable-desktop-slider="{{ section.settings.swipe_on_desktop }}"
   data-space-between="{{ section.settings.column_gap }}"
@@ -206,6 +206,11 @@
       "id": "color_scheme",
       "default": "background-1",
       "label": "t:sections.all.color_scheme.label"
+    },
+    {
+      "type": "text",
+      "id": "custom_classes",
+      "label": "Custiom CSS classes"
     },
     {
       "type": "text",

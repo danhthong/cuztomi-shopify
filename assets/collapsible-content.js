@@ -43,50 +43,47 @@
     }, duration);
   };
 
-  const toggleCollapsible = (event, toggles) => {
-    if (!toggles) return;
+  const toggleCollapsible = (event) => {
+    const item = event.currentTarget;
+    const answer = item.querySelector(".collapsible-content__answer");
 
-    const answer = event.currentTarget.querySelector(
-      ".collapsible-content__answer"
-    );
-    const activeItem = Array.from(toggles).find((item) =>
-      item.classList.contains("active")
-    );
+    if (!answer) return;
 
-    if (event.currentTarget !== activeItem) {
-      if (activeItem) {
-        activeItem.classList.remove("active");
-        const activeAnswer = activeItem.querySelector(
-          ".collapsible-content__answer"
-        );
-        if (activeAnswer) slideUp(activeAnswer);
-      }
-      event.currentTarget.classList.add("active");
-      slideDown(answer);
-    } else {
-      event.currentTarget.classList.remove("active");
+    if (item.classList.contains("active")) {
+      item.classList.remove("active");
       slideUp(answer);
+    } else {
+      item.classList.add("active");
+      slideDown(answer);
     }
   };
 
   const initCollapsibleContent = (section) => {
-    if (!section || !section?.classList.contains("collapsible-content-section"))
-      return;
+    if (!section || !section.classList.contains("collapsible-content-section")) return;
+
     const toggles = section.querySelectorAll(".collapsible-content__item");
 
-    toggles.forEach((toggle) =>
-      toggle.addEventListener("click", (event) =>
-        toggleCollapsible(event, toggles)
-      )
-    );
+    toggles.forEach((toggle) => {
+      const answer = toggle.querySelector(".collapsible-content__answer");
+
+      // open all by default
+      toggle.classList.add("active");
+      if (answer) {
+        answer.style.display = "block";
+      }
+
+      toggle.addEventListener("click", toggleCollapsible);
+    });
   };
 
-  document.addEventListener(
-    "DOMContentLoaded",
-    initCollapsibleContent(document.currentScript.parentElement)
-  );
+  document.addEventListener("DOMContentLoaded", () => {
+    document
+      .querySelectorAll(".collapsible-content-section")
+      .forEach(initCollapsibleContent);
+  });
 
   document.addEventListener("shopify:section:load", function (event) {
     initCollapsibleContent(event.target);
   });
+
 })();
