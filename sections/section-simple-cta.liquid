@@ -3,42 +3,24 @@
 <section class="simple-cta">
   <div class="container">
     <div class="simple-cta__wrapper">
-      <div class="simple-cta__image {% if section.settings.mobile_image != blank %} has-mobile {% endif %}">
-        {% if section.settings.image != blank %}
-          {{ section.settings.image
-            | image_url: width: 794
-            | image_tag:
-              class: 'simple-cta__img',
-              loading: 'lazy'
-          }}
-        {% endif %}
-        {% if section.settings.mobile_image != blank %}
-          {{ section.settings.mobile_image
-            | image_url: width: 794
-            | image_tag:
-              class: 'simple-cta__img mobile',
-              loading: 'lazy'
-          }}
-        {% endif %}
-      </div>
-
       <div class="simple-cta__content"
         {% if section.settings.background_image != blank %}
           style="background-image: url({{ section.settings.background_image | image_url: width: 386 }});"
         {% endif %}>
+        <div class="simple-cta__content-left">
+          {% if section.settings.subheading != blank %}
+            <p class="simple-cta__subheading body-3">{{ section.settings.subheading }}</p>
+          {% endif %}
 
-        {% if section.settings.subheading != blank %}
-          <p class="simple-cta__subheading body-3">{{ section.settings.subheading }}</p>
-        {% endif %}
+          {% if section.settings.heading != blank %}
+            <h2 class="simple-cta__heading">{{ section.settings.heading | newline_to_br }}</h2>
+          {% endif %}
 
-        {% if section.settings.heading != blank %}
-          <h2 class="simple-cta__heading">{{ section.settings.heading }}</h2>
-        {% endif %}
-
-        {% if section.settings.body != blank %}
-          <p class="simple-cta__body">{{ section.settings.body }}</p>
-        {% endif %}
-
+          {% if section.settings.body != blank %}
+            <p class="simple-cta__body">{{ section.settings.body | newline_to_br }}</p>
+          {% endif %}
+        </div>
+        <div class="simple-cta__content-right">
         {% if section.settings.button_label != blank %}
           {% render 'button',
             btn_label: section.settings.button_label,
@@ -47,6 +29,7 @@
             class: 'simple-cta__button'
           %}
         {% endif %}
+        </div>
       </div>
     </div>
   </div>
@@ -56,16 +39,6 @@
 {
   "name": "Simple CTA",
   "settings": [
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Left image"
-    },
-    {
-      "type": "image_picker",
-      "id": "mobile_image",
-      "label": "Left image for mobile"
-    },
     {
       "type": "image_picker",
       "id": "background_image",
@@ -78,7 +51,7 @@
       "default": "Get started Now"
     },
     {
-      "type": "text",
+      "type": "textarea",
       "id": "heading",
       "label": "Heading",
       "default": "Ready to elevate your brand?"

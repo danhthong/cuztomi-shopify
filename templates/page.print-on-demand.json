@@ -418,18 +418,18 @@
         "heading": "Client <strong>Success Stories</strong>",
         "description": "",
         "text_align": "center",
-        "extra_class": "white-bg"
+        "extra_class": ""
       }
     },
     "section_simple_cta_E4dhqh": {
       "type": "section-simple-cta",
       "name": "Simple CTA",
       "settings": {
-        "image": "shopify://shop_images/cta-image.jpg",
-        "mobile_image": "shopify://shop_images/simple-cta-mobile-img.jpg",
+        "image": "",
+        "mobile_image": "",
         "background_image": "shopify://shop_images/simple-cta-bg.png",
         "subheading": "",
-        "heading": "Ready to Scale YourPrint on Demand Business?",
+        "heading": "Ready to Scale Your\nPrint on Demand Business?",
         "body": "Upload your design. We print, pack, and ship straight to your customers.\nNo setup fees. No minimums. Fulfilled from California in 24–48 hours.",
         "button_label": "Get In Touch",
         "button_link": "shopify://pages/contact"
