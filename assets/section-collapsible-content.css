@@ -20,7 +20,7 @@
 }
 .collapsible-content__item.active .collapsible-content__answer p {
   color: #1a1a1a;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 24px;
   height: auto;
   opacity: 1;
@@ -76,7 +76,6 @@
 .collapsible-content__answer.rte * {
   margin-left: unset !important;
   margin-right: unset !important;
-  color: rgb(var(--color-foreground-secondary)) !important;
 }
 .collapsible-content__answer.rte ol,
 .collapsible-content__answer.rte ul {
