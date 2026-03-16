@@ -39,12 +39,12 @@
         <div class="image-with-features__image">
           {{
             section.settings.image
-            | image_url: width: 500
+            | image_url: width: 1000
             | image_tag:
               width: section.settings.image.width,
               height: section.settings.image.height,
               sizes: '(min-width: 1200px) 800px, 100vw',
-              widths: '375, 550, 750, 1000, 1280',
+              widths: '750, 1000, 1280',
               class: 'image-with-features-img',
               loading: 'lazy',
               style: 'object-fit:cover'

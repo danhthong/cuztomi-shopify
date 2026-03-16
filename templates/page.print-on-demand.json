@@ -203,7 +203,7 @@
         "animate_on_scroll": true,
         "subheading": "",
         "heading": "Product <strong>Catalog</strong>",
-        "heading_size": "h3",
+        "heading_size": "h2",
         "description": "",
         "product_list": [
           "drinking-coasters",

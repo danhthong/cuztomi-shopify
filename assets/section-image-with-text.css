@@ -214,6 +214,7 @@
 }
 .image-with-text .image-with-text-content strong {
   color: #FFD62C;
+  text-decoration: none;
 }
 .image-with-text .image-with-text-content__button {
   background-color: #FFD62C;
