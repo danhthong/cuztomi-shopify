@@ -1,10 +1,28 @@
 .contact-info {
   display: block;
   margin-bottom: 60px;
-  margin-top: 60px;
+}
+.contact-info-content {
+  display: flex;
+  flex-direction: row;
+  gap: 44px;
+}
+.contact-info-left {
+  width: 38%;
+  border: 1px solid #F2F2F2;
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 44px;
+}
+.contact-info-right {
+  width: 70%;
+  border: 1px solid #F2F2F2;
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 44px;
 }
 .contact-info-header {
-  text-align: center;
+  text-align: left;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 32px;
@@ -12,44 +30,109 @@
   max-width: 970px;
 }
 .contact-info-header__description {
-  max-width: 450px;
-  margin: 16px auto 0;
+  margin-top: 8px;
+  color: #5E6D7E;
+  font-size: 16px;
+  line-height: 24px;
 }
 .contact-info-grid__wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
   max-width: 970px;
   margin: 0 auto;
+  margin-top: 24px;
 }
 
 .contact-info-card {
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  border: 1px solid #E2E2E3;
-  padding: 16px 20px;
-  border-radius: 20px;
+  border-bottom: 1px solid #E5E7EB;
+  padding: 18px 0;
+  align-items: center;
 }
-
+.contact-info-card.no-border {
+  border-bottom: none;
+}
 .contact-info-card .detail {
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: -0.32px;
-  text-align: center;
   color: #262C32;
   margin-top: 4px;
 }
 
+.contact-info-card .detail a::after {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.66797 4.66797H11.3346V11.3346' stroke='%235D9DEA' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M4.66797 11.3346L11.3346 4.66797' stroke='%235D9DEA' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-left: 4px;
+  margin-top: 4px;
+  position: absolute;
+}
+
+.contact-info-card__text {
+  width: 100%;
+}
+.contact-info-card__heading {
+  font-size: 14px;
+  line-height: 21px;
+  color: #5E6D7E;
+}
+.contact-info-card .detail time {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 4px;
+}
+.contact-info-card .detail time:last-child {
+  margin-bottom: 0;
+}
+.contact-info-card .detail time .day {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+}
+.contact-info-card .detail time .hour {
+  border-radius: 8px;
+  background: #EAF6FF;
+  padding: 0 8px;
+  font-style: 12px;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+}
+
+.contact-info-card .detail time .hour.blue {
+  background: #EAF6FF;
+  color: #0059FF;
+}
+.contact-info-card .detail time .hour.yellow {
+  background: #FFF6D2;
+  color: #DEB200;
+}
+.contact-info-card .detail time .hour.red {
+  background: #FFD9DD;
+  color: #F83A54;
+}
+.social-section {
+  margin-top: 24px;
+}
+.social-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-top: 16px;
+}
 .contact-info-form {
-  max-width: 970px;
-  margin: 0 auto;
-  margin-top: 32px;
-  padding: 20px;
-  border: 1px solid #E2E2E3;
-  border-radius: 20px;
-  box-shadow: 0px 10px 20px 0px #9F9FAC1A;
+  margin-top: 24px;
 }
 .contact-info-form .text-area {
   min-height: 160px;
@@ -113,4 +196,33 @@
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='20' height='21' viewBox='0 0 20 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.0013 18.8334C14.6037 18.8334 18.3346 15.1025 18.3346 10.5001C18.3346 5.89771 14.6037 2.16675 10.0013 2.16675C5.39893 2.16675 1.66797 5.89771 1.66797 10.5001C1.66797 15.1025 5.39893 18.8334 10.0013 18.8334Z' stroke='black' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M10 13.8333V10.5' stroke='black' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M10 7.16675H10.0083' stroke='black' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center;
+}
+
+#contact_form .button--primary {
+  float: right;
+}
+
+
+@media screen and (max-width: 992px) {
+  .contact-info-content {
+    flex-direction: column;
+  }
+  .contact-info-right,
+  .contact-info-left {
+    width: 100%;
+    padding: 24px;
+  }
+
+  .contact-info-left .h2,
+  .social-section {
+    text-align: center;
+  }
+  .social-icons {
+    justify-content: center;
+  }
+
+  #contact_form .button--primary {
+    width: 100%;
+    float: none;
+  }
 }

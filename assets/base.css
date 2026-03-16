@@ -1349,7 +1349,8 @@ h1,
 @media only screen and (min-width: 1025px) {
   h1,
   .h1 {
-    font-size: 45px;
+    font-size: 52px;
+    line-height: 62px;
   }
 }
 
@@ -1422,11 +1423,11 @@ h3 strong,
 }
 
 .body-3 {
-  font-weight: 400;
+  font-weight: 500;
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.2px;
-  color: #1A1A1A;
+  color: #0A090B;
 }
 
 a {

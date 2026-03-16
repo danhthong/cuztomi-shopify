@@ -1,138 +1,186 @@
 {{ 'section-contactinfo.css' | asset_url | stylesheet_tag }}
+{{ 'section-cta.css' | asset_url | stylesheet_tag }}
 
 <div class="contact-info">
   <div class="container">
     <div class="contact-info-content">
-      <div class="contact-info-header">
-        {%- if section.settings.heading != blank -%}
-          <h2 class="contact-info-header__heading">{{ section.settings.heading }}</h2>
-        {%- endif -%}
-        {%- if section.settings.description != blank -%}
-          <div class="contact-info-header__description">{{ section.settings.description }}</div>
-        {%- endif -%}
-      </div>
-      <div class="contact-info-grid__wrapper">
-        {% for block in section.blocks %}
-          <div class="contact-info-card">
-          {%- if block.settings.image != blank -%}
-            <div class="image-container">
-              {{
-                block.settings.image
-                | image_url: width: block.settings.image.width
-                | image_tag:
-                  sizes: "52px",
-                  widths: '52',
-                  class: 'card__image',
-                  loading: 'lazy'
-              }}
-            </div>
-          {%- endif -%}
-          {%- if block.settings.heading != blank -%}
-            <div class="contact-info-card__text">
-              <span>{{ block.settings.heading | escape }}</span>
-              <p class="detail">{{ block.settings.text }}</p>
-            </div>
-          {%- endif -%}
-          </div>
-        {% endfor %}
-      </div>
-
-      <div class="contact-info-form">
-        {%- form 'contact', id: 'ContactForm' -%}
-          {%- if form.posted_successfully? -%}
-            <div class="form-status form-status-list form__message" tabindex="-1" autofocus>
-              {% render 'icon-success' %}
-              {{ 'templates.contact.form.post_success' | t }}
-            </div>
-          {%- elsif form.errors -%}
-          {%- endif -%}
-          <div class="field field__name has-icon name">
-            <input
-              class="field__input focus-inset"
-              autocomplete="name"
-              type="text"
-              dir="ltr"
-              id="ContactForm-name"
-              name="contact[{{ 'templates.contact.form.name' | t }}]"
-              value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
-              placeholder="{{ section.settings.name_placeholder }}"
-            >
-            <label
-              class="field__label body-small"
-              for="ContactForm-name"
-            >
-              {{- 'templates.contact.form.name' | t -}}
-            </label>
-          </div>
-          <div class="field field--with-error has-icon email">
-            <input
-              autocomplete="email"
-              type="email"
-              dir="ltr"
-              id="ContactForm-email"
-              class="field__input focus-inset"
-              name="contact[email]"
-              spellcheck="false"
-              autocapitalize="off"
-              value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-              aria-required="true"
-              {% if form.errors contains 'email' %}
-                aria-invalid="true"
-                aria-describedby="ContactForm-email-error"
-              {% endif %}
-              placeholder="{{ section.settings.email_placeholder }}"
-              required
-            >
-            <label
-              class="field__label body-small"
-              for="ContactForm-email"
-            >
-              {{- 'templates.contact.form.email' | t -}}
-            </label>
-            {%- if form.errors contains 'email' -%}
-              <small class="contact-form__field-error" id="ContactForm-email-error">
-                <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
-                <span class="form__message">
-                  {{- form.errors.translated_fields.email | capitalize }}
-                  {{ form.errors.messages.email -}}
-                </span>
-              </small>
-            {%- endif -%}
-          </div>
-          <div class="field">
-            <textarea
-              id="ContactForm-body"
-              class="text-area field__input"
-              name="contact[{{ 'templates.contact.form.comment' | t }}]"
-              placeholder="{{ section.settings.message_placeholder | default: 'Write your message here...' }}"
-              aria-required="true"
-              required
-            >
-              {{- form.body -}}
-            </textarea>
-            <label
-              class="field__label body-small"
-              for="ContactForm-body"
-            >
-              {{- 'templates.contact.form.comment' | t -}}
-            </label>
-          </div>
-          <div class="contact-form__bottom">
-            <button type="submit" class="button button--primary focus-inset">
-              <div class="button__content">
-                <span class="button__label" data-label="{{ section.settings.button_text }}">
-                  {{ section.settings.button_text }}
-                </span>
+      <div class="contact-info-left">
+        <p class="h2">Get in Touch</p>
+        <div class="contact-info-grid__wrapper">
+          {% for block in section.blocks %}
+            <div class="contact-info-card">
+            {%- if block.settings.image != blank -%}
+              <div class="image-container">
+                {{
+                  block.settings.image
+                  | image_url: width: block.settings.image.width
+                  | image_tag:
+                    sizes: "52px",
+                    widths: '52',
+                    class: 'card__image',
+                    loading: 'lazy'
+                }}
               </div>
-            </button>
+            {%- endif -%}
+            {%- if block.settings.heading != blank -%}
+              <div class="contact-info-card__text">
+                <span class="contact-info-card__heading">{{ block.settings.heading | escape }}</span>
+                <p class="detail">{{ block.settings.text }}</p>
+              </div>
+            {%- endif -%}
+            </div>
+          {% endfor %}
+
+          <div class="contact-info-card no-border">
+            <div class="image-container">
+              <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_170_356)">
+                <path d="M44 22C44 9.84974 34.1503 0 22 0C9.84974 0 0 9.84974 0 22C0 34.1503 9.84974 44 22 44C34.1503 44 44 34.1503 44 22Z" fill="#EAF6FF"/>
+                <path d="M22 15V22.5L27 25M32 22C32 27.5228 27.5228 32 22 32C16.4772 32 12 27.5228 12 22C12 16.4772 16.4772 12 22 12C27.5228 12 32 16.4772 32 22Z" stroke="#0059FF" stroke-width="1.5"/>
+                </g>
+              </svg>
+            </div>
+            <div class="contact-info-card__text">
+              <span class="contact-info-card__heading">Business Hours</span>
+              <div class="detail">
+                <time datetime="Mo-Fr 09:00-18:00"><span class="day">Monday - Friday</span><span class="hour blue">9am - 6pm PT</span></time>
+                <time datetime="Sa 10:00-16:00"><span class="day">Saturday</span><span class="hour yellow">10am - 2pm PT</span></time>
+                <time datetime="Mo-Fr 09:00-17:00"><span class="day">Sunday</span><span class="hour red">Closed</span></time>
+              </div>
+            </div>
           </div>
 
-          {% if section.settings.additional_text != blank %}
-            <div class="contact-form__add-text body-small">
-              {{- section.settings.additional_text -}}
+          <div class="social-section">
+            <p class="social-title">Connect with us on social media</p>
+
+            <div class="social-icons">
+              <a href="https://www.facebook.com/shopcuztomi" target="_blank" class="social-icon facebook">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 0.5C30.7696 0.5 39.5 9.23045 39.5 20C39.5 30.7696 30.7696 39.5 20 39.5C9.23045 39.5 0.5 30.7696 0.5 20C0.5 9.23045 9.23045 0.5 20 0.5Z" stroke="#DDDDDD"/>
+                  <path d="M22 21.35H24.1429L25 17.75H22V15.95C22 15.023 22 14.15 23.7143 14.15H25V11.126C24.7206 11.0873 23.6654 11 22.5511 11C20.224 11 18.5714 12.4913 18.5714 15.23V17.75H16V21.35H18.5714V29H22V21.35Z" fill="#0059FF"/>
+                </svg>
+              </a>
+              <a href="https://www.instagram.com/cuztomi" class="social-icon instagram" target="_blank">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 0.5C30.7696 0.5 39.5 9.23045 39.5 20C39.5 30.7696 30.7696 39.5 20 39.5C9.23045 39.5 0.5 30.7696 0.5 20C0.5 9.23045 9.23045 0.5 20 0.5Z" stroke="#DDDDDD"/>
+                  <path d="M27.9593 16.705C27.9218 15.8546 27.7843 15.2701 27.5874 14.7635C27.3842 14.2258 27.0715 13.7445 26.662 13.3443C26.2618 12.9379 25.7772 12.6221 25.2458 12.422C24.7363 12.2251 24.1548 12.0876 23.3044 12.0501C22.4478 12.0094 22.1758 12 20.0031 12C17.8304 12 17.5584 12.0094 16.705 12.0469C15.8546 12.0844 15.2701 12.222 14.7636 12.4189C14.2258 12.6221 13.7445 12.9347 13.3443 13.3443C12.9379 13.7445 12.6222 14.229 12.422 14.7605C12.2251 15.2701 12.0876 15.8515 12.0501 16.7018C12.0094 17.5584 12 17.8304 12 20.0031C12 22.1758 12.0094 22.4478 12.0469 23.3013C12.0844 24.1516 12.222 24.7362 12.419 25.2427C12.6222 25.7804 12.9379 26.2618 13.3443 26.662C13.7445 27.0684 14.229 27.3842 14.7605 27.5842C15.2701 27.7812 15.8515 27.9187 16.7019 27.9562C17.5553 27.9938 17.8273 28.0031 20.0001 28.0031C22.1728 28.0031 22.4447 27.9938 23.2982 27.9562C24.1485 27.9187 24.7331 27.7812 25.2395 27.5842C26.315 27.1684 27.1653 26.3181 27.5811 25.2427C27.778 24.7331 27.9156 24.1516 27.9531 23.3013C27.9906 22.4478 28 22.1758 28 20.0031C28 17.8304 27.9968 17.5584 27.9593 16.705ZM26.5182 23.2387C26.4838 24.0203 26.3525 24.4423 26.2431 24.7237C25.9742 25.4209 25.4209 25.9742 24.7237 26.2431C24.4423 26.3525 24.0172 26.4838 23.2387 26.5181C22.3947 26.5557 22.1415 26.565 20.0063 26.565C17.8711 26.565 17.6147 26.5557 16.7737 26.5181C15.9922 26.4838 15.5701 26.3525 15.2888 26.2431C14.9418 26.1149 14.626 25.9117 14.3697 25.6459C14.104 25.3864 13.9008 25.0738 13.7725 24.7269C13.6631 24.4455 13.5318 24.0203 13.4975 23.2419C13.4599 22.3978 13.4506 22.1446 13.4506 20.0093C13.4506 17.8741 13.4599 17.6178 13.4975 16.7769C13.5318 15.9953 13.6631 15.5733 13.7725 15.2919C13.9008 14.9449 14.104 14.6292 14.3729 14.3727C14.6322 14.107 14.9449 13.9038 15.2919 13.7757C15.5733 13.6663 15.9985 13.535 16.7769 13.5006C17.621 13.4631 17.8742 13.4537 20.0093 13.4537C22.1477 13.4537 22.4009 13.4631 23.2419 13.5006C24.0235 13.535 24.4455 13.6663 24.7269 13.7757C25.0738 13.9038 25.3896 14.107 25.6459 14.3727C25.9117 14.6322 26.1149 14.9449 26.2431 15.2919C26.3525 15.5733 26.4838 15.9984 26.5182 16.7769C26.5557 17.621 26.5651 17.8741 26.5651 20.0093C26.5651 22.1446 26.5557 22.3947 26.5182 23.2387Z" fill="url(#paint0_linear_3849_771)"/>
+                  <path d="M20.0016 15.8906C17.732 15.8906 15.8906 17.7319 15.8906 20.0016C15.8906 22.2713 17.732 24.1126 20.0016 24.1126C22.2713 24.1126 24.1126 22.2713 24.1126 20.0016C24.1126 17.7319 22.2713 15.8906 20.0016 15.8906ZM20.0016 22.6683C18.5292 22.6683 17.3349 21.4741 17.3349 20.0016C17.3349 18.5291 18.5292 17.3349 20.0016 17.3349C21.4741 17.3349 22.6683 18.5291 22.6683 20.0016C22.6683 21.4741 21.4741 22.6683 20.0016 22.6683Z" fill="url(#paint1_linear_3849_771)"/>
+                  <path d="M25.236 15.7293C25.236 16.2592 24.8062 16.689 24.2761 16.689C23.7461 16.689 23.3164 16.2592 23.3164 15.7293C23.3164 15.1991 23.7461 14.7695 24.2761 14.7695C24.8062 14.7695 25.236 15.1991 25.236 15.7293Z" fill="#B819AB"/>
+                  <defs>
+                  <linearGradient id="paint0_linear_3849_771" x1="27.5" y1="11.5" x2="11" y2="28.5" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#721CFF"/>
+                  <stop offset="0.5" stop-color="#FF1656"/>
+                  <stop offset="1" stop-color="#FF9E00"/>
+                  </linearGradient>
+                  <linearGradient id="paint1_linear_3849_771" x1="23.8556" y1="15.6337" x2="15.3784" y2="24.3695" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#721CFF"/>
+                  <stop offset="0.5" stop-color="#FF1656"/>
+                  <stop offset="1" stop-color="#FF9E00"/>
+                  </linearGradient>
+                  </defs>
+                </svg>
+              </a>
+              <a href="https://www.linkedin.com/company/cuztomi" target="_blank" class="social-icon linkedin">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="0.5" y="0.5" width="39" height="39" rx="19.5" stroke="#DDDDDD"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M15.8867 26.8047V17.0844H12.6558V26.8047H15.8867ZM14.2712 15.7572C15.3979 15.7572 16.0992 15.0108 16.0992 14.078C16.0782 13.1242 15.3979 12.3985 14.2926 12.3985C13.1874 12.3985 12.4648 13.1242 12.4648 14.078C12.4648 15.0108 13.1659 15.7572 14.2502 15.7572H14.2712Z" fill="#0059FF"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M17.6758 26.8047H20.9066V21.3764C20.9066 21.0859 20.9276 20.7957 21.0129 20.588C21.2465 20.0076 21.7781 19.4064 22.6706 19.4064C23.8397 19.4064 24.3074 20.2978 24.3074 21.6045V26.8047H27.5379V21.2312C27.5379 18.2455 25.944 16.8563 23.8184 16.8563C22.0754 16.8563 21.3102 17.8305 20.8851 18.4941H20.9067V17.0844H17.6759C17.7183 17.9964 17.6758 26.8047 17.6758 26.8047Z" fill="#0059FF"/>
+                </svg>
+              </a>
+              <a href="https://x.com/cuztomi" target="_blank" class="social-icon x">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 0.5C30.7696 0.5 39.5 9.23045 39.5 20C39.5 30.7696 30.7696 39.5 20 39.5C9.23045 39.5 0.5 30.7696 0.5 20C0.5 9.23045 9.23045 0.5 20 0.5Z" stroke="#DDDDDD"/>
+                  <g clip-path="url(#clip0_3594_9251)">
+                  <path d="M21.3319 18.9021L26.5437 12.8438H25.3087L20.7833 18.1041L17.1688 12.8438H13L18.4657 20.7983L13 27.1514H14.2351L19.0141 21.5963L22.8312 27.1514H27L21.3316 18.9021H21.3319ZM19.6403 20.8684L19.0865 20.0763L14.6801 13.7735H16.5772L20.1331 18.8601L20.6869 19.6522L25.3093 26.2639H23.4122L19.6403 20.8687V20.8684Z" fill="#1B1C1D"/>
+                  </g>
+                  <defs>
+                  <clipPath id="clip0_3594_9251">
+                  <rect width="14" height="14.3091" fill="white" transform="translate(13 12.8438)"/>
+                  </clipPath>
+                  </defs>
+                </svg>
+              </a>
             </div>
-          {% endif %}
-        {%- endform -%}
+          </div>
+        </div>
+      </div>
+      <div class="contact-info-right">
+        <div class="contact-info-header">
+          {%- if section.settings.heading != blank -%}
+            <h2 class="contact-info-header__heading">{{ section.settings.heading }}</h2>
+          {%- endif -%}
+          {%- if section.settings.description != blank -%}
+            <div class="contact-info-header__description">{{ section.settings.description }}</div>
+          {%- endif -%}
+        </div>
+        <div class="contact-info-form">
+          {% form 'contact', class: 'custom-contact-form' %}
+            <div class="form__fields">
+
+              <!-- Name -->
+              <div class="field half left has-icon name">
+                <label for="ContactFormName" class="body-3">Your Name<span class="require">*</span></label>
+                <input type="text" id="ContactFormName" placeholder="Enter your full name" class="body-3" name="contact[name]" required>
+              </div>
+
+              <!-- Company -->
+              <div class="field half right has-icon company">
+                <label for="ContactFormCompany" class="body-3">Company (Optional)</label>
+                <input type="text" id="ContactFormCompany" placeholder="Enter company name" class="body-3" name="contact[company]">
+              </div>
+
+              <!-- Email -->
+              <div class="field half left has-icon email">
+                <label for="ContactFormEmail" class="body-3">Email<span class="require">*</span></label>
+                <input type="email" id="ContactFormEmail" placeholder="Enter your email" class="body-3" name="contact[email]" required>
+              </div>
+
+              <!-- Phone -->
+              <div class="field half right has-icon phone">
+                <label for="ContactFormPhone" class="body-3">Phone Number (Optional)</label>
+                <input type="tel" id="ContactFormPhone" placeholder="Enter phone number" class="body-3" name="contact[phone]">
+              </div>
+
+              <!-- Project -->
+              <div class="field full">
+                <label for="ContactFormMessage">Message*</label>
+                <textarea id="ContactFormMessage" name="contact[body]" rows="6" required placeholder="Tell us about your project, order, or question..."></textarea>
+              </div>
+            </div>
+
+            <!-- Captcha (Shopify auto) -->
+            {%- if form.errors -%}
+              <div class="form__message form__message--error">
+                {% render 'icon-error' %}
+                <ul>
+                  {% for field in form.errors %}
+                    <li>{{ field | capitalize }} — {{ form.errors.messages[field] }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {%- endif -%}
+
+            {%- if form.posted_successfully? -%}
+              <div class="form__message form__message--success" tabindex="-1" autofocus>
+                {% render 'icon-success' %}
+                {{ section.settings.success_message }}
+              </div>
+            {%- endif -%}
+
+            <button
+              type="submit"
+              class="button button--primary focus-inset"
+            >
+              <div class="button__content">
+                <span class="button__label" data-label="Submit">Send Message</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 12H18.5M18.5 12L12.5 6M18.5 12L12.5 18" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <span class="animated-button-circle"></span>
+            </button>
+          {% endform %}
+        </div>
       </div>
     </div>
   </div>
@@ -209,7 +257,7 @@
           "label": "t:sections.all.image.label"
         },
         {
-          "type": "inline_richtext",
+          "type": "textarea",
           "id": "text",
           "label": "t:sections.all.text.label",
           "default": "+1 (555) 000-0000"

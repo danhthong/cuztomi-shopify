@@ -14,7 +14,7 @@
       "name": "t:sections.image-with-text.name",
       "settings": {
         "color_scheme": "",
-        "custom_classes": "",
+        "custom_classes": "shipping-hero",
         "color_scheme_content": "",
         "section_gap": "small",
         "subheading": "",
@@ -28,7 +28,7 @@
         "object_fit": "cover",
         "inner_subheading": "",
         "inner_heading": "We'd love to\n<strong>hear from you.</strong>",
-        "inner_heading_size": "h2",
+        "inner_heading_size": "h1",
         "inner_text": "Whether you have a question about an order, want to discuss a bulk project, or just want to say hi — we're a real team and we actually pick up.",
         "inner_content_align": "left",
         "vertical_inner_content_align": "center",
@@ -56,7 +56,7 @@
           "settings": {
             "heading": "Phone number",
             "image": "shopify://shop_images/phone-icon.svg",
-            "text": "+1 (555) 000-0000"
+            "text": "+1 408 502 6864"
           }
         },
         "column_JQpQUt": {
@@ -64,15 +64,7 @@
           "settings": {
             "heading": "Email address",
             "image": "shopify://shop_images/email-icon.svg",
-            "text": "<a href=\"mailto:support@company.com\" target=\"_blank\" title=\"mailto:support@company.com\">support@company.com</a>"
-          }
-        },
-        "column_FjyAXR": {
-          "type": "column",
-          "settings": {
-            "heading": "Adress",
-            "image": "shopify://shop_images/location-icon.svg",
-            "text": "This is address"
+            "text": "<a href=\"mailto:support@cuztomi.com\" target=\"_blank\" title=\"mailto:support@cuztomi.com\">support@cuztomi.com</a>"
           }
         }
       },
@@ -89,7 +81,7 @@
         "email_placeholder": "Enter your email",
         "message_placeholder": "Write your message here...",
         "button_text": "Send Message",
-        "additional_text": "<p>We usually reply within 24 hours (Mon–Fri).</p>"
+        "additional_text": ""
       }
     }
   },
