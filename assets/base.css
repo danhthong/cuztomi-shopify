@@ -1303,6 +1303,7 @@ h6,
   word-wrap: break-word;
   word-break: break-word;
   max-width: 100%;
+  letter-spacing: -0.2px;
 }
 
 .h0 {
@@ -1406,9 +1407,9 @@ h2 strong,
 .h2 strong,
 h3 strong,
 .h3 strong {
-  color: #1D81F9;
+  color: #0059FF;
   text-decoration: underline;
-  text-decoration-color: #FEC76A;
+  text-decoration-color: #FFD62C;
   text-decoration-thickness: 3px;
   text-underline-offset: 10px;
 }
@@ -2415,7 +2416,7 @@ textarea::placeholder,
 .field input[type=password]::placeholder,
 .field select::placeholder,
 .field .field__input::placeholder {
-  color: #4B5A75;
+  color: #9EA2AE;
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.2px;
@@ -3022,6 +3023,7 @@ textarea,
   left: 50%;
   transform: translateX(-50%);
   transition: top 0.3s ease-in-out;
+  box-shadow: 0px 2px 8.9px 0px #05042608;
 }
 .header {
   position: relative;
@@ -3451,6 +3453,7 @@ textarea,
   border-radius: 100px;
   background-color: transparent;
   border: 1px solid #0059FF;
+  box-shadow: none;
 }
 .header__account-login .button__content .button__label {
   color: #0059FF;
@@ -5828,6 +5831,7 @@ noscript .localization-form__select svg {
   padding: 0.5rem 2.2rem;
   text-decoration: none;
   line-height: 1.4;
+  color: #0059FF;
 }
 .disclosure__link > span {
   display: flex;

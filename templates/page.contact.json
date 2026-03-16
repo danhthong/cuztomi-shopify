@@ -9,6 +9,45 @@
  */
 {
   "sections": {
+    "image_with_text_B4FffU": {
+      "type": "image-with-text",
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "color_scheme": "",
+        "custom_classes": "",
+        "color_scheme_content": "",
+        "section_gap": "small",
+        "subheading": "",
+        "heading": "",
+        "heading_size": "h2",
+        "description": "",
+        "text_align": "left",
+        "image": "shopify://shop_images/contact-us-map.svg",
+        "img_position": "right",
+        "aspect_ratio": "adapt",
+        "object_fit": "cover",
+        "inner_subheading": "",
+        "inner_heading": "We'd love to\n<strong>hear from you.</strong>",
+        "inner_heading_size": "h2",
+        "inner_text": "Whether you have a question about an order, want to discuss a bulk project, or just want to say hi — we're a real team and we actually pick up.",
+        "inner_content_align": "left",
+        "vertical_inner_content_align": "center",
+        "show_button": false,
+        "button_label": "Learn more",
+        "button_link": "",
+        "button_style": "primary",
+        "button_arrow": true,
+        "show_button_2": false,
+        "button_label_2": "Learn more",
+        "button_link_2": "",
+        "button_style_2": "secondary",
+        "button_arrow_2": true,
+        "padding_top": "xl",
+        "padding_bottom": "xl",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
     "section_contact_info_UxwEBa": {
       "type": "section-contact-info",
       "blocks": {
@@ -44,12 +83,18 @@
       ],
       "name": "Contact Info",
       "settings": {
-        "heading": "We'd Love to Hear From You",
-        "description": "We're here to help. Reach out through the form below or use any of the options that work best for you."
+        "heading": "Send Us a Message",
+        "description": "Tell us what's on your mind and we'll get back to you fast.",
+        "name_placeholder": "Enter your full name",
+        "email_placeholder": "Enter your email",
+        "message_placeholder": "Write your message here...",
+        "button_text": "Send Message",
+        "additional_text": "<p>We usually reply within 24 hours (Mon–Fri).</p>"
       }
     }
   },
   "order": [
+    "image_with_text_B4FffU",
     "section_contact_info_UxwEBa"
   ]
 }
