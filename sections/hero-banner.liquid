@@ -1,15 +1,21 @@
 {{ 'section-hero-banner.css' | asset_url | stylesheet_tag }}
+<style>
+  .hero-background {
+    background-image: url({{ section.settings.desktop_background | image_url: width: 750 }});
+  }
+  @media (max-width: 749px) {
+    .hero-background {
+      background-image: url({{ section.settings.mobile_background | image_url: width: 750 }});
+    }
+  }
+</style>
 
 <div class="hero-banner container">
   {% render 'heading-group', section: section, class: 'hero-banner', text_align: section.settings.text_align %}
   <div
     class="content hero-banner-main"
   >
-    <div class="hero-background"
-      {% if section.settings.desktop_background != blank %}
-        style="background-image: url({{ section.settings.desktop_background | image_url: width: 1280 }});"
-      {% endif %}
-    ></div>
+    <div class="hero-background"></div>
     <div
       class="hero-banner-content"
     >

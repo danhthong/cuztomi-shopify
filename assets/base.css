@@ -4143,7 +4143,7 @@ details[open] > .header__icon--menu .icon-hamburger {
 [data-scheme=light] .header__submenu,
 [data-scheme=light] .header .disclosure__list,
 [data-scheme=light] .header__account-modal {
-  background-color: rgb(var(--color-background));
+  background-color: #FFFFFF;
   box-shadow: 0 8px 40px 0 rgba(var(--color-shadow), 0.08);
 }
 
@@ -5827,13 +5827,23 @@ noscript .localization-form__select svg {
   position: relative;
 }
 
+.disclosure__item:hover {
+  background-color: #0059FF;
+  border-radius: 6px;
+}
+
 .disclosure__link {
   display: block;
-  padding: 0.5rem 2.2rem;
+  padding: 6px 12px;
   text-decoration: none;
-  line-height: 1.4;
-  color: #0059FF;
+  font-size: 14px;
+  line-height: 21px;
+  color: #293145;
 }
+.disclosure__item:hover > .disclosure__link {
+  color: #FFFFFF;
+}
+
 .disclosure__link > span {
   display: flex;
   justify-content: space-between;

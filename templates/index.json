@@ -14,10 +14,11 @@
       "name": "t:sections.hero-banner.name",
       "settings": {
         "desktop_background": "shopify://shop_images/envato-labs-image.png",
+        "mobile_background": "shopify://shop_images/hero-bg-m.png",
         "inner_subheading": "",
-        "inner_heading": "Stop waiting weeks.</br>Get <b>flawless custom</b> gifts fast.",
+        "inner_heading": "Stop waiting weeks. Get <strong>flawless custom</strong> gifts fast.",
         "inner_heading_size": "h1",
-        "inner_text": "Customers choose us for fast, USA-printed <b>personalized gifts</b> and <b>branded merchandise</b>. Upload your logo or photo — we'll proof, print, and ship in 24-48 hours.",
+        "inner_text": "Customers choose us for fast, USA-printed <strong>personalized gifts</strong> and <strong>branded merchandise</strong>. Upload your logo or photo — we'll proof, print, and ship in 24-48 hours.",
         "inner_content_align": "center",
         "vertical_inner_content_align": "center",
         "show_button": true,
