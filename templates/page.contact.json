@@ -55,7 +55,7 @@
           "type": "column",
           "settings": {
             "heading": "Phone number",
-            "image": "shopify://shop_images/phone-icon.svg",
+            "image": "shopify://shop_images/phone-icon_ba1ddb10-1fe7-4586-809d-5da5b47716bc.svg",
             "text": "+1 408 502 6864"
           }
         },
@@ -63,15 +63,14 @@
           "type": "column",
           "settings": {
             "heading": "Email address",
-            "image": "shopify://shop_images/email-icon.svg",
+            "image": "shopify://shop_images/email-icon_3fb6dc4c-b7b2-4e70-8ab4-5a44a74a8999.svg",
             "text": "<a href=\"mailto:support@cuztomi.com\" target=\"_blank\" title=\"mailto:support@cuztomi.com\">support@cuztomi.com</a>"
           }
         }
       },
       "block_order": [
         "column_QXQB6U",
-        "column_JQpQUt",
-        "column_FjyAXR"
+        "column_JQpQUt"
       ],
       "name": "Contact Info",
       "settings": {
