@@ -45,7 +45,7 @@
           "type": "info",
           "settings": {
             "heading": "Our Mission",
-            "description": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+            "description": "From corporate gifts to personal keepsakes, we make customization simple, fast, and high quality. No minimums. Printed and shipped from California."
           }
         },
         "link_list_policies": {
@@ -67,7 +67,7 @@
       ],
       "settings": {
         "color_scheme": "background-4",
-        "animate_on_scroll": true,
+        "animate_on_scroll": false,
         "show_logo": true,
         "logo": "shopify://shop_images/cuztomi-logo-w.svg",
         "logo_width": 150,

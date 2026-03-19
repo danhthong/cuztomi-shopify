@@ -19,7 +19,7 @@
   justify-content: flex-start;
   text-decoration: none;
   border: none;
-  padding: 1rem;
+  padding: 10px;
 }
 @media screen and (hover: hover) and (pointer: fine) {
   .list-social__link:hover .icon {

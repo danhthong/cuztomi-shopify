@@ -20,6 +20,7 @@
   or settings.social_snapchat_link != blank
   or settings.social_youtube_link != blank
   or settings.social_vimeo_link != blank
+  or settings.social_linkedin_link != blank
 -%}
   {% assign is_show_socials = true %}
 {% else %}
@@ -27,7 +28,7 @@
 {%- endif -%}
 
 <footer class="footer{% if section.settings.animate_on_scroll %} animate-on-scroll{% endif %}">
-  <div class="footer-main color-{{ section.settings.color_scheme }} background section-{{ section.id }}-padding">
+  <div class="footer-main color-{{ section.settings.color_scheme }} background">
     <div class="container">
       <div class="footer-main-wrapper">
         {% comment %} ----- FOOTER BLOCKS ----- {% endcomment %}
@@ -61,7 +62,7 @@
                               {% endif %}
                               class="footer-menu-block-list__link body-normal focus-inset {% if link.active %} footer-menu-block-list__link--active {% endif %}"
                             >
-                              <span class="body-normal">{{- link.title }}</span>
+                              <span class="body-small">{{- link.title }}</span>
                             </a>
                           </li>
                         {%- endfor -%}
@@ -80,7 +81,7 @@
                       </h3>
                     {%- endif -%}
                     {%- if block.settings.description != blank -%}
-                      <div class="footer-info-block__description body-normal">
+                      <div class="footer-info-block__description body-small">
                         {{- block.settings.description -}}
                       </div>
                     {%- endif -%}
@@ -244,6 +245,23 @@
                               </a>
                             </li>
                           {%- endif -%}
+                          {%- if settings.social_linkedin_link != blank -%}
+                            <li class="footer-socials-list__item list-social__item">
+                              <a
+                                href="{{ settings.social_linkedin_link }}"
+                                class="link link--text list-social__link"
+
+                                {%- if settings.links_blank -%}
+                                  target="_blank"
+                                {%- endif -%}
+                              >
+                                {%- render 'icon-linkedin' -%}
+                                <span class="visually-hidden">
+                                  {{- 'general.social.links.linkedIn' | t -}}
+                                </span>
+                              </a>
+                            </li>
+                          {%- endif -%}
                         </ul>
                       </div>
                     {%- endif -%}
@@ -282,9 +300,9 @@
                           {% if settings.links_blank and link.type == 'http_link' %}
                             target="_blank"
                           {% endif %}
-                          class="footer-menu-block-list__link body-normal focus-inset {% if link.active %} footer-menu-block-list__link--active {% endif %}"
+                          class="footer-menu-block-list__link body-small focus-inset {% if link.active %} footer-menu-block-list__link--active {% endif %}"
                         >
-                          <span class="body-normal">{{ link.title }}</span>
+                          <span class="body-small">{{ link.title }}</span>
                         </a>
                       </li>
                     {%- endfor -%}
